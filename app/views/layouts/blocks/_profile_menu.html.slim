@@ -1,0 +1,20 @@
+#mainnav-profile.mainnav-profile
+  .profile-wrap.text-center
+    .pad-btm
+      = image_tag(photo(current_user), class: 'img-circle img-md', alt: 'Profile Picture')
+    a.box-block[href="#profile-nav" data-toggle="collapse" aria-expanded="false"]
+      span.pull-right.dropdown-toggle
+        i.dropdown-caret
+    p.mnp-name
+      | #{full_name(current_user)}
+    span.mnp-desc
+      | #{current_user.email}
+    p.without_margin
+      = I18n.t(current_user.roles.first)
+  #profile-nav.collapse.list-group.bg-trans
+    = link_to edit_profile_path(current_user), class: 'list-group-item' do
+      i.demo-pli-male.icon-lg.icon-fw
+      | Профіль
+    = link_to destroy_user_session_path, method: 'delete', class: 'list-group-item' do
+      i.demo-pli-unlock.icon-lg.icon-fw
+      | Вихід

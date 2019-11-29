@@ -1,0 +1,4 @@
+section#reviews
+  .container
+    h2.title= t('home.reviews')
+    #list-reviews= render collection: @reviews, partial: 'reviews/review_full', as: :review

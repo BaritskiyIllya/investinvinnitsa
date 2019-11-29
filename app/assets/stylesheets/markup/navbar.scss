@@ -1,0 +1,134 @@
+@import "utilities/variables";
+
+#locale_search_block{
+  .tools{
+    .locale{
+      a {
+        transition: none;
+      }
+    }
+    #search{
+      position: relative;
+      .close-search-block{
+        display: none;
+        padding-left: 8px;
+      }
+      .search-block{
+        top: -10px;
+        right: 20px;
+        width: 160px;
+        display: none;
+        position: absolute;
+        .field{
+          display: flex;
+          align-items: center;
+          .search-input {
+            display: inline-block;
+            input {
+              margin: 0;
+              color: $white;
+              width: 130px;
+              border: none;
+              display: block;
+              font-size: 1rem;
+              text-align: left;
+              line-height: 1rem;
+              padding: 9px 0 1px 5px;
+              border-bottom: 1px solid $white;
+              background-color: transparent;
+              &:focus{
+                outline: none;
+              }
+            }
+            ::placeholder {
+              color: $white;
+              opacity: 1;
+            }
+            :-ms-input-placeholder {
+              color: $white;
+            }
+            :-ms-input-placeholder {
+              color: $white;
+            }
+          }
+          .search-button{
+            display: inline-block;
+            button {
+              border: none;
+              background: transparent;
+              .fa-search {
+                color: $white;
+                cursor: pointer;
+                font-size: 20px;
+                margin-top: 1px;
+                padding-top: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+    &:hover {
+      .close-search-block {
+        color: $white;
+      }
+    }
+  }
+  .active-search {
+    .locale{
+      visibility: hidden;
+    }
+    #search {
+      .view-search-block {
+        display: none;
+      }
+      .close-search-block {
+        display: block;
+      }
+      .search-block{
+        display: block;
+      }
+    }
+  }
+}
+
+body.light_header{
+  #locale_search_block {
+    .tools {
+      #search{
+        .search-block{
+          .field{
+            .search-input {
+              input {
+                color: $light_black;
+                border-bottom: 1px solid $light_black;
+              }
+              ::placeholder {
+                color: $light_black;
+                opacity: 1;
+              }
+              :-ms-input-placeholder {
+                color: $light_black;
+              }
+              :-ms-input-placeholder {
+                color: $light_black;
+              }
+            }
+            .search-button {
+              button {
+                .fa-search {
+                  color: $light_black;
+                }
+              }
+            }
+          }
+        }
+      }
+      &:hover {
+        .close-search-block {
+          color: $light_black;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+h1.center Список земельних ділянок
+
+= render 'layouts/general/filter_table', path: (can? :new, LandArea) ? new_cabinet_land_area_path : nil, title: '' do
+  thead
+    tr
+      th Статус
+      th Активний тип об'єкту
+      th Структурний підрозділ
+      th Шар на карті
+      th Дії
+  tbody
+    = render 'table'

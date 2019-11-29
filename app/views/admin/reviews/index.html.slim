@@ -1,0 +1,21 @@
+h1.center Список відгуків
+
+= render 'layouts/general/table', path: new_admin_review_path, title: 'Список працівників' do
+  thead
+    tr
+      th Прізвище
+      th Ім’я
+      th По батькові
+      th Посада
+      th Дії
+  tbody
+    - @admin_reviews.each do |admin_review|
+      tr
+        td = admin_review.last_name
+        td = admin_review.first_name
+        td = admin_review.middle_name
+        td = admin_review.position
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_admin_review_path(admin_review)
+            = render 'blocks/btns/delete', path: admin_review_path(admin_review)

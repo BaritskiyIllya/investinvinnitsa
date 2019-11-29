@@ -1,0 +1,21 @@
+.form-group.images-form
+  = f.label :main_image, 'Головне зображення'
+  = f.input :main_image, as: :hidden
+  .section
+    .row
+      .col-sm-6
+        label.field.prepend-icon.append-button.file
+          input#news-img.gui-file name="m_image" type="file"
+      .col-sm-6
+        .file.prepend-icon.get-image
+          a.button.btn-default.pull-right#getCroppedImage
+            | Застосувати
+  .section
+    .upload-msg
+      - if area.main_image.present?
+        = image_tag area.main_image.url, class: 'img-responsive'
+        = link_to 'Скинути', '#', class: 'btn btn-default mt10', id: 'resetCroppedImg'
+      - else
+        | Завантажте картинку
+    .upload-wrap
+      #main-cropper

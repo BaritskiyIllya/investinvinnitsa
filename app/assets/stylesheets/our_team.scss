@@ -1,0 +1,103 @@
+.our_team{
+  .block-header{
+    height: 150px;
+    line-height: 150px;
+  }
+  .description{
+    text-align: justify;
+  }
+  .we{
+    padding: 20px 0;
+  }
+  .person{
+    margin: 10px 0;
+    word-wrap: break-word;
+    display: inline-block;
+    vertical-align: top;
+    .person-info {
+      margin-left: 0;
+      p {
+        margin: 0;
+      }
+      .image {
+        img {
+          width: 100%;
+          max-width: 200px;
+        }
+      }
+      .info {
+        width: 55%;
+        font-size: 12px;
+        padding-left: 10px;
+        .name, .position {
+          font-family: 'NobelWGL-Light';
+        }
+        .name {
+          color: #c01;
+          font-size: 1rem;
+          display: inline-block;
+          margin-right: 5px;
+        }
+        .position {
+          font-size: 20px;
+        }
+        .phone {
+          margin: 5px 0;
+          font-size: 15px;
+        }
+        .email {
+          font-size: 13px;
+        }
+        .title {
+          margin-right: 5px;
+          display: inline-block;
+        }
+        .in-social {
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .department{
+    width: 100%;
+  }
+  .home-big-btn {
+    height: 250px;
+    line-height: 250px;
+    margin-top: -15px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .our_team{
+    .block-header{
+      height: 150px;
+      line-height: 150px;
+    }
+    .person{
+      text-align: center;
+      .person-info {
+        margin: 0;
+        .image {
+          width: 40%;
+          img {
+            max-width: 200px;
+          }
+        }
+        .info {
+          width: 60%;
+          margin: 0 auto;
+          text-align: left;
+          .position {
+            font-size: 20px;
+          }
+          .phone {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

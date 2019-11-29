@@ -1,0 +1,80 @@
+scss:
+  #search_by_name{
+    width: 100px;
+  }
+
+h1.center Список комунальної власності
+
+= render 'layouts/general/table', path: new_cabinet_communal_area_path, title: '' do
+  thead
+    tr
+      th Статус
+      th Активний тип об'єкту
+      th Структурний підрозділ
+      th Шар на карті
+      th Назва
+      th Площа(технічні характеристики)
+      th Рік забудови
+      th Архітектурна ціність
+      th Адреса у місті
+      th Дії
+    tr.search-inputs
+      th
+        = select_tag :search_by_status, options_for_select(CommunalArea.states.map{|k,v| [I18n.t('states.' + k), k]}.unshift(['','']))
+      th
+      th
+        = select_tag :search_by_balancer, options_for_select(Balancer.all.map{|e| [e.name, e.id]}.unshift(['','']))
+      th
+        = select_tag :search_by_map_layer, options_for_select(MapLayer.all.map{|e| [e.title, e.id]}.unshift(['','']))
+      th
+        = text_field_tag :search_by_name, ''
+      th colspan="5"
+  tbody#result
+    = render 'table'
+
+#object_paginator
+  = paginate @cabinet_communal_areas, remote: true
+
+javascript:
+  $('#search_by_status').select2({
+      width: '100px',
+      placeholder: 'Статус',
+      allowClear: true
+  });
+  $('#search_by_balancer').select2({
+      width: '250px',
+      placeholder: 'Структурний підрозділ',
+      allowClear: true
+  });
+
+  $('#search_by_map_layer').select2({
+      width: '250px',
+      placeholder: 'Фільтр на карті',
+      allowClear: true
+  });
+
+  $('tr.search-inputs th input').on('keyup', function () {
+      if ($(this).val().length > 2 || $(this).val().length == 0){
+          filterObjects();
+      }
+  });
+
+  $('#search_by_status, #search_by_balancer, #search_by_map_layer').on('change', function () {
+      filterObjects();
+  });
+
+  function getParams() {
+      var searchRes = {};
+      $('tr.search-inputs th input, #search_by_status, #search_by_balancer, #search_by_map_layer').each(function (index, item) {
+          searchRes[$(item).attr('name')] = $(item).val();
+      });
+      return searchRes;
+  }
+
+  function filterObjects() {
+      $.ajax({
+          url: "/cabinet/communal_areas",
+          dataType: 'script',
+          data: getParams()
+      });
+  }

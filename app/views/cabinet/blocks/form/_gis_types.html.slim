@@ -1,0 +1,10 @@
+= f.input :gis_type_name, collection: @gis_types.pluck(:title, :name),
+        label: 'Тип системи',
+        input_html: {class: 'form-control', id: 'geo_info_system_gis_type_name'},
+        include_blank: false
+
+.git-types
+  - @gis_types.each do |type|
+    .one-type id="#{type.name}"
+      = image_tag "/geo_json_types/#{type.img}"
+      p= type.description

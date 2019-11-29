@@ -1,0 +1,22 @@
+h1.center Чому Вінниця
+.panel
+  .panel-body
+    .table-responsive
+      table.table.table-striped
+        thead
+          tr
+            th №п/п
+            th Назва
+            th Заголовок українською
+            th Заголовок англійською
+            th Дії
+        tbody
+          - @admin_abouts.each_with_index do |admin_about, index|
+            tr
+              td = index + 1
+              td = admin_about.name
+              td = admin_about.title_uk
+              td = admin_about.title_en
+              td
+                = render 'layouts/blocks/action_btns' do
+                  = render 'blocks/btns/edit', path: edit_admin_about_path(admin_about)

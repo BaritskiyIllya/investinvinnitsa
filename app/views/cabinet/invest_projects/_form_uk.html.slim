@@ -1,0 +1,56 @@
+.row
+  .col-md-12
+    = f.label :name_uk, 'Назва проекту'
+    = f.input :name_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :product_uk, 'Продукт/послуга'
+    = f.input :product_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :market_uk, 'Аналіз ринку'
+    = f.input :market_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :realization_term_uk, 'Термін реалізації проекту'
+    = f.input :realization_term_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :payback_period_uk, 'Період окупності'
+    = f.input :payback_period_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :documentation_uk, 'Очікувана готовність проектної документації'
+    = f.input :documentation_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :destination_uk, 'Розміщення'
+    = f.input :destination_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :purpose_uk, 'Цільове призначення'
+    = f.input :purpose_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :current_use_uk, 'Поточне використання'
+    = f.input :current_use_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :project_conditions_uk, 'Проектні умови'
+    = f.input :project_conditions_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :resource_access_uk, 'Доступ до ресурсів та послуг'
+    = f.input :resource_access_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :character_assets_uk, 'Характеристика існуючих активів'
+    = f.input :character_assets_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :workforce_uk, 'Наявність та кваліфікація  робочої сили'
+    = f.input :workforce_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :permission_uk, 'Обов’язкові дозволи та ліцензії'
+    = f.input :permission_uk, label: false, input_html: {class: 'form-control'}
+  .col-md-12
+    = f.label :environment_uk, 'Екологічні обмеження та вимоги'
+    = f.input :environment_uk, label: false, input_html: {class: 'form-control'}
+
+  .col-md-12
+    = f.label :short_description_uk, 'Опис проекту'
+    = ckeditor_input(f, :short_description_uk, 'uk', 200)
+  .col-md-12
+    = f.label :description_uk, 'Детальний опис'
+    = ckeditor_input(f, :description_uk, 'uk', 200)
+  .col-md-12
+    = f.label :other_uk, 'Інше'
+    = ckeditor_input(f, :other_uk, 'uk', 200)

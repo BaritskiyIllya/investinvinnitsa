@@ -1,0 +1,26 @@
+= stylesheet_link_tag 'area_information'
+
+.container
+  - if @area.main_image.present? || @area.questionnaire_images.present?
+    .images.center
+      - if @area.main_image.present?
+        .image
+          = image_tag @area.main_image.url
+      - @area.questionnaire_images.each do |object|
+        .image
+          = image_tag object.image.url
+  .area-information
+    .row
+      .col-md-6.offset-md-3
+        table
+          tr
+          - @area.general_information.each do |k,v|
+            tr
+              - if @area.education_layer?
+                td.title = I18n.t("communal_area.#{ %w(address site object_name object_type).include?(k) ? "education_#{k}" : k }" )
+              - else
+                td.title = I18n.t('communal_area.' + k)
+              td = !!v == v ? true_false(v) : sanitazed_text(v)
+    .row
+      .col-md-6.offset-md-3
+        = render 'invest_maps/show_pdf_file'

@@ -1,0 +1,192 @@
+scss:
+  /*.advantages-block {*/
+    /*.block-header {*/
+      /*margin: 0;*/
+      /*height: 200px;*/
+      /*line-height: 200px;*/
+    /*}*/
+  /*}*/
+
+  .advantages-chart-top-position{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    .flexing{
+      display: flex;
+      flex-direction: column;
+      h4{
+        flex: 1;
+        font-size: 24px;
+        color: #c01;
+      }
+    }
+  }
+
+  #container1, #container2, #container3{
+    width: 100%;
+    height: 400px;
+    text-align: center;
+  }
+
+  /*@media screen and (max-width: 767px){*/
+    /*.advantages-block{*/
+      /*.block-header {*/
+        /*height: 60px;*/
+        /*font-size: 30px;*/
+        /*line-height: 60px;*/
+      /*}*/
+    /*}*/
+  /*}*/
+
+  #advantages-chart{
+    padding: 60px 0 50px;
+  }
+
+= stylesheet_link_tag 'pie_chart/style'
+= javascript_include_tag 'pie_chart/d3.v4.min'
+
+#advantages-chart.advantages-block data-locale="#{locale.to_s}"
+  / h2.block-header
+  /   = I18n.t('advantages_city')
+  .container-fluid
+    .row.advantages-chart-top-position
+      .col-md-4.flexing
+        h4.center= I18n.t('chart.title1')
+        #container1 data-short-title="#{I18n.t('chart.short_title1')}"
+      .col-md-4.flexing
+        h4.center= I18n.t('chart.title2')
+        #container2  data-short-title="#{I18n.t('chart.short_title2')}"
+      .col-md-4.flexing
+        h4.center= I18n.t('chart.title3')
+        #container3 data-short-title="#{I18n.t('chart.short_title3')}"
+
+= javascript_include_tag 'pie_chart/pie.js', defer: true
+javascript:
+  $(document).ready(function () {
+      var data1 = {
+          'uk': [
+              {label: 'Харчові продукти, напої', value: 48.3, color: '#FFBA40'},
+              {label: 'Вироби з деревини', value: 38.9, color: '#FF3333'},
+              {label: 'Хімічна продукція', value: 5.1, color: '#ffcb6f'},
+              {label: 'Ремонт авто', value: 6.4, color: '#FF4C4C'},
+              {label: 'Нерухоме майно', value: 4.8, color: '#ffd282'},
+              {label: 'Сільське господарство', value: 2.5, color: '#FF6666'},
+              {label: 'Інші', value: 9.9, color: '#ffc45c'}
+          ],
+          'en': [
+              {label: 'Food products and drinks', value: 48.3, color: '#FFBA40'},
+              {label: 'Wood products', value: 38.9, color: '#FF3333'},
+              {label: 'Chemical products', value: 5.1, color: '#ffcb6f'},
+              {label: 'Car repair', value: 6.4, color: '#FF4C4C'},
+              {label: 'Real Estate', value: 4.8, color: '#ffd282'},
+              {label: 'Agriculture', value: 2.5, color: '#FF6666'},
+              {label: 'Other', value: 9.9, color: '#ffc45c'}
+          ]
+      };
+
+      var data2 = {
+          'uk': [
+              {label: '0-14 років', value: 57.9, color: '#ffc45c'},
+              {label: '15-24 років', value: 40.6, color: '#FF6666'},
+              {label: '25-39 років', value: 94.3, color: '#FFBA40'},
+              {label: '40-59 років', value: 104.1, color: '#FF3333'},
+              {label: '60-64 років', value: 22.5, color: '#ffcb6f'},
+              {label: '65+ років', value: 50.5, color: '#FF4C4C'}
+          ],
+          'en': [
+              {label: '0-14 years', value: 57.9, color: '#ffc45c'},
+              {label: '15-24 years', value: 40.6, color: '#FF6666'},
+              {label: '25-39 years', value: 94.3, color: '#FFBA40'},
+              {label: '40-59 years', value: 104.1, color: '#FF3333'},
+              {label: '60-64 years', value: 22.5, color: '#ffcb6f'},
+              {label: '65+ years', value: 50.5, color: '#FF4C4C'}
+          ]
+      };
+
+      // var colors = {
+      //     r: ['#FF3333', '#FF4C4C', '#FF6666', '#FF7F7F', '#FF9999', '#FFB2B2', '#FFCCCC'],
+      //     y: ['#FFBA40', '#ffc45c', '#ffcb6f', '#ffd282', '#fed995', '#ffdfa9', '#ffe6bc']
+      // };
+
+      var data3 = {
+        'uk':[
+          {label: 'Тваринні продукти', value: 59.5, color: '#FF6666'},
+          {label: 'Рослинні продукти', value: 24.8, color: '#ffc45c'},
+          {label: 'Жири та олії', value: 432.2, color: '#FF3333'},
+          {label: 'Готові харчові продукти', value: 90.2, color: '#FFBA40'},
+          {label: 'Деревина', value: 69.6, color: '#FF4C4C'},
+          {label: 'Текстиль', value: 22.5, color: '#ffcb6f'},
+          {label: 'Інші', value: 56.3, color: '#FF7F7F'}
+        ],
+        'en':[
+          {label: 'Animal products', value: 59.5, color: '#FF6666'},
+          {label: 'Vegetable products', value: 24.8, color: '#ffc45c'},
+          {label: 'Fats and oils', value: 432.2, color: '#FF3333'},
+          {label: 'Ready food products', value: 90.2, color: '#FFBA40'},
+          {label: 'Wood', value: 69.6, color: '#FF4C4C'},
+          {label: 'Textile', value: 22.5, color: '#ffcb6f'},
+          {label: 'Other', value: 56.3, color: '#FF7F7F'}
+        ]
+      };
+
+      var isRendered = false;
+      var upPos = $('.advantages-chart-top-position').offset().top;  //top position chart
+      var downPos = upPos + $('.advantages-chart-top-position').height();  //bottom position chart
+      var locale = $('#advantages-chart').attr('data-locale');
+      var options1 = {
+          data: data1,
+          centerText: '115,9 $' + $('#container1').attr('data-short-title'),
+          locale: locale,
+          units: '$' + $('#container1').attr('data-short-title'),
+          duration: 2000
+      };
+      var options2 = {
+          data: data2,
+          centerText: '371,9 ' + $('#container2').attr('data-short-title'),
+          locale: locale,
+          units: $('#container2').attr('data-short-title'),
+          duration: 2000
+      };
+      var options3 = {
+          data: data3,
+          centerText: '755 $' + $('#container3').attr('data-short-title'),
+          locale: locale,
+          units: '$' + $('#container3').attr('data-short-title'),
+          duration: 2000
+      };
+
+      init_destroy_chart();
+
+      setTimeout(function () {
+          $(window).scroll(function () {
+              init_destroy_chart()
+          });
+      }, options1.duration);
+
+      setTimeout(function () {
+          $( window ).resize(function() {
+              options1.effect = false;
+              options2.effect = false;
+              options3.effect = false;
+              init_charts()
+          });
+      }, options1.duration);
+
+
+      function init_destroy_chart() {
+          if (($(window).height() + $(window).scrollTop()) > upPos && $(window).scrollTop() < downPos) {
+              if (!isRendered) {
+                  init_charts();
+                  isRendered = true;
+              }
+          }
+      }
+
+      function init_charts(){
+          InitChart('#container1', options1);
+          InitChart('#container2', options2);
+          InitChart('#container3', options3);
+      }
+  });

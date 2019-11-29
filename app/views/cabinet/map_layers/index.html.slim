@@ -1,0 +1,31 @@
+h1.center Список фільтрів для карти
+
+= render 'layouts/general/table', path: new_cabinet_map_layer_path, title: 'Список фільтрів для карти' do
+  thead
+    tr
+      th Назва укр.
+      th Назва англ.
+      th Активний
+      th Шар на карті
+      th Порядок
+      th Іконка
+      th Дії
+  tbody
+    - @cabinet_map_layers.each do |cabinet_map_layer|
+      tr
+        td
+          = cabinet_map_layer.title_uk
+        td
+          = cabinet_map_layer.title_en
+        td
+          = true_false(cabinet_map_layer.active)
+        td
+          = true_false(cabinet_map_layer.layer)
+        td
+          = cabinet_map_layer.position
+        td
+          = image_tag cabinet_map_layer.icon.present? ? cabinet_map_layer.icon.url : '/google_map_markers/default.png'
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_cabinet_map_layer_path(cabinet_map_layer)
+            = render 'blocks/btns/delete', path: cabinet_map_layer_path(cabinet_map_layer)

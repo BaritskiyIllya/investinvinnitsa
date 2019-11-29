@@ -1,0 +1,22 @@
+= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'
+= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js'
+
+section#tourism
+  .history-center
+    .container
+      .row
+        .col-12.col-md-5
+          .wrap-img
+            = image_tag('markup/historical.jpg', class: 'img-fluid')
+        .col-12.col-md-7
+          .info-history
+            h1.title
+              = tourism_block_title(@content)
+            .text_tourism_historical== tourism_block_desc(@content)
+      = render 'home/tourism/facts'
+  = render 'home/tourism/trips'
+  .container
+    = render 'home/tourism/events'
+  = render 'home/tourism/places'
+  = render 'home/tourism/useful'

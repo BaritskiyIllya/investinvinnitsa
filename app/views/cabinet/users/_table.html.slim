@@ -1,0 +1,13 @@
+- @cabinet_users.each_with_index do |user, index|
+  tr
+    td = index + 1
+    td = user.email
+    td = user.last_name
+    td = user.first_name
+    td = user.position
+    td = t(user.roles.first)
+    td = user.balancer.try :name
+    td
+      - if User.check_weight(user, current_user)
+        = render 'layouts/blocks/action_btns' do
+          = render 'blocks/btns/edit', path: edit_cabinet_user_path(user)

@@ -1,0 +1,202 @@
+@import "utilities/variables";
+
+section#map {
+  position: relative;
+  @extend %overlay-bg !optional;
+
+  .overlay-bg {
+    opacity: .4;
+    overflow: hidden;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 200px;
+    img {
+      position: relative;
+    }
+  }
+
+  #map-content {
+    a {
+      text-decoration: none;
+      #wrap-benefits {
+        position: relative;
+        text-align: center;
+        background-color: $white;
+        margin-top: 0;
+        box-shadow: none;
+        padding: 20px 0;
+        h3 {
+          margin: 0;
+          color: #1f1e1e;
+          font-size: 28px;
+          font-weight: 600;
+          padding-bottom: 2px;
+          display: inline-block;
+          font-family: 'Proxima Nova Lt';
+          border-bottom: 2px solid $main_color;
+        }
+        #benefits {
+          color: #1F1E1E;
+          position: relative;
+          padding-top: 12px;
+          &:after {
+            content: ' ';
+            position: absolute;
+            width: 2px;
+            height: 30%;
+            left: 50%;
+            background-color: $orange_color;
+
+            top: 27%;
+            @media (min-width: 768px) {
+              top: 35%;
+            }
+          }
+        }
+        .benefit-item {
+          @extend %noselect !optional;
+          width: 50%;
+          display: inline-block;
+          vertical-align: middle;
+          line-height: 1.8;
+        }
+
+        .benefit-item:nth-child(-n+2) {
+          margin-bottom: 30px;
+        }
+        .benefit-item:nth-child(odd) {
+          padding-right: 10px;
+        }
+        .benefit-item:nth-child(even) {
+          padding-left: 10px;
+        }
+        @media (min-width: 768px) {
+          padding: 15px 20px;
+          margin-top: -15px;
+          box-shadow: 15px 20px 80px rgba(31, 30, 30, 0.1);
+        }
+        @media (min-width: 992px) {
+          padding: 25px 30px;
+          margin-top: -30px;
+        }
+        @media (min-width: 1200px) {
+          box-shadow: 16px 22px 90px rgba(31, 30, 30, 0.1);
+          padding: 25px 195px 30px 195px;
+          margin-top: -40px;
+          box-shadow: 20px 25px 100px rgba(31, 30, 30, 0.1);
+          #benefits {
+            padding-top: 20px;
+          }
+          .benefit-item:nth-child(-n+2) {
+            margin-bottom: 80px;
+          }
+          .benefit-item:nth-child(odd) {
+            padding-right: 94px;
+          }
+          .benefit-item:nth-child(even) {
+            padding-left: 94px;
+          }
+        }
+        @media (min-width: 1500px) {
+          margin-top: -50px;
+          padding: 30px 195px 60px 195px;
+          box-shadow: 20px 25px 100px rgba(31, 30, 30, 0.1);
+          .benefit-item:nth-child(-n+2) {
+            margin-bottom: 110px;
+          }
+        }
+      }
+      &:hover{
+        #wrap-benefits {
+          h3 {
+            color: $main_color;
+          }
+        }
+      }
+    }
+
+    #map-description {
+      padding: 25px 0;
+      .info {
+        padding: 20px 0;
+        line-height: 30px;
+        color: #1f1e1e;
+      }
+      .btn-map {
+        display: inline-block;
+        color: $white;
+        background-color: $main_color;
+        border-radius: 4px;
+        line-height: 28px;
+        &:hover {
+          text-decoration: none;
+          background-color: #94000F;
+        }
+        margin-top: 10px;
+        padding: 10px 20px;
+      }
+      @media (min-width: 1200px) {
+        padding: 100px 0;
+        .info {
+          padding: 25px 120px 40px 0;
+        }
+        .btn-map {
+          margin-top: 25px;
+          padding: 25px 58px;
+        }
+      }
+      @media (min-width: 1500px) {
+        padding: 185px 0;
+        .info {
+          padding-top: 40px;
+          padding-right: 145px;
+        }
+        .btn-map {
+          margin-top: 40px;
+          padding: 30px 69px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .overlay-bg {
+      height: 650px;
+      img {
+        right: 1330px;
+        top: -200px;
+      }
+    }
+  }
+  @media (min-width: 992px) {
+    .overlay-bg {
+      height: 650px;
+      background-position-y: 150px;
+      img {
+        right: 1180px;
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    .overlay-bg {
+      height: 980px;
+      background-position-y: 200px;
+      img {
+        width: 170%;
+        right: 810px;
+        top: -124px;
+      }
+    }
+  }
+  @media (min-width: 1500px) {
+    .overlay-bg {
+      height: 1110px;
+      img {
+        width: 115%;
+        right: 220px;
+        top: 126px;
+      }
+    }
+  }
+}

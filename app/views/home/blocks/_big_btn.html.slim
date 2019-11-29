@@ -1,0 +1,19 @@
+scss:
+  .home-big-btn{
+    a{
+      min-width: 217px;
+      background: #b4000f;
+      padding: 13px;
+      font-size: 18px;
+      text-align: center;
+      &:hover{
+        font-weight: bold;
+        background-color: #b4000f;
+        border-color: #b4000f;
+      }
+    }
+  }
+
+.home-big-btn
+  = link_to path, class: 'btn btn-danger', target: ((defined? target) ? target : '') do
+    = text

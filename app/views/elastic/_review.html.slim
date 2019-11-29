@@ -1,0 +1,9 @@
+.block-result
+  p.date
+    = I18n.t('home.reviews')
+  = link_to reviews_path + "/##{result.id}", target: :_blank do
+    .title
+      = review_name(result)
+    .content
+      = strip_tags result.description.truncate(250) unless result.description.blank?
+  hr

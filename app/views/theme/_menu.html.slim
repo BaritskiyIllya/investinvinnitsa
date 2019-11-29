@@ -1,0 +1,32 @@
+scss:
+  #navigation-menu {
+    .mobile-locale {
+      display: none;
+    }
+  }
+  .slicknav_nav{
+    .mobile-locale {
+      display: contents;
+    }
+  }
+.offset-xl-1
+  ul.navigation id="navigation-menu"
+    - menus.each do |menu|
+      li
+        - if menu.second[:children]
+          a href="#"
+            | #{menu.second[:title]}
+          ul
+            - menu.second[:children].each do |sub_menu|
+              li
+                = link_to sub_menu.title, "#{locale_link(sub_menu.link, I18n.locale)}", title: sub_menu.tag_alt, alt: sub_menu.tag_alt
+        - else
+          = link_to menu.second[:title], "#{locale_link(menu.second[:link], I18n.locale)}", title: menu.second[:tag_alt], alt: menu.second[:tag_alt]
+    li.locale.dropdown.mobile-locale
+      a#dropdownLocaleLink.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+        span= t('choose_lan')
+        i.fa.fa-globe
+      .dropdown-menu aria-labelledby="dropdownLocaleLink"
+        - I18n.available_locales.each do |loc|
+          a.dropdown-item href="#{locale_link(url_for(controller: controller_name, action: action_name), loc)}"
+            = t('language', locale: loc.to_sym)

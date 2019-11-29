@@ -1,0 +1,152 @@
+scss:
+  .char {
+    vertical-align: bottom;
+    display: inline-block;
+    float: none;
+  }
+
+  .image-field {
+    padding-left: 15px;
+    height: 50px;
+    margin-top: 15px;
+    #land_area_project_images_image {
+      display: inline-block;
+      margin-left: 15px;
+    }
+  }
+
+  .state-chose {
+    padding-top: 15px;
+    .text {
+      margin-right: 10px;
+    }
+    .radio {
+      margin-right: 10px;
+    }
+  }
+
+= simple_form_for [:cabinet, @cabinet_invest_project] do |f|
+  .form-inputs
+    .row
+      .col-md-3.char.margin-bottom-10
+        = f.label :investment_type_id, 'Тип інвестицій'
+        = f.input :investment_type_id,
+                as: :select,
+                collection: InvestmentType.all.map {|e| [e.name, e.id]},
+                selected: @cabinet_invest_project.investment_type_id,
+                label: false,
+                input_html: {class: 'form-control'}
+      .col-md-3.char.margin-bottom-10
+        = f.label :ownership_id, 'Форма власності'
+        = f.input :ownership_id,
+                as: :select,
+                collection: Ownership.all.map {|e| [e.name, e.id]},
+                selected: @cabinet_invest_project.ownership_id,
+                label: false,
+                input_html: {class: 'form-control'}
+      .col-md-2.char
+        = f.label :invest_sum, 'Сума інвестицій ($ млн)'
+        = f.input :invest_sum, label: false, input_html: {class: 'form-control decimal-value'}
+      .col-md-2.char
+        = f.label :area, 'Площа у квадратних метрах'
+        = f.input :area, label: false, input_html: {class: 'form-control decimal-value'}
+      .col-md-2.char
+        = f.label :hard_cover_road_distance, 'Відстань до доріг з твердим покриттям, км'
+        = f.input :hard_cover_road_distance, label: false, input_html: {class: 'form-control decimal-value'}
+    .row
+      .col-md-2.char
+        = f.label :highway_distance, 'Відстань до автомагістралі, км'
+        = f.input :highway_distance, label: false, input_html: {class: 'form-control decimal-value'}
+      .col-md-2.char
+        = f.label :railway_distance, 'Відстань до залізничної дороги, км'
+        = f.input :railway_distance, label: false, input_html: {class: 'form-control decimal-value'}
+      .col-md-2.char
+        = f.label :airport_distance, 'Відстань до аеропорту, км'
+        = f.input :airport_distance, label: false, input_html: {class: 'form-control decimal-value'}
+      .col-md-2.char
+        = f.label :gas, 'Відстань до діючого газопроводу, км'
+        = f.input :gas, label: false, input_html: {class: 'form-control decimal-value'}
+      .col-md-2.char
+        = f.label :electricity, 'Відстань до діючої лінії електропередач, км'
+        = f.input :electricity, label: false, input_html: {class: 'form-control decimal-value'}
+      .col-md-2.char
+        = f.label :water_supply, 'Відстань до можливого місця підключення до діючого водопроводу, км'
+        = f.input :water_supply, label: false, input_html: {class: 'form-control decimal-value'}
+
+    = render 'cabinet/blocks/form/infrastructures', f: f
+    .panel-body
+      .tab-block.mb25
+        .row
+          .col-md-6
+            h4
+              | Українською
+            = render 'form_uk', f: f
+          .col-md-6
+            h4
+              | Англійською
+            = render 'form_en', f: f
+
+    input#geo_type type='hidden' name='invest_project[geo_json_attributes][geo_type]'
+    input#position type='hidden' name='invest_project[geo_json_attributes][position]'
+
+    = render 'cabinet/blocks/form/croped_image', f: f, area: @cabinet_invest_project
+
+  = f.fields_for :questionnaire_file, @cabinet_invest_project.questionnaire_file || @cabinet_invest_project.build_questionnaire_file do |ff|
+    = ff.input :fileable_type, as: :hidden
+    = ff.input :fileable_id, as: :hidden
+    .row.pdf-file-field
+      .form-inputs.image-field
+        = ff.input :file, as: :file, label: 'PDF файл'
+      .col-md-12.notice
+        .errors
+          = f.error :"questionnaire_file.file"
+        .view-file
+          - unless @cabinet_invest_project.questionnaire_file.new_record?
+            = link_to @cabinet_invest_project.questionnaire_file.file.url, target: :_blank do
+              = "Переглянути файл #{@cabinet_invest_project.questionnaire_file.file.file.original_filename}"
+
+  - unless @cabinet_invest_project.questionnaire_file.new_record?
+    = f.fields_for :questionnaire_file, @cabinet_invest_project.questionnaire_file do |fd|
+      .checkbox.pad-btm.text-left
+        = fd.check_box :_destroy, as: :boolean, class: 'magic-checkbox'
+        = fd.label :_destroy, "Видалити файл #{fd.object.file.file.original_filename}"
+      = fd.input :id, as: :hidden
+
+  / MAP block
+  = render 'cabinet/blocks/form/gis_types', f: f
+  = render 'cabinet/blocks/form/geo_json', f: f, area: @cabinet_invest_project
+  = render 'cabinet/blocks/form/map'
+  = render 'cabinet/blocks/form/map_layer', f: f
+  = render 'cabinet/blocks/form/balancers', f: f
+  = render 'cabinet/blocks/form/states', area: @cabinet_invest_project
+
+  .form-actions.save_button
+    = render 'blocks/btns/save_button', f: f
+
+= javascript_include_tag 'application/google_map_form'
+
+javascript:
+    hide_gis_types();
+
+    function initMapForAreas(){
+        var AreaMap = initMap();
+        var model = "#{@cabinet_invest_project.model_name.name}";
+        var id = "#{@cabinet_invest_project.id}";
+        init_map_object(model, id, AreaMap);
+    }
+
+    $(document).ready(function () {
+        initCropper('#invest_project_main_image', {width: 300, height: 200});
+        decimal_cut('input[type="text"].decimal-value', 2);
+
+        $('#invest_project_map_layer_id, #invest_project_investment_type_id, #invest_project_ownership_id').select2({ width: '100%' });
+        $('#invest_project_balancer_ids, #invest_project_infrastructure_type_ids').select2({ width: '100%', multiple: true });
+
+        $('input[type="text"].decimal-value').change(function () {
+            cut_negative_value($(this))
+        });
+
+        ready_map_functions()
+    });
+
+script async=true defer=true src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAP_API']}&libraries=drawing&callback=initMapForAreas"

@@ -1,0 +1,4 @@
+.pdf-file
+  - if @gis.questionnaire_file.present?
+    = link_to @gis.questionnaire_file.file.url, target: :_blank do
+      = I18n.t('communal_area.view_file')

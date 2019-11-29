@@ -1,0 +1,16 @@
+#articles
+  h2.block-header
+    = I18n.t('home.news')
+  .container
+    .row
+      - @articles.each do |article|
+        .col-md-4.article
+          p= article.publication_time.strftime("%d-%m-%Y")
+          = link_to article_path(article) do
+            .image-container.effect
+              = image_tag article.project_images.by_locale(locale).first.image_url if  article.project_images.by_locale(locale).first
+              .mask
+              .title
+                = link_to article.title, article_path(article)
+    .text-center
+      = render partial: 'home/blocks/big_btn', locals: {text: t('home.btns.more_news'), path: articles_path}

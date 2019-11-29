@@ -1,0 +1,110 @@
+@import "utilities/variables";
+
+section#reviews {
+  padding: 30px 0;
+  #list-reviews .review, #list-reviews .text {
+    height: auto;
+  }
+  .review {
+    padding-top: 25px;
+    padding-bottom: 10px;
+    height: 720px;
+    .text {
+      height: 190px;
+      overflow: hidden;
+      padding-top: 10px;
+      padding-bottom: 15px;
+    }
+    .read-more {
+      margin-top: 15px;
+    }
+  }
+  .position {
+    font-weight: 600;
+  }
+  .avatar {
+    position: relative;
+    float: right;
+    margin-bottom: 20px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 5%;
+      left: -20px;
+      height: 90%;
+      width: 20px;
+      border-radius: 4px 0 0 4px;
+      background: linear-gradient($main_color, $orange_color);
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: -36px;
+      height: 80%;
+      width: 16px;
+      border-radius: 4px 0 0 4px;
+      background: linear-gradient(rgba(180, 0, 15, 0.43), rgba(255, 186, 64, 0.54));
+    }
+    & > img {
+      display: block;
+      margin-left: auto;
+      max-height: 290px;
+      border-radius: 4px;
+      box-shadow: 20px 20px 100px rgba(0, 0, 0, 0.15);
+    }
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+  .read-more > a {
+    color: $main_color;
+    position: relative;
+    padding: 5px 0;
+    border-bottom: 1px solid #E5E5E5;
+    &:hover {
+      color: $main_color;
+      text-decoration: none;
+    }
+  }
+  @media (min-width: 576px) {
+    .review {
+      height: 380px;
+    }
+  }
+
+  @media (min-width: 767px) {
+    .review {
+      height: 450px;
+      .text {
+        height: unset;
+        overflow: unset;
+      }
+      .read-more {
+        margin-top: -15px;
+      }
+      .title {
+        font-size: 26px;
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    padding: 120px 0;
+    .review {
+      padding-top: 70px;
+      padding-bottom: 20px;
+      .text {
+        padding-top: 20px;
+        padding-bottom: 30px;
+      }
+    }
+  }
+  @media (min-width: 1500px) {
+    padding: 150px 0;
+    .review {
+      height: 500px;
+      padding-top: 90px;
+      padding-bottom: 30px;
+    }
+  }
+}

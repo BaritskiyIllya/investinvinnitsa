@@ -1,0 +1,28 @@
+scss:
+  .home{
+    color: white;
+    font-size: 30px;
+    padding-top: 15px;
+    margin-left: 15px;
+  }
+  .exit{
+    color: white;
+    font-size: 20px;
+    padding-top: 15px;
+    margin-right: 15px;
+  }
+
+header#navbar
+  #navbar-container.boxed
+    .navbar-header
+      = link_to admin_root_path, class: 'navbar-brand' do
+        .home
+          i.ion-ios-home-outline
+    .navbar-content
+      ul.nav.navbar-top-links
+        li.tgl-menu-btn
+          a.mainnav-toggle[href="#"]
+            i.demo-pli-list-view
+      = link_to destroy_user_session_path, method: :delete do
+        .exit
+          i.ion-log-out

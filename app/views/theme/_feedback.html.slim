@@ -1,0 +1,79 @@
+= form_tag('/feedback.js', remote: true, authenticity_token: true, format: :js, method: :post) do
+  #feedback-form
+    .form-group
+      input#feedback_name.form-control[type="text" required name='feedback[name]' placeholder="#{t('home.feedback_form.name')}"]
+    .form-group
+      input#feedback_phone.form-control[type="text" required name='feedback[phone]' placeholder="#{t('home.feedback_form.phone')}"]
+    .form-group
+      input#feedback_email.form-control[type="email" required name='feedback[email]' onkeyup="this.setAttribute('value', this.value);" value="" placeholder="#{t('home.feedback_form.email')}"]
+    .form-group
+      textarea#feedback_description.form-control{ rows="5" placeholder="#{t('home.feedback_form.question')}" name='feedback[description]' }
+    .form-group
+      input#feedback_file.form-control[type="file" name='feedback[file]']
+    input.btn-feedback-form type='submit' value="#{t('home.send')}"
+
+javascript:
+  $('.btn-feedback-form').click(function (e) {
+    e.preventDefault();
+    validate_feedback()
+  });
+
+  function validate_feedback() {
+    var name = $("#feedback-form input[name='feedback[name]']");
+    var phone = $("#feedback-form input[name='feedback[phone]']");
+    var email = $("#feedback-form input[name='feedback[email]']");
+    var description = $("#feedback-form textarea[name='feedback[description]']");
+    var valid = email.val().match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+
+    if (name.val() !== '' && phone.val() !== '' && email.val() !== '' && description.val() !=='' && valid) {
+      send_feedback()
+    } else {
+      if (name.val() === '') {
+        name.css('border-bottom', '1px solid red')
+      } else {
+        name.css('border-bottom', '1px solid #ccc')
+      }
+      if (phone.val() === '') {
+        phone.css('border-bottom', '1px solid red')
+      } else {
+        phone.css('border-bottom', '1px solid #ccc')
+      }
+      if (email.val() === '') {
+        email.css('border-bottom', '1px solid red')
+      } else {
+        email.css('border-bottom', '1px solid #ccc')
+      }
+      if (description.val() === '') {
+        description.css('border', '1px solid red')
+      } else {
+        description.css('border', '1px solid #ccc')
+      }
+      if (!valid) {
+        email.css('border-bottom', '1px solid red')
+      } else {
+        email.css('border-bottom', '1px solid #ccc')
+      }
+    }
+  }
+
+  function send_feedback() {
+    var fd = new FormData();
+    var input = $('#feedback_file');
+    fd.append('feedback[name]', $('#feedback_name').val());
+    fd.append('feedback[phone]', $('#feedback_phone').val());
+    fd.append('feedback[email]', $('#feedback_email').val());
+    fd.append('feedback[description]', $('#feedback_description').val());
+    fd.append('feedback[file]', input[0].files[0]);
+    $.ajax({
+      url: '/feedback.js',
+      method: 'post',
+      processData: false,
+      contentType: false,
+      data: fd,
+      dataType: 'script',
+      headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+      success: function(){
+        $("#answer_feedback").modal();
+      }
+    })
+  }

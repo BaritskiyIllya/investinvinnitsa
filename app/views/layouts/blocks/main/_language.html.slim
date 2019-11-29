@@ -1,0 +1,81 @@
+scss:
+  .search-block{
+    display: inline-block;
+    .search-form{
+      display: inline-block;
+      form{
+        .input-group{
+          position: relative;
+          input {
+            height: 28px;
+          }
+          .search-button {
+            position: absolute;
+            top: 0;
+            right: 2px;
+            button[type='submit'] {
+              display: none;
+            }
+            .glass {
+              width: 28px;
+              height: 28px;
+              svg {
+                z-index: 999;
+                width: 14px;
+                height: 14px;
+                cursor: pointer;
+                margin-bottom: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .search-block .search-form.hide-form{
+    display: none;
+  }
+
+  .input-group>.form-control:focus{
+    z-index: 0;
+    box-shadow: none;
+  }
+
+ul
+  li
+    #google_translate_element
+  - if request.env['PATH_INFO'] != '/' && request.env['PATH_INFO'] != '/en'
+    li
+      = link_to 'укр', "#{request.env['PATH_INFO'].gsub('/en/', '/')}", class: 'locale-link'
+    li
+      = link_to 'eng', "/en#{request.env['PATH_INFO'].gsub('/en/', '/')}", class: 'locale-link'
+  - else
+    li
+      = link_to 'укр', "#{request.env['PATH_INFO'].gsub('/en', '/')}", class: 'locale-link'
+    li
+      = link_to 'eng', "/en#{request.env['PATH_INFO'].gsub('/en', '/')}", class: 'locale-link'
+  li.search
+    .search-block
+      .search-form.hide-form
+        / form action="#{search_path}"
+        form action="#"
+          .input-group
+            input.form-control name="srch_term" placeholder="#{I18n.t('look_for')}" type="text"
+            .search-button
+              .glass
+                = inline_svg 'send_search_ico.svg'
+              / button.btn type="submit"
+      = link_to '#', class: 'find-ico' do
+        = inline_svg 'search.svg'
+
+javascript:
+  $(document).ready(function () {
+    $('.find-ico').click(function () {
+      $('.search-form').toggleClass('hide-form')
+    });
+
+    $('.glass').click(function () {
+      // $('.search-form form').submit()
+    });
+  });

@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'ProximaNova-Light';
+  src: font-url('ProximaNova-Light.eot');
+  src: font-url('ProximaNova-Light.eot?#iefix') format('embedded-opentype'),
+  font-url('ProximaNova-Light.woff') format('woff'),
+  font-url('ProximaNova-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNovaExCn-Light';
+  src: font-url('ProximaNovaExCn-Light.eot');
+  src: font-url('ProximaNovaExCn-Light.eot?#iefix') format('embedded-opentype'),
+  font-url('ProximaNovaExCn-Light.woff') format('woff'),
+  font-url('ProximaNovaExCn-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: font-url('Roboto-Light.eot');
+  src: font-url('Roboto-Light.eot?#iefix') format('embedded-opentype'),
+  font-url('Roboto-Light.woff') format('woff'),
+  font-url('Roboto-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SansaNewCity-Bold';
+  src: url(asset-path('fonts/SansaNewCity-Bold.ttf'));
+}
+
+@font-face {
+  font-family: 'SansNewCity-Regular';
+  src: url(asset-path('fonts/SansNewCity-Regular.ttf'));
+}

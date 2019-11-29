@@ -1,0 +1,12 @@
+.row
+  .col-md-12.state-chose
+    span
+      span.text
+        | Змінити статус на:
+      span
+        - @states.each do |state|
+          .radio.pad-btm.text-left.box-inline
+            input.magic-radio[name="#{area.class.class_name.underscore}[status]" type="radio" value="#{state}" id="#{state}"
+              checked=area.state.eql?(state)]
+            label for="#{state}"
+              = I18n.t('states.' + state)

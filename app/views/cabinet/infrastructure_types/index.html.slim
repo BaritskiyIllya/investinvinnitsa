@@ -1,0 +1,18 @@
+h1.center Типи інфраструктур
+
+= render 'layouts/general/table', path: new_cabinet_infrastructure_type_path, title: '' do
+  thead
+    tr
+      th Назва українською
+      th Назва англійською
+      th Дії
+  tbody
+    - @cabinet_infrastructure_types.each do |item|
+      tr
+        td
+          = item.name_uk
+        td
+          = item.name_en
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_cabinet_infrastructure_type_path(item)

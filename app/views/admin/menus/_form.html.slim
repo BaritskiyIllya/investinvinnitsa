@@ -1,0 +1,84 @@
+scss:
+  .active-checkbox{
+    margin-top: 10px;
+  }
+  .one-row{
+    min-height: 66.45px;
+  }
+
+  .select{
+    width: 100%;
+  }
+
+  span.select2-selection{
+    height: 32px !important;
+  }
+
+= simple_form_for [:admin, @admin_menu] do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  .form-inputs
+    .row
+      .col-md-6
+        .row
+          .col-md-12
+            = f.input :title_uk, label: 'Назва українською', input_html: {class: 'form-control'}
+        .row
+          .col-md-12
+            = f.input :title_en, label: 'Назва англійською', input_html: {class: 'form-control'}
+        .row
+          .col-md-12
+            = f.input :tag_alt_uk, label: '(title, alt) українською', input_html: {class: 'form-control'}
+        .row
+          .col-md-12
+            = f.input :tag_alt_en, label: '(title, alt) англійською', input_html: {class: 'form-control'}
+        .row.one-row
+          .col-md-12
+            .checkbox.pad-btm.text-left
+              = f.check_box :active, as: :boolean, class: 'magic-checkbox'
+              = f.label :active, 'Активувати'
+      .col-md-6
+        .row.one-row
+          .col-md-12
+            = f.input :menu_type, collection: @menu_types,
+                              label: 'Тип меню',
+                              input_html: {class: 'form-control'},
+                              include_blank: false
+        .row.one-row
+          .col-md-6.one-row
+            = f.input :menu_group_id, collection: MenuGroup.all.pluck(:name, :group_key),
+                                      label: 'Найменування групи:',
+                                      input_html: {class: 'form-control'},
+                                      include_blank: false
+          .col-md-6.one-row
+            = f.input :parent_id, collection: @parent_menu,
+                               label: 'Батьківський пункт:',
+                               input_html: {class: 'form-control'},
+                               include_blank: false
+        .row
+          .col-md-12
+            = f.input :position, label: 'Порядок виводу:', input_html: {class: 'form-control'}
+        .row
+          .col-md-12
+            = f.input :link, label: 'Посилання:', input_html: {class: 'form-control'}
+
+
+  .form-actions
+    = render 'blocks/btns/save_button', f: f
+
+javascript:
+  $().ready(function(){
+    $('#menu_menu_group_id, #menu_parent_id').select2({width: '100%'});
+
+    $('#menu_menu_type').select2({
+      width: '100%'
+    }).on('select2:select', function (e) {
+      if(e.target.value == 'menu'){
+          $('.menu_link').show()
+      }else{
+          $('.menu_link').hide();
+          $('#menu_link').val('')
+      }
+    })
+  });
+

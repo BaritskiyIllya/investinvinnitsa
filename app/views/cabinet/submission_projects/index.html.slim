@@ -1,0 +1,13 @@
+h1.center Список форм подання інвестиційного проекту
+
+= render 'layouts/general/table', path: nil, title: 'Список форм подання інвестиційного проекту' do
+  thead
+    tr
+      th Ім'я
+      th Цільове призначення
+      th Дії
+  tbody#result
+    = render 'table'
+
+#object_paginator
+  = paginate @cabinet_submission_projects, remote: true

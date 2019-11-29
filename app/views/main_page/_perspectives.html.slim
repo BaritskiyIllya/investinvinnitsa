@@ -1,0 +1,168 @@
+scss:
+  .perspectives {
+    margin-bottom: 50px; // delete, when view button
+    font-family: 'ProximaNovaExCn-Light';
+    .block-header{
+      margin: 0;
+      height: 200px;
+      line-height: 200px;
+    }
+    .items-list {
+      margin: 0;
+      text-align: center;
+      .block {
+        padding: 0;
+        .item {
+          width: 60%;
+          margin-top: 30px;
+          display: inline-block;
+          &:before {
+            content: none;
+          }
+          a {
+            color: black;
+            text-decoration: none;
+            .icon {
+              width: 75%;
+              height: auto;
+              padding: 5px;
+              margin: 0 auto;
+              border-radius: 50%;
+              border: 1px solid #CCC;
+              svg {
+                width: 100%;
+                height: auto;
+              }
+            }
+            .info_category {
+              height: 36px;
+              .title {
+                margin: 20px 0;
+                font-size: 26px;
+              }
+            }
+            &:hover {
+              color: #b4000f;
+              path {
+                fill: #b4000f;
+              }
+            }
+          }
+        }
+      }
+    }
+    .home-big-btn{
+      height: 250px;
+      line-height: 250px;
+      margin-top: -15px;
+    }
+    .perspectives-button{
+      display: none; // delete margin-bottom: 50px;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .perspectives {
+      .items-list {
+        .block {
+          .item {
+            a {
+              .info_category {
+                .title {
+                  font-size: 22px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px){
+    .perspectives {
+      .block-header {
+        height: 60px;
+        font-size: 30px;
+        line-height: 60px;
+      }
+      .items-list {
+        margin: 20px 0;
+        .block {
+          width: 50%;
+        }
+      }
+    }
+  }
+
+.perspectives
+  .container-fluid
+    h2.block-header
+      = I18n.t('perspectives.promising_areas')
+    ul.items-list
+      .row
+        .col-xs-6.col-md-3.block
+          li.item
+            = link_to '' do
+              .icon
+                = inline_svg 'perspectives/engineering.svg'
+              .info_category
+                p.title = I18n.t('perspectives.engineering')
+        .col-xs-6.col-md-3.block
+          li.item
+            = link_to '' do
+              .icon
+                = inline_svg 'perspectives/food_industry.svg'
+              .info_category
+                p.title = I18n.t('perspectives.food_industry')
+        .col-xs-6.col-md-3.block
+          li.item
+            = link_to '' do
+              .icon
+                = inline_svg 'perspectives/pharmaceutics.svg'
+              .info_category
+                p.title = I18n.t('perspectives.pharmaceutics')
+        .col-xs-6.col-md-3.block
+          li.item
+            = link_to '' do
+              .icon
+                = inline_svg 'perspectives/light_industry.svg'
+              .info_category
+                p.title = I18n.t('perspectives.light_industry')
+        .col-xs-6.col-md-3.block
+          li.item
+            = link_to '' do
+              .icon
+                = inline_svg 'perspectives/computer_engineering.svg'
+              .info_category
+                p.title = I18n.t('perspectives.computer_engineering')
+        .col-xs-6.col-md-3.block
+          li.item
+            = link_to '' do
+              .icon
+                = inline_svg 'perspectives/creative_industries.svg'
+              .info_category
+                p.title = I18n.t('perspectives.creative_industries')
+        .col-xs-6.col-md-3.block
+          li.item
+            = link_to '' do
+              .icon
+                = inline_svg 'perspectives/woodworking.svg'
+              .info_category
+                p.title = I18n.t('perspectives.woodworking')
+        .col-xs-6.col-md-3.block
+          li.item
+            = link_to '' do
+              .icon
+                = inline_svg 'perspectives/tourist_industry.svg'
+              .info_category
+                p.title = I18n.t('perspectives.tourist_industry')
+    .perspectives-button.text-center
+      = render partial: 'home/blocks/big_btn', locals: { text: t('home.btns.show_all'), path: '#' }
+
+javascript:
+  $(document).ready(function () {
+    $(".items-list").on("click", "a", function (event) {
+      event.preventDefault(); //delete, when add links to perspectives icons
+    });
+  });

@@ -1,0 +1,24 @@
+section#map
+  .overlay-bg style="background-image: url(#{asset_path("markup/IP_mainmap_#{locale}.jpg")})"
+    / = image_tag "markup/map-#{locale}.png", class: 'img-bg'
+  .wrap-content
+    #map-content
+      .container
+        .row.justify-content-center
+          .col-xl-11
+            = link_to about_path do
+              #wrap-benefits
+                h3= @contents.why_vin
+                #benefits
+                  .benefit-item= @contents.benefit_index
+                  .benefit-item= @contents.benefit_rating
+                  .benefit-item= @contents.benefit_place
+                  .benefit-item= @contents.benefit_it
+        .row
+          .col
+            #map-description
+              .row
+                .col-12.col-md-10.col-lg-8
+                  h3.title= @contents.map.title
+                  .info= text_briefly(@contents.map.description)
+                  = link_to t('home.map.go'), invest_maps_path, class: 'btn-map'

@@ -1,0 +1,5 @@
+$('#gis_info .wrapper').html('<%= escape_javascript(render partial: "invest_maps/#{@gis.class.class_name.underscore}") %>');
+$('#gis_info .go_to_object').html('<%= escape_javascript(render partial: 'invest_maps/link') %>');
+$('#map_filter').addClass('hidden');
+$('#gis_info').removeClass('hidden')
+$('#map_info, #invest_map').removeClass('resized')

@@ -1,0 +1,13 @@
+#invest_map_preview
+  .map-image style="background-image: url(#{asset_path('invest_map.png')})"
+  .overlay
+  .container
+    .row
+      .col-md-6
+      .col-md-6
+        span.title-one
+          = @contents.map.title
+        .desc
+          = sanitazed_text(@contents.map.description)
+        .go-button
+          = render partial: 'home/blocks/big_btn', locals: { text: I18n.t('home.map.go'), path: invest_maps_path }

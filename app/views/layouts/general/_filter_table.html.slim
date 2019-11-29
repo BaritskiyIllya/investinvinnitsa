@@ -1,0 +1,17 @@
+= stylesheet_link_tag 'table/dataTables.bootstrap.css'
+= stylesheet_link_tag 'table/responsive.dataTables.min.css'
+= javascript_include_tag 'table/jquery.dataTables'
+= javascript_include_tag 'table/dataTables.bootstrap'
+= javascript_include_tag 'table/dataTables.responsive.min'
+= javascript_include_tag 'table/tables-datatables.js'
+
+.panel
+  - if path ||= nil
+    .panel-heading
+      .add-new-item.pull-right
+        = link_to path, class: 'btn btn-success' do
+          i.demo-pli-add.icon-fw
+          | Додати
+  .panel-body
+    table#demo-dt-delete.table.table-striped.table-bordered cellspacing="0" width="100%"
+      = yield

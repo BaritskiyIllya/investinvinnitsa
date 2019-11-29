@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+  <%- @form.attributes.except('id').each do |k,v| %>
+    <%- if v.present? %>
+      <p style="margin-bottom: 5px">
+        <span style="font-weight: bold"><%= I18n.t('potential_investor.'+ k +'.title', default: '') %>:</span> <%= v %>
+      </p>
+    <%- end%>
+  <%- end %>
+  <h2>Інформація непрямого представника компанії</h2>
+  <%- if @form.representative.present? %>
+    <%- @form.representative.attributes.except('id', 'potential_investor_id', 'additional').each do |k,v| %>
+    <%- if v.present? %>
+      <p style="margin-bottom: 5px">
+        <span style="font-weight: bold"><%= I18n.t('potential_investor.'+ k +'.title', default: '') %>:</span> <%= v %>
+      </p>
+    <%- end%>
+  <%- end%>
+<%- end %>
+</body>
+</html>

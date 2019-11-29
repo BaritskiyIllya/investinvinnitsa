@@ -1,0 +1,13 @@
+h1.center Список виробничих площ та приміщень
+
+= render 'layouts/general/filter_table', path: (can? :new, ProductionArea) ? new_cabinet_production_area_path : nil, title: '' do
+  thead
+    tr
+      th Адреса
+      th Статус
+      th Активний тип об'єкту
+      th Структурний підрозділ
+      th Шар на карті
+      th Дії
+  tbody
+    = render 'table'

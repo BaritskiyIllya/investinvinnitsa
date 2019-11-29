@@ -1,0 +1,8 @@
+.area_name
+  span
+    = sanitazed_text(@gis.object_name)
+.main-image
+  = image_tag @gis.main_image.url if @gis.main_image.present?
+.information
+  = render "invest_maps/communal_areas/#{layer_partials(@gis)}"
+  = render 'invest_maps/pdf_file'

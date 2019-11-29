@@ -1,0 +1,17 @@
+= render 'layouts/general/table', path: new_admin_trip_path, title: 'Список туристичних маршрутів' do
+  thead
+    tr
+      th №п/п
+      th Назва українською
+      th Назва позиція
+      th Дії
+  tbody
+    - @admin_trips.each do |admin_trip|
+      tr
+        td= admin_trip.id
+        td= admin_trip.title_uk
+        td= admin_trip.position
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_admin_trip_path(admin_trip)
+            = render 'blocks/btns/delete', path: admin_trip_path(admin_trip)

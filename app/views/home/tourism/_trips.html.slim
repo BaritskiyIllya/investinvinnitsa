@@ -1,0 +1,14 @@
+.trips
+  .container
+    h1.title= t('tourism.trip_title')
+  #trips-slider.swiper-container
+    .swiper-wrapper
+      - @trips.each do |trip|
+        - if trip.img?
+          .swiper-slide style="background-image:url(#{trip.img_url})"
+            .trip-card
+              .trip-image= image_tag(trip.img_url, class: 'img-fluid')
+              .trip-info
+                .title= trip.title
+                .text-right.mt-2
+                  = link_to t('find_out'), trip.link, class: 'find_out', rel: "noopener noreferrer", target: "_blank"

@@ -1,0 +1,19 @@
+h1.center Список проектів
+
+= render 'layouts/general/table', path: new_admin_project_path, title: 'Список тегів' do
+  thead
+    tr
+      th №п/п
+      th Назва українською
+      th Назва англійською
+      th Дії
+  tbody
+    - @admin_projects.each_with_index do |admin_project, index|
+      tr
+        td = index + 1
+        td = admin_project.title_uk
+        td = admin_project.title_en
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_admin_project_path(admin_project)
+            = render 'blocks/btns/delete', path: admin_project_path(admin_project)

@@ -1,0 +1,19 @@
+@import 'nifty.min';
+@import 'pace.min';
+@import 'jquery.minicolors';
+@import 'custom';
+@import 'nifty-demo-icons.min';
+@import 'nifty-demo.min';
+@import 'ionicons.min';
+@import 'form';
+@import 'admin/cropper';
+#events-app {
+  padding-bottom: 25px;
+  .destroy-input {
+    cursor: pointer;
+    line-height: 28px;
+    vertical-align: middle;
+    color: #ab0505;
+    font-size: 1.5rem;
+  }
+}

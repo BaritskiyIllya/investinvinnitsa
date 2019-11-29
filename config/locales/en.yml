@@ -1,0 +1,542 @@
+en:
+  language: 'English'
+  choose_lan: 'Choose language'
+  city-sector: 'leading areas of the city'
+  read-more: 'Read more'
+  read_more_v2: 'Read more'
+  review: 'Review'
+  go_to_filter: 'go to filter'
+  active_true: 'Yes'
+  active_false: 'No'
+  success_send_questionnaire: 'Your questionnaire has been sent successfully'
+  error_send_questionnaire: 'There was an error sending the questionnaire'
+  advantages_city: 'City Advantages'
+  download: 'Download'
+  look_for: 'What look for?'
+  more: 'More'
+  find_out: 'Find out'
+  more_v2: 'More'
+  vin_project: 'Modern projects of Vinnytsia'
+  default_sector_text_title: 'Vinnytsia'
+  default_sector_text_first: ' is a modern city, the economy of which is dynamically developing. The city has long industrial traditions,'
+  default_sector_text_second: 'a powerful educational base, scientific schools that work in the field of information technology, engineering, medicine.'
+  select_all: 'Select all'
+  clear: 'Clear'
+
+  perspectives:
+    promising_areas: 'Promising areas of the city'
+    engineering: 'Engineering'
+    food_industry: 'Food Industry'
+    pharmaceutics: 'Pharmaceutics'
+    light_industry: 'Light industry'
+    computer_engineering: 'Computer Engineering'
+    creative_industries: 'Creative industries'
+    woodworking: 'Woodworking'
+    tourist_industry: 'Tourist Industry'
+
+  home:
+    search: 'Search'
+    watch_invest_passport: 'View Investment Passport'
+    feedback: 'Feedback'
+    materials: 'Materials'
+    reviews: 'Reviews'
+    rewards: 'Our achievements'
+    partners: 'Our partners'
+    reviews_title: 'What the leading companies say about their region choice'
+    news: 'News'
+    our_team: 'Our team'
+    invest_offers_header: 'Questionnaire for submitting a land plot'
+    feedback: 'Feedback'
+    land_area: 'Questionnaire for a land plot'
+    potential_investor: 'Questionnaire for a potential investor'
+    investment_project: 'Form of submission of an investment project'
+    callback: 'Callback'
+    send: 'Send'
+    policy: 'All rights reserved. Privacy Policy'
+    developed: 'The site is developed by Soft Generation'
+    feedback_form:
+      name: 'Name'
+      surname: 'Surname'
+      phone: 'Phone'
+      email: 'Email'
+      question: 'Field for a question / comment'
+      offer_title: 'The form has been successfully sent!'
+      answer_title: 'The request has been successfully sent!'
+      answer_description: 'Thank you for your suggestion and expressed interest in our city!'
+    btns:
+      send: 'Send'
+      show_all: 'Show all'
+      more_news: 'More news'
+    map:
+      go: 'Go'
+    footer:
+      mail_address: 'Mailing address'
+      address_city: 'Ukraine, 21050, Vinnytsia'
+      address_street: 'Soborna st. 59'
+      phone: 'Phone'
+      email: 'E-mail'
+      news_subscrib: 'Subscribe to news'
+  articles:
+    load: 'More'
+  list_materials: 'List of materials'
+  production_area:
+    main_title: 'Production area'
+    head:
+      gen_info: 'General information'
+      access_roads: 'Access roads'
+      characteristics: 'Characteristics of production areas'
+      area_provided: 'How is the area provided'
+      contact: 'Contact information'
+      transfer: 'Terms of transfer to the investor'
+    edrpou_code: 'EDRPOU code'
+    site: 'Website'
+    railway_track: 'Availability of an access railroad track'
+    railway_distance: 'Distance to the freight railway station, km'
+    trucks_road: 'Availability of an access road with a hard cover for trucks'
+    state_road_distance: 'Distance to the road of national significance, km'
+    airport_distance: 'Distance to airport, km'
+    total_area: 'The total area of the building where the production premises are located, m2'
+    building_year: 'In what year was built'
+    free_floors_count: 'Кількість поверхів будівлі, в якій розміщені вільні виробничі площі'
+    free_floors: 'Number of floors of the building, in which free production areas are located'
+    production_area: 'Production premises area, m2'
+    additional: 'Additional premises (auxiliary, auxiliary, etc.), their area, m2'
+    phone: 'Phone'
+    email: 'E-mail'
+    rent_year: 'Rental price per year, UAH/USD per m2'
+    sale: 'Cost of sale, UAH/USD per m2'
+    date_info: 'Date of preparation of information'
+    name: 'First name, last name'
+    transfer_type: 'Rent, sale, other'
+    address: 'Mailing address'
+    owner: 'Owner'
+    ownership_id: 'Ownership'
+    gas: 'Connection point to gas supply networks'
+    electricity: 'Connection point to power supply networks'
+    water_supply: 'Connection point to water supply networks'
+    drainager: 'Connection point to sewage networks'
+    central_heat_supply: 'Connection point to heat supply networks'
+  land_area:
+    main_title: 'Ground sections'
+    head:
+      gen_info: 'General information'
+      legal_status: 'Legal status'
+      tran_engin_inf: 'Transport and engineering infrastructure'
+      person_info: 'Contacts'
+    area_name: 'Name of the plot'
+    area_type: 'Type of the plot'
+    total_area: 'Total area of the plot, ha'
+    cadastral_number: 'Cadastral number'
+    state_road_distance: 'Distance to the state road, km'
+    railway_distance: 'Distance to the freight railway station, km'
+    airport_distance: 'Distance to airport, km'
+    phone: 'Phone'
+    email: 'E-mail'
+    rent: 'Cost of land for rent (UAH/USD per m2)'
+    sale: 'Normative-monetary valuation of land for sale (UAH/USD per m2)'
+    underground_engin: 'Availability of underground engineering infrastructure at the plot'
+    overhead_engin: 'Availability of aboveground engineering infrastructure at the plot'
+    name: 'Name, surname of the contact person'
+    transfer_type: 'Form of transferring the plot to the investor'
+    classification: 'Classification of the type of the intended purpose of the land (title, code of the CHECF)/Category of land'
+    configuration: 'Configuration of the plot'
+    building_owner: 'Buildings and structures, if they are at the plot, who owns them'
+    owner: 'Owner'
+    ownership_id: 'Ownership'
+    gas: 'Connection point to gas supply networks'
+    electricity: 'Connection point to power supply networks'
+    water_supply: 'Connection point to water supply networks'
+    drainager: 'Connection point to sewage networks'
+    ethernet: 'The presence on the plot of a stable coverage of the Internet, which quality coverage'
+  office_area:
+    main_title: 'Office area'
+    head:
+      gen_info: 'General information'
+      characteristic: 'Characteristics'
+      operational_costs: 'Operational costs'
+      infrastructure: 'Infrastructure'
+      transfer_to_invest: 'Terms of transfer to the investor'
+      person_info: 'Contact information'
+    edrpou_code: 'EDRPOU code'
+    site: 'Website'
+    total_area: 'The area of the office space, m2'
+    electricity_cost: 'Electricity, UAH/month.'
+    gas_cost: 'Gas supply, UAH/month'
+    water_cost: 'Water supply, UAH/month'
+    drainager_cost: 'Drainage, UAH/month'
+    heat_cost: 'Heat supply, UAH/month'
+    city_center_distance: 'Distance to the central part of the city, km'
+    transport_stop_distance: 'Distance to city transport stop, m'
+    phone: 'Phone'
+    email: 'E-mail'
+    rent: 'Cost of rent for 1 m2: UAH/USD.'
+    sale: 'Cost of sale: UAH/USD'
+    date_info: 'Date of preparation of information'
+    name: 'First name, last name'
+    transfer_type: 'Rent, sale, other'
+    address: 'Mailing address'
+    owner: 'Owner'
+    gas: 'Gas'
+    electricity: 'Electricity'
+    water_supply: 'Water supply'
+    drainager: 'Drainage'
+    heat_supply: 'Heat supply'
+    ethernet: 'Internet'
+    phone_sypply: 'Phone'
+    area_class: 'Office space class'
+    ventilation: 'Ventilation'
+    fireproof: 'Fireproof'
+    guard: 'Guard'
+    parking: 'Availability of territory for parking of motor transport/amount of parking space'
+  communal_area:
+    house_number: 'House number'
+    prop_registration: 'State registration of property'
+    cadastral_number: 'Cadastral number'
+    area: 'Area'
+    rate_percent: 'Rate of annual rent/land tax, %'
+    year_tax: 'Amount of annual land tax rent, грн'
+    operation_year: 'Year of operation'
+    level: 'Floor'
+    tech_area: 'Area (specifications)'
+    build_year: 'Year of construction'
+    architectural: 'Architectural value'
+    land_category_id: 'Type of property law'
+    object_type: "Type of object"
+    education_object_type: 'Type of educational institution'
+    object_name: "The name of the object"
+    education_object_name: 'The name of the educational institution'
+    enterprise_object_name: 'Name of Company'
+    balance_holder_id: 'Balance holder'
+    communal_branch_id: 'Branch'
+    field_category: 'Category of land'
+    room: 'Rooms'
+    object_name: 'Name'
+    address: 'Address in the city'
+    education_address: 'Address'
+    enterprise_address: 'Address'
+    site: 'Site'
+    education_site: 'The site of the educational institution'
+    enterprise_site: 'The site of Company'
+    file: 'PDF file'
+    view_file: 'View Attached File'
+  invest_project:
+    head:
+      inspection: 'Project overview'
+      invest_needs: 'Investment needs'
+      infrastructure: 'Accommodation and infrastructure'
+      resources: 'Resources and services'
+      regulatory: 'Regulatory requirements'
+      other: 'Other'
+    invest_sum: 'Amount of investments'
+    invest_sum_mln: ' $ mln'
+    investment_type_id: 'Type of investment'
+    area: 'Square in square meters'
+    ownership_id: 'Property right'
+    hard_cover_road_distance: 'Distance to roads with hard cover'
+    highway_distance: 'Distance to the highway'
+    railway_distance: 'Distance to the railway'
+    airport_distance: 'Distance to airport'
+    gas: 'Distance to the current gas pipeline'
+    electricity: 'Distance to the current transmission line'
+    water_supply: 'Distance to the possible connection to the existing water supply'
+    name: 'Project name'
+    short_description: 'Description of the project'
+    product: 'Product/service'
+    market: 'Market analysis'
+    realization_term: 'The term of the project implementation'
+    payback_period: 'Payback period'
+    documentation: 'Expected readiness of the project documentation'
+    description: 'Detailed description'
+    destination: 'Placing'
+    purpose: 'Purpose'
+    current_use: 'Current use'
+    project_conditions: 'Project conditions'
+    resource_access: 'Access to resources and services'
+    character_assets: 'Characteristics of existing assets'
+    workforce: 'Availability and qualifications of the workforce'
+    permission: 'Mandatory permissions and licenses'
+    environment: 'Environmental constraints and requirements'
+    privilege: 'Existing privileges and incentives'
+    other: 'Other'
+  transport:
+    name: 'Name'
+    route: 'Route'
+    transport_type: 'Transport type'
+  land_areas:
+    area_name:
+      title: 'Land title'
+    area_type:
+      title: 'Type of area'
+      desc: '(greenfield/brownfield)'
+    total_area:
+      title: 'Total area of ​​the site, ha'
+    underground_engin:
+      title: 'The availability of underground engineering infrastructure'
+      desc: 'Is there an underground engineering infrastructure on the site'
+    overhead_engin:
+      title: 'An overground engineering infrastructure'
+      desc: 'Is there an underground engineering infrastructure on the site'
+    cadastral_number:
+      title: 'Cadastral Number'
+    rent:
+      title: 'The cost of land for rent'
+      desc: '(UAH / USD per m2)'
+    sale:
+      title: 'Normative-monetary valuation of land'
+      desc: 'for sale (UAH / USD per m2)'
+    state_road_distance:
+      title: 'Distance to the state road, km'
+    railway_distance:
+      title: 'Distance to the Freight Railway Station, km'
+    airport_distance:
+      title: 'Distance to the airport, km'
+    name:
+      title: 'Name of contact person'
+    phone:
+      title: 'Mobile phone'
+    email:
+      title: 'E-mail'
+    transfer_type:
+      title: "Form of transferring an investor's site"
+    classification:
+      title: 'Classification of the intended purpose of the land'
+      desc: '(name, ECCPC code) / Category of land'
+    configuration:
+      title: 'Site configuration'
+    building_owner:
+      title: 'Buildings and structures'
+      desc: '(if they are on the site, who is their owner)'
+    owner:
+      title: 'Owner'
+    gas:
+      title: 'Gas supply'
+      desc: '(available/missing)'
+    electricity:
+      title: 'Electricity'
+      desc: '(available/missing)'
+    water_supply:
+      title: 'Water supply'
+      desc: '(available/missing)'
+    drainager:
+      title: 'Drainage'
+      desc: '(available/missing)'
+    ethernet:
+      title: 'Is there a stable coverage on the site?'
+      desc: '(what quality coverage)'
+  potential_investor:
+    company_name:
+      title: 'Company name'
+      desc: '(resident/non-resident) if the information is not confidential'
+    branch:
+      title: 'Industry'
+    product_description:
+      title: "Brief description of the company's products"
+    project_description:
+      title: 'Brief description of the project planned for implementation'
+      desc: '(Is it possible to locate your project on the current site)'
+    novelty:
+      title: 'Is the project a new investment for Ukraine?'
+      desc: 'If not, please indicate whether the project is an extension or a joint deployment'
+    budget:
+      title: 'Estimated USD investment'
+      desc: 'Approximate range'
+    object:
+      title: 'Object (s) of investment.'
+      desc: 'In the case of interest in the proposals in Annexes 3.2, 3.3, 3.7, 3.8 to the methodology'
+    land_area:
+      title: 'Necessary plot sizes, ha'
+    area_type:
+      title: 'Greenfield/Brownfield '
+    infrastructure:
+      title: 'Provision of land with infrastructure'
+      desc: 'Transport infrastructure, engineering infrastructure, etc.'
+    area:
+      title: 'Area, m2'
+    transfer_type:
+      title: 'Type of property right'
+      desc: 'Redemption/Lease'
+    workers:
+      title: 'Expected number of employees'
+    skilled_workers:
+      title: 'The number of skilled workers'
+      desc: 'required indicate the direction of qualification'
+    ownership:
+      title: 'The organizational and legal form of the enterprise you prefer'
+      desc: '(the share of ownership in % (communal, private)'
+    partners:
+      title: 'Partners in Ukraine'
+      desc: '(Available/Required) if the information is not confidential'
+    comment:
+      title: 'Additional comments'
+    project_cost:
+      title: 'Cost of the project'
+      desc: '(detailed economic calculations, namely the cost of construction, equipment, etc.).'
+    name:
+      title: 'Contact person in the company'
+      desc: '(Name, position)'
+    phone:
+      title: 'Phone'
+    fax:
+      title: 'Fax'
+    email:
+      title: 'E-mail'
+    site:
+      title: 'Website'
+    other_info:
+      title: 'Other contact information'
+    second_form:
+      title: 'INFORMATION FOR REPRESENTATIVE REPRESENTATIVES OF COMPANIES'
+      desc: "In case the investor\'s request form was filled by an indirect representative of the company (intermediary, consultant and others), please fill out the following table. In addition, please provide, permission issued in the established procedure (power of attorney). Thank you for understanding!"
+      additional_file: 'Additional file'
+  submission_projects:
+    description:
+      title: 'Description of the project'
+      desc: '(a brief description of the project, including the main advantages for the investor, how this project / company makes a profit and how it will increase at the expense of the investment)'
+    product:
+      title: 'Product/Service'
+      desc: '(products/services that the investor plans to produce/provide)'
+    market_analysis:
+      title: 'Market analysis'
+      desc: '(target customers and markets)'
+    amount:
+      title: 'Amount and type'
+      desc: '(amount and type of investment, such as equity, venture capital, credit facilities)'
+    description_needs:
+      title: 'Detailed description'
+      desc: '(timing and distribution of investments by asset types, expected return on profitability, payback period)'
+    place:
+      title: 'Placing'
+      desc: '(location of the project, distance to regional/regional centers, km)'
+    area:
+      title: 'Area'
+      desc: '(area of the land plot in square meters)'
+    legal_status:
+      title: 'Legal status'
+      desc: '(ownership)'
+    purpose:
+      title: 'Purpose'
+    current_use:
+      title: 'Current use'
+    project_condition:
+      title: 'Project conditions'
+      desc: '(existing buildings/structures/trees, characteristics of adjacent areas that have an impact on the project, etc.)'
+    transport:
+      title: 'Access to transport infrastructure'
+      desc: '(distance to the nearest transport hubs and key infrastructure (airports, ports, railways, etc.))'
+    engineering:
+      title: 'Availability and distance to the engineering infrastructure'
+      desc: '(availability and distance to water, gas, electricity supply systems, sewage networks, their characteristics and capacities, etc.)'
+    resource:
+      title: 'Access to resources and services'
+      desc: 'access to the necessary resources (what resources are needed, sources of supply)'
+    assets:
+      title: 'Characteristics of existing assets'
+      desc: 'availability of buildings/structures and their characteristics (buildings that can be used for the project: technical plan, area, number of floors, technical condition, whether repair or disassembly is necessary) Existing equipment (short description, repair or disassembly)'
+    workforce:
+      title: 'Availability and qualifications of the workforce'
+      desc: '(availability of human resources with relevant skills and knowledge, specialized educational institutions, examples of similar projects/enterprises in the region, average wages and unemployment rate in the region)'
+    permission:
+      title: "Mandatory permissions and licenses"
+      desc: '(list of permits, time required for their receipt)'
+    ecological:
+      title: 'Environmental constraints and requirements'
+      desc: '(if applicable)'
+    privileges:
+      title: 'Existing privileges and incentives'
+      desc: '(if applicable)'
+    other:
+      title: 'Other'
+      desc: '(other information that may be useful to a potential investor, the availability of verified financial statements, other key financial indicators, interested co-investors'
+    name:
+      title: "Name"
+    position:
+      title: 'Position'
+    address:
+      title: 'Address'
+    phone:
+      title: 'Phone number'
+    email:
+      title: 'E-mail'
+  team:
+    title: 'Our team'
+    we: 'We are it...'
+    phone: 'Telephone'
+  chart:
+    title1: 'Structure of foreign investments'
+    title2: 'Population'
+    title3: 'Export'
+    short_title1: 'M'
+    short_title2: 'k'
+    short_title3: 'M'
+  about:
+    title_one_first: 'The city is comfortable'
+    title_one_second: 'for life'
+    value_one: '113,2 km'
+    value_two: '370 k. people'
+    value_third: '1363 year'
+    value_one_title: '- city ​​square'
+    value_two_title: '- city ​​population'
+    value_third_title: '- the first written mention of Vinnytsia'
+    description_one: 'Vinnytsia was recognized four times as the most comfortable city for living, for the first time, in 2013, the Focus magazine declared Vinnytsia the leader of the rating "The best cities for life". In 2015, 2016 and 2017, Vinnytsia headed a similar rating from the "Rating" sociological group, according to the results...'
+    title_two: 'Significant personnel potential'
+    value_four: '– the personnel potential of the city (aged 15 to 35), of which 54% are women, and 46% are men'
+    more: 'More than 45 thousand'
+    more_text: ' students obtain education in educational institutions of the city of Vinnytsia'
+    value_five: 'educational institutions of I-II levels of accreditation'
+    value_six: 'educational institutions of the highest accreditation level, 4 of which have the status of a national university, and 1 have the status of a state university.'
+    value_seven: 'vocational schools'
+    description_two: 'Vinnytsia region is among the TOP-10 regions of Ukraine with the best business climate (according to the Kyiv International Economic Forum 2017)'
+    title_third: 'Reliable business partner'
+    first_place: '1 Place'
+    first_place_desc: 'in the rating Regional Doing Business'
+    reg_time: '24 hours'
+    reg_time_desc: 'time of registration of business of individual entrepreneurs'
+    it_place: '1 Place'
+    it_place_desc: 'in the rating of transparency of the investment sector of Ukraine'
+    tab_one: 'Favorable investment climate'
+    tab_two: 'Mobility'
+    tab_three: 'Budget opportunities'
+    description_tree: 'Two industrial parks have been set up in Vinnytsia: Vinnytsia industrial park with an area of ​​60.7 hectares, and an industrial park "Vinnitsa cluster of refrigeration engineering" with an area of ​​19.3 hectares.'
+    rating_one: 'Rating «invА+»'
+    rating_one_desc: '«High investment attractiveness» in the ratings IBI-Rating'
+    rating_two: 'Rating «uaА»'
+    rating_two_desc: '«High creditworthiness» in the ratings IBI-Rating'
+    rating_three: '$115,9 M'
+    rating_three_desc: 'The volume of foreign direct investment by 2017 (80% of EU countries)'
+    rating_four: 'Has increased by 36%'
+    rating_four_desc: 'Volume of capital investments for the period from 2015 to 2017'
+    airport: 'International airport "Vinnitsa"'
+    airport_desc: 'Completely municipal project, the whole integral property complex is the property of the territorial community of the city'
+    train: 'Railway junction'
+    train_desc: 'The modern transport infrastructure of Vinnytsia, the geographical location and developed industry form a powerful logistics hub in the city.'
+    air_value_one: '100k passengers per year'
+    air_value_one_desc: '- bandwidth'
+    air_value_two: "Connects 3000 airports"
+    air_value_two_desc: 'in 80 cities, in 40 countries around the world'
+    air_value_three: '1 place'
+    air_value_three_desc: 'on the dynamics of passenger traffic among small airports in Ukraine as of 2017 (up to 100 thousand passengers per year)'
+    bus: 'Public transport'
+    bus_desc: 'One of the best examples of public transport is tram, trolley bus and bus'
+    rover: 'Cycling tracks'
+    rover_desc: 'Vinnitsa - a city that tries to live in harmony with the environment'
+    bus_value_one: '502 units'
+    bus_desc_one: '- the total number of public transport of the city'
+    bus_value_two: '194M persons per year'
+    bus_desc_two: '- passenger traffic'
+    bus_value_three: '67'
+    bus_desc_three: 'city ​​routes'
+    rover_value_one: '55 km'
+    rover_desc_one: '– total length of bicycle paths in the city  '
+    rover_value_two: ' 85 km'
+    rover_desc_two: 'According to the Cycling Development Program in Vinnytsia for 2013-2020, it is planned to extend its length to'
+    morgunov_name: 'Serhii Morhunov'
+    morgunov_position: 'Mayor of Vinnitsa'
+    morgunov_desc: "Vinnytsia is a modern city, the economy of which is developing dynamically. The city has long
+    industrial traditions, a powerful educational base, scientific schools that work in the field of information
+    technology, engineering, medicine. Vinnytsia is characterized by an advantageous geographical location, which is
+    one of its key competitive advantages. During the period of independence, the city's economy significantly
+    transformed: there was a structural shift from the mechanical engineering, electronic and chemical industries to
+    the food industry, trade and services. In recent years, the city authorities have been actively working on
+    attracting investment and developing the industrial sector. The investment passport will be interesting and useful
+    for private investors, representatives of foreign companies, citizens of the city and Ukraine."
+    morgunov_title: 'We invite you to cooperate in realization of joint investment initiatives!'

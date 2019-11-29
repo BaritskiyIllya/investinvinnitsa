@@ -1,0 +1,16 @@
+#mob-bars
+section#home-video
+  - if with_video?
+    .img-gradient= image_tag 'markup/bg-video.jpg', class: 'img-fluid img-bg'
+    .wrap-content
+      = render 'theme/navbar'
+      .row
+        .col-xl-4.offset-2.col-lg-4
+          .video-content
+            h1.headline
+              = @contents.slogan.title
+            .info
+              = text_briefly(@contents.slogan.description)
+  - else
+    = render 'theme/navbar'
+    hr  

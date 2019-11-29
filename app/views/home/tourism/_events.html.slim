@@ -1,0 +1,13 @@
+.events
+  h1.title= t('tourism.events_title')
+  .row
+    - @period_events.each do |period|
+      .col-sm-6.col-md-4
+        .event-card
+          .title= period.title
+          ul
+            - period.events.each do |event|
+              li= event.title
+          - if period.events.size > 1
+            .collapse-events
+              i.fa.fa-angle-down

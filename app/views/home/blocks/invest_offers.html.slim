@@ -1,0 +1,145 @@
+scss:
+  .hidden {
+    display: none;
+  }
+  .invest_offers_button{
+    width: 100%;
+  }
+  #nav-area, #nav-profile, #nav-contact{
+    .one-row{
+      flex-wrap: initial;
+      margin-bottom: 10px;
+      .for-label {
+        line-height: 22px;
+        label {
+          font-size: 22px;
+          margin-bottom: 0;
+        }
+      }
+      input::-webkit-input-placeholder {
+        font-size: 12px;
+      }
+      input:-ms-input-placeholder {
+        font-size: 12px;
+      }
+      input:-moz-placeholder {
+        font-size: 12px;
+      }
+      input::-moz-placeholder{
+        font-size: 12px;
+      }
+      textarea{
+        width: 100%;
+      }
+
+      textarea::-webkit-input-placeholder {
+        font-size: 12px;
+      }
+      textarea:-ms-input-placeholder {
+        font-size: 12px;
+      }
+      textarea:-moz-placeholder {
+        font-size: 12px;
+      }
+      textarea::-moz-placeholder {
+        font-size: 12px;
+      }
+    }
+    .additional-fields{
+      color: #999;
+      p{
+        text-align: justify;
+        line-height: 22px;
+      }
+      .additional_title{
+        font-size: 26px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px){
+    #nav-profile {
+      .one-row {
+        height: 100px;
+        .for-label {
+          label {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    #nav-contact {
+      .one-row {
+        height: 100px;
+        .for-label {
+          label {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+#invest_offers
+  .container
+    h2.block-header
+      = t('home.invest_offers_header')
+    .col-md-12
+      nav
+        #nav-tab.nav.nav-tabs.row[role="tablist"]
+          a#nav-area-tab.col-md-4.nav-item.nav-link.active[data-toggle="tab" href="#nav-area" role="tab" aria-controls="nav-area" aria-selected="false"]
+            .icon-block
+              = inline_svg 'feedback_icons/land_area.svg'
+            .title-block
+              = t('home.land_area')
+          a#nav-profile-tab.col-md-4.nav-item.nav-link[data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"]
+            .icon-block
+              = inline_svg 'feedback_icons/investor_form.svg'
+            .title-block
+              = t('home.potential_investor')
+          a#nav-contact-tab.col-md-4.nav-item.nav-link[data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"]
+            .icon-block
+              = inline_svg 'feedback_icons/invest_project_form.svg'
+            .title-block
+              = t('home.investment_project')
+      #nav-tabContent.tab-content.row.hidden
+        #nav-area.tab-pane.fade.show.active[role="tabpanel" aria-labelledby="nav-area-tab"]
+          = render 'home/blocks/land_area_form'
+        #nav-profile.tab-pane.fade[role="tabpanel" aria-labelledby="nav-profile-tab"]
+          = render 'home/blocks/potential_invest_form'
+        #nav-contact.tab-pane.fade[role="tabpanel" aria-labelledby="nav-contact-tab"]
+          = render 'home/blocks/submission_project_form'
+        .text-center.invest_offers_button#invest_offers_button
+          = render partial: 'home/blocks/big_btn', locals: { text: t('home.btns.send'), path: '#' }
+
+#answer_offers.modal.fade aria-hidden="true" aria-labelledby="answerOffersModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      button.close aria-label="Close" data-dismiss="modal" type="button"
+        span aria-hidden="true"  &times;
+      .modal-answer-title
+        = t('home.feedback_form.offer_title')
+      .modal-answer-description
+        = t('home.feedback_form.answer_description')
+
+javascript:
+  decimal_cut('input[type="text"].decimal-input', 2);
+  $('#potential_investor_phone, #potential_investor_representative_attributes_phone,' +
+    '#submission_project_phone, #user_land_area_phone, #potential_investor_fax,' +
+    '#potential_investor_representative_attributes_fax').mask("+38(999)999-99-99");
+
+  $('#invest_offers .home-big-btn a').click(function (e) {
+    e.preventDefault();
+    var tab_id = $("#nav-tab a.active").attr('href');
+    $(tab_id + ' form').submit();
+    $("#answer_offers").modal();
+  });
+
+  function showOffers() {
+    $('#nav-tabContent').removeClass('hidden');
+  }
+
+  $('#nav-area-tab, #nav-profile-tab, #nav-contact-tab').on('click', function () {
+    showOffers();
+  });

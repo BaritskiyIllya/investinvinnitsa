@@ -1,0 +1,14 @@
+h1.center Список новин
+
+= render 'layouts/general/table', path: new_admin_article_path, title: 'Список новин' do
+  thead
+    tr
+      th №п/п
+      th Назва українською
+      th Назва англійською
+      th Дії
+  tbody#articles
+    = render 'table'
+
+#article-paginator
+  = paginate @admin_articles, remote: true

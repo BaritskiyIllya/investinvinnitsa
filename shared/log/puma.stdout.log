@@ -1,0 +1,21 @@
+=== puma startup: 2019-11-21 14:14:08 +0200 ===
+[14242] * Starting control server on unix:///tmp/puma-status-1574338448552-14242
+Exiting
+=== puma startup: 2019-11-21 14:21:21 +0200 ===
+[14323] * Starting control server on unix:///tmp/puma-status-1574338881815-14323
+Exiting
+=== puma startup: 2019-11-21 14:22:10 +0200 ===
+[14433] * Starting control server on unix:///tmp/puma-status-1574338930543-14433
+Exiting
+=== puma startup: 2019-11-21 14:47:32 +0200 ===
+[15135] * Starting control server on unix:///tmp/puma-status-1574340452224-15135
+Exiting
+=== puma startup: 2019-11-21 14:50:56 +0200 ===
+[15212] * Starting control server on unix:///tmp/puma-status-1574340656640-15212
+bundler: failed to load command: puma (/home/server/.rbenv/versions/2.5.1/bin/puma)
+=== puma startup: 2019-11-21 14:52:52 +0200 ===
+[15347] * Starting control server on unix:///tmp/puma-status-1574340772462-15347
+Exiting
+=== puma startup: 2019-11-21 17:57:44 +0200 ===
+[23827] * Starting control server on unix:///tmp/puma-status-1574351864625-23827
+Exiting

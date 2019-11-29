@@ -1,0 +1,10 @@
+- @area_logs.each do |log|
+  tr
+    td= log.user.name
+    td= log.description
+    td= format_date_time(log.created_at, '-')
+    td
+      - if log.logable
+        = link_to 'Переглянути', [:edit_cabinet, log.logable]
+      - else
+        = "#{log.logable_type} з id: #{log.logable_id}"

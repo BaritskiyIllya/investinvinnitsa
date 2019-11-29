@@ -1,0 +1,100 @@
+#reviews
+  .container
+    h2.block-header
+      = t('home.reviews')
+    .block-title.center
+      = t('home.reviews_title')
+    .items
+      - @reviews.each do |review|
+        .item
+          .quotes
+            = inline_svg 'quote-left-solid.svg'
+          .text
+            = sanitazed_text(review.description.truncate(750, separator: ' ', omission: '...')) if review.description.present?
+            .read-more
+              = link_to reviews_path, class: 'link-to-more-info' do
+                span
+                  | Детальніше
+          .person
+            .avatar
+              = image_tag review.image.url, class: 'img-responsive review-author-avatar' if review.image.present?
+            .person-info
+              .name
+                span= review.first_name
+                span= review.last_name
+              .position
+                span= review.position
+    / .text-center
+    /   = render partial: 'home/blocks/big_btn', locals: {text: t('home.btns.show_all'), path: reviews_path }
+
+javascript:
+    $(document).ready(function () {
+        manageSlider();
+    });
+
+    $(window).resize(function () {
+        manageSlider()
+    });
+
+    $(window).on('orientationchange', function () {
+        manageSlider()
+    });
+
+    function resizeSlickHeight() {
+        $('.items .item .text').css('height', '');
+        var maxHeight = 0;
+        $('.items .item .text').each(function () {
+            if (maxHeight < $(this).height()) {
+                maxHeight = $(this).height()
+            }
+        });
+        $('.items .item .text').css('height', maxHeight);
+    }
+
+    function manageSlider() {
+        if ($(window).width() > 767) {
+            if (!$('.items').hasClass('slick-initialized')) {
+                initSlick();
+            }
+            resizeSlickHeight();
+        } else {
+            $('.items .item .text').css('height', '');
+            if ($('.items').hasClass('slick-initialized')) {
+                $('.items').slick("unslick");
+            }
+        }
+    }
+
+    function initSlick() {
+        $('.items').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 2,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            arrows: false,
+            adaptiveHeight: true,
+            rows: 1,
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        adaptiveHeight: true,
+                        slidesPerRow: 1,
+                        rows: 1,
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        adaptiveHeight: true,
+                        slidesPerRow: 1,
+                        rows: 1,
+                        slidesToShow: 2
+                    }
+                }
+            ]
+        });
+    }

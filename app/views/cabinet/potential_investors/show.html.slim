@@ -1,0 +1,50 @@
+scss:
+  .area-information {
+    width: 100%;
+    table {
+      width: 100%;
+      margin-bottom: 25px;
+      tr {
+        td {
+          width: 50%;
+          padding: 5px;
+        }
+        td.head {
+          font-weight: bold;
+          padding: 20px 5px;
+        }
+      }
+      tr.file{
+        td{
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+.container
+  .area-information
+    h3.center
+      | Анкета потенційного інвестора
+    table
+      - @cabinet_potential_investor.attributes.except('id').each do |k, v|
+        tr
+          td = I18n.t('potential_investor.' + k + '.title')
+          td = sanitazed_text(v)
+      - if @cabinet_potential_investor.representative.present?
+        tr
+          td.center colspan='2'
+            | ІНФОРМАЦІЯ НЕПРЯМОГО ПРЕДСТАВНИКА КОМПАНІЇ
+        - attr = @cabinet_potential_investor.representative
+        - if attr
+          - attr.attributes.except('id', 'potential_investor_id').each do |k,v|
+            - unless k == 'additional'
+              tr
+                td = I18n.t('potential_investor.' + k + '.title')
+                td = sanitazed_text(v)
+          - if File.exist?(attr.additional.path)
+            tr.file
+              td colspan='2'
+                = link_to "Завантажити додаток #{attr.additional.file.original_filename}", attr.additional.url, download: ''
+
+      

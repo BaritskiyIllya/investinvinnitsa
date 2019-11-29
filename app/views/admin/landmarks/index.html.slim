@@ -1,0 +1,17 @@
+= render 'layouts/general/table', path: new_admin_landmark_path, title: 'туристичні об’єкти' do
+  thead
+    tr
+      th №п/п
+      th Назва українською
+      th Назва позиція
+      th Дії
+  tbody
+    - @admin_landmarks.each do |admin_landmark|
+      tr
+        td= admin_landmark.id
+        td= admin_landmark.title_uk
+        td= admin_landmark.position
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_admin_landmark_path(admin_landmark)
+            = render 'blocks/btns/delete', path: admin_landmark_path(admin_landmark)

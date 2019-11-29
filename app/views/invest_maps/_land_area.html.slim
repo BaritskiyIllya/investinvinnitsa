@@ -1,0 +1,25 @@
+.area_name
+  span
+    = sanitazed_text(@gis.area_name)
+- if @gis.main_image.present?
+  .main-image
+    = image_tag @gis.main_image.url
+.information
+  table
+    tr
+      td.info-key = I18n.t('land_area.area_type')
+      td.info-value = sanitazed_text(@gis.area_type)
+    tr
+      td.info-key = I18n.t('land_area.total_area')
+      td.info-value = sanitazed_text(@gis.total_area)
+    tr
+      td.info-key = I18n.t('land_area.ownership_id')
+      td.info-value = sanitazed_text(@gis.ownership.try(:name))
+    tr
+      td.info-key = I18n.t('land_area.cadastral_number')
+      td.info-value = sanitazed_text(@gis.cadastral_number)
+    tr
+      td.info-key = I18n.t('land_area.transfer_type')
+      td.info-value = sanitazed_text(@gis.transfer_type)
+
+  = render 'invest_maps/pdf_file'

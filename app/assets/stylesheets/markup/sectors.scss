@@ -1,0 +1,246 @@
+@import "utilities/variables";
+
+section#sectors {
+  padding: 85px 0;
+  .container {
+    position: relative;
+    text-align: center;
+    .default-text-sector {
+      width: 100%;
+      margin-bottom: 50px;
+      display: inline-block;
+      p {
+        text-indent: 1.5em;
+        text-align: center;
+        span{
+          color: $main_color;
+          font-weight: bold;
+        }
+      }
+      &:before {
+        top: 0;
+        left: 35px;
+        z-index: -1;
+        content: '';
+        width: 140px;
+        height: 120px;
+        position: absolute;
+        background: #F5F5F5;
+      }
+      &:after {
+        top: -85px;
+        right: -80px;
+        z-index: -1;
+        content: '';
+        width: 130px;
+        height: 280px;
+        position: absolute;
+        background: #F5F5F5;
+      }
+    }
+    .cutter-right {
+      top: 75%;
+      right: -360px;
+      width: 80%;
+      height: 2px;
+      position: absolute;
+      background: $main_color;
+    }
+  }
+  .list-tabs {
+    width: 80%;
+  }
+  .video-sectors {
+    margin-top: 90px;
+    padding-top: 35px;
+    padding-left: 50px;
+    position: relative;
+    float: right;
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      bottom: 0;
+      height: 100%;
+      width: 75px;
+      background-color: #f5f5f5;
+    }
+  }
+  .run-video {
+    &:hover {
+      span.text {
+        border-bottom: 1px solid $main_color;
+      }
+    }
+    span.text {
+      color: #1F1E1E;
+      font-weight: bold;
+      font-family: 'Proxima Nova Lt';
+      border-bottom: 1px solid #E5E5E5;
+    }
+    span.watch_i_p{
+      width: 40px;
+      height: auto;
+      margin-left: 15px;
+      img{
+        width: inherit;
+        height: inherit;
+      }
+    }
+  }
+  #v-pills-tab {
+    position: relative;
+    margin-bottom: 40px;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 110%;
+      top: -5%;
+      right: 0;
+      z-index: 1;
+      background-color: #C4C4C4;
+    }
+    & > #sector-bar {
+      z-index: 2;
+      position: absolute;
+      width: 4px;
+      height: 0;
+      top: -5%;
+      right: 0;
+      background-color: $orange_color;
+
+      -webkit-transition:all 300ms ease-out 0.3s;
+      -moz-transition:all 300ms ease-out 0.3s;
+      -o-transition:all 300ms ease-out 0.3s;
+      transition:all 300ms ease-out 0.3s;
+    }
+    & > a {
+      position: relative;
+      text-align: right;
+      color: #7A7A7A;
+      font-size: 22px;
+      line-height: 22px;
+      padding: 25px;
+
+      font-weight: bold;
+      font-family: 'Proxima Nova Lt';
+      background-color: transparent;
+      & > .point {
+        z-index: 3;
+        // content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        top: 30px;
+        right: -6px;
+        background-color: #C4C4C4;
+      }
+      &:first-child {
+        padding-top: 0;
+        & > .point {
+          top: 4px;
+        }
+      }
+    }
+    & > a.active {
+      color: #1F1E1E;
+    }
+    & > a.competed > .point {
+      background-color: $orange_color;
+    }
+  }
+  .img-sector {
+    text-align: center;
+    & > div {
+      display: inline-block;
+      & > img {
+        display: block;
+        margin: auto;
+        // max-height: 410px;
+      }
+      -webkit-box-shadow: 0px 45px 35px -35px rgba(31, 30, 30, 0.3);
+      -moz-box-shadow: 0px 45px 35px -35px rgba(31, 30, 30, 0.3);
+      box-shadow: 0px 45px 35px -35px rgba(31, 30, 30, 0.3);
+    }
+  }
+  .sector-content {
+    padding: 10px;
+    & > div {
+      position: relative;
+      padding: 20px;
+      font-size: 18px;
+      &:not(:first-child):before {
+        content: '';
+        background-color: $main_color;
+        height: 2px;
+        width: 100px;
+        top: 0;
+        left: 0;
+        position: absolute;
+      }
+    }
+    .file {
+      p {
+        margin: 0;
+      }
+      a {
+        color: #1F1E1E;
+        font-weight: bold;
+        font-family: 'Proxima Nova Lt';
+        border-bottom: 1px solid #E5E5E5;
+        &:hover {
+          border-bottom: 1px solid #B4000F;
+        }
+      }
+    }
+  }
+  @media (min-width: 992px) {
+    .sector-content {
+      padding: 55px 0;
+    }
+    #v-pills-tab {
+      & > a {
+        font-size: 26px;
+        line-height: 32px;
+        padding: 50px;
+        & > .point {
+          top: 55px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    .list-tabs {
+      width: 40%;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .list-tabs-content {
+      display: inline-block;
+      width: 59%;
+      padding-left: 50px;
+    }
+    .sector-content {
+      font-size: 20px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .list-tabs {
+      width: 37%;
+    }
+    .list-tabs-content {
+      width: 53%;
+      padding-left: 100px;
+    }
+  }
+  @media (min-width: 1500px) {
+    .list-tabs-content {
+      width: 46%;
+      padding-left: 150px;
+    }
+  }
+}

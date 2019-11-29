@@ -1,0 +1,18 @@
+div(data-aos="zoom-out-right")
+  .potential-city
+    .cutter-right.cutter-after-style(style="--cuter-number: '2'")
+    .container
+      .row
+        .col-lg-5.p-0.d-flex.flex-column
+          .block-title.potential-title
+            = @abouts.personnel_potential.title
+          .block-desc.gray-back
+            = raw(@abouts.personnel_potential.information)
+        .col-lg-7.p-0
+          .img-container
+            - if @abouts.personnel_potential.project_images.by_locale(locale).first
+              = image_tag @abouts.personnel_potential.project_images.by_locale(locale).first.image.url,
+                class: 'w-100 img-fluid float-right z-index-1 img-bottom-shadow'
+      .potential-statistics-container
+        .statistic-block-v2
+          = raw(@abouts.personnel_potential.description)

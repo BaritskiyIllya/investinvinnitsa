@@ -1,0 +1,74 @@
+scss:
+  .char {
+    vertical-align: bottom;
+    display: inline-block;
+    float: none;
+  }
+
+  .state-chose {
+    padding-top: 15px;
+    .text {
+      margin-right: 10px;
+    }
+    .radio {
+      margin-right: 10px;
+    }
+  }
+
+= simple_form_for [:cabinet, @cabinet_transport] do |f|
+  .form-inputs
+    .row
+      .col-md-6.char
+        = f.label :name_uk, 'Назва маршруту українською'
+        = f.input :name_uk, label: false, input_html: {class: 'form-control'}
+      .col-md-6.char
+        = f.label :name_en, 'Назва маршруту англійською'
+        = f.input :name_en, label: false, input_html: {class: 'form-control'}
+    .row
+      .col-md-6.char
+        = f.label :route_uk, 'Номер маршруту українською'
+        = f.input :route_uk, label: false, input_html: {class: 'form-control'}
+      .col-md-6.char
+        = f.label :route_en, 'Номер маршруту англійською'
+        = f.input :route_en, label: false, input_html: {class: 'form-control'}
+    .row
+      .col-md-6.margin-bottom-10
+        = f.label :transport_type_id, 'Тип транспорту'
+        = f.input :transport_type_id,
+                as: :select,
+                collection: TransportType.all.map{|e| [e.name, e.id]},
+                selected: @cabinet_transport.transport_type_id,
+                label: false,
+                input_html: {class: 'form-control'}
+
+    input#geo_type type='hidden' name='transport[geo_json_attributes][geo_type]'
+    input#position type='hidden' name='transport[geo_json_attributes][position]'
+
+  / MAP block
+  = render 'cabinet/blocks/form/gis_types', f: f
+  = render 'cabinet/blocks/form/geo_json', f: f, area: @cabinet_transport
+  = render 'cabinet/blocks/form/map'
+  = render 'cabinet/blocks/form/map_layer', f: f
+  = render 'cabinet/blocks/form/states', area: @cabinet_transport
+
+  .form-actions.save_button
+    = render 'blocks/btns/save_button', f: f
+
+= javascript_include_tag 'application/google_map_form'
+
+javascript:
+    hide_gis_types();
+
+    function initMapForAreas(){
+        var AreaMap = initMap();
+        var model = "#{@cabinet_transport.model_name.name}";
+        var id = "#{@cabinet_transport.id}";
+        init_map_object(model, id, AreaMap);
+    }
+
+    $(document).ready(function () {
+        $('#transport_transport_type_id, #transport_map_layer_id').select2({ width: '100%' });
+        ready_map_functions()
+    });
+
+script async=true defer=true src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAP_API']}&libraries=drawing&callback=initMapForAreas"

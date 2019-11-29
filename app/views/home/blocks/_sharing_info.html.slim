@@ -1,0 +1,28 @@
+= tag :meta,
+  property: 'og:title',
+  content: raw("#{ symbol_code_butcher(yield(:og_title))}")
+= tag :meta,
+  property: 'og:description',
+  content: raw("#{ symbol_code_butcher(yield(:og_description))}")
+= tag :meta,
+  property: 'og:image',
+  content: "#{image_url(yield(:image_facebook)).presence || image_url('invest_logo.png')}"
+= tag :meta,
+  property: 'og:url',
+  content: "#{yield(:share_url)}"
+= tag :meta,
+  property: 'og:type',
+  content: "Article"
+
+= tag :meta,
+  name: 'twitter:card',
+  content: 'summary'
+= tag :meta,
+  name: 'twitter:title',
+  content: raw("#{ symbol_code_butcher(yield(:twitter_title)) }")
+= tag :meta,
+  name: 'twitter:description',
+  content: raw("#{ symbol_code_butcher(yield(:twitter_description))}")
+= tag :meta,
+  name: 'twitter:image',
+  content: "#{image_url(yield(:image_twitter)).presence || (request.protocol + request.host_with_port + image_path('invest_logo.png'))}"

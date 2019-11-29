@@ -1,0 +1,19 @@
+h1.center Список відділів
+
+= render 'layouts/general/table', path: new_admin_department_path, title: 'Список відділів' do
+  thead
+    tr
+      th Назва українською
+      th Назва англійською
+      th Порядок відображення
+      th Дії
+  tbody
+    - @admin_departments.each do |admin_department|
+      tr
+        td = admin_department.title_uk
+        td = admin_department.title_en
+        td = admin_department.position
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_admin_department_path(admin_department)
+            = render 'blocks/btns/delete', path: admin_department_path(admin_department)

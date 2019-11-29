@@ -1,0 +1,36 @@
+.area_name
+  span
+    = sanitazed_text(@gis.name)
+- if @gis.main_image.present?
+  .main-image
+    = image_tag @gis.main_image.url
+.information
+  table
+    tr
+      td.info-key = I18n.t('invest_project.investment_type_id')
+      td.info-value = sanitazed_text(@gis.investment_type.try(:name))
+    tr
+      td.info-key = I18n.t('invest_project.invest_sum')
+      td.info-value
+        = sanitazed_text(@gis.invest_sum)
+        = I18n.t('invest_project.invest_sum_mln')
+    tr
+      td.info-key = I18n.t('invest_project.area')
+      td.info-value = sanitazed_text(@gis.area)
+    tr
+      td.info-key = I18n.t('invest_project.ownership_id')
+      td.info-value = sanitazed_text(@gis.ownership.try(:name))
+    tr
+      td.info-key = I18n.t('invest_project.market')
+      td.info-value = sanitazed_text(@gis.market)
+    tr
+      td.info-key = I18n.t('invest_project.current_use')
+      td.info-value = sanitazed_text(@gis.current_use)
+    tr
+      td.info-key = I18n.t('invest_project.destination')
+      td.info-value = sanitazed_text(@gis.destination)
+    tr
+      td.info-key = I18n.t('invest_project.short_description')
+      td.info-value = sanitazed_text(@gis.short_description)
+
+  = render 'invest_maps/pdf_file'

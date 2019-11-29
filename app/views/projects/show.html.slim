@@ -1,0 +1,46 @@
+scss:
+  .project{
+    .project-title{
+      text-align: center;
+    }
+    .project-image{
+      text-align: center;
+      img{
+        width: 500px;
+        height: auto;
+      }
+    }
+    .project-description{
+      text-align: justify;
+      table {
+        border-collapse: initial;
+        tr {
+          td {
+            ul, ol {
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 400px){
+    .project{
+      .project-image {
+        img{
+          width: 300px;
+        }
+      }
+    }
+  }
+
+.project
+  .container
+    .project-title
+      h1 = @project.title
+    .project-image
+      - if @project.project_images.by_locale(locale.to_s).present?
+        = image_tag @project.project_images.by_locale(locale.to_s)[0].image.url, class: 'img-responsive'
+    .project-description
+      p = sanitazed_text(@project.description)

@@ -1,0 +1,11 @@
+.tab-pane.active#main_uk
+  .form-group
+    = f.label :title_uk, 'Назва українською'
+    = f.input :title_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :link_uk, 'Посилання українською'
+    = f.input :link_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.input :position, input_html: { class: 'form-control' }
+  .form-group.admin-cropper-v2
+    = cropper_for(f, :img, f.object.img, width: 458, height: 251, enableResize: false)

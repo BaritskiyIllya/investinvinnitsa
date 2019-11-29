@@ -1,0 +1,461 @@
+.about-wrapper {
+  margin-top: 70px;
+  overflow: hidden;
+  .bottom-yellow-cutter-after {
+    &:after {
+      content: '';
+      position: absolute;
+      background: #FFBA40;
+      width: 150px;
+      height: 2px;
+      bottom: 5%;
+      left: -15px;
+    }
+  }
+  .simple-wrapper {
+    width: 100%;
+  }
+  .cutter-left {
+    width: 18%;
+    background: #B4000F;
+    height: 2px;
+    position: relative;
+    &:after {
+      right: 5%;
+    }
+  }
+  .cutter-right {
+    position: absolute;
+    width: 20%;
+    height: 2px;
+    right: 0;
+    top: 5%;
+    background: #FFBA40;
+    &:after {
+      content: '2';
+      left: 25%;
+    }
+  }
+  .cutter-after-style {
+    &:after {
+      font-size: 100px;
+      position: absolute;
+      line-height: 0;
+      font-family: 'VinnytsiaSansaNewCity-Bold';
+      color: rgba(0, 0, 0, 0.05);
+      content: var(--cuter-number);
+      top: 40px;
+    }
+  }
+  .block-title {
+    color: #1F1E1E;
+    font-size: 44px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-family: 'Proxima Nova Lt';
+  }
+  .statistic-block {
+    .first-part {
+      display: inline-block;
+      color: #B4000F;
+      font-weight: 600;
+    }
+    .second-part {
+      display: inline-block;
+      padding-left: 5px;
+    }
+  }
+  .statistic-block-v2 {
+    padding: 15px 0;
+  }
+  .statistic-info {
+    text-align: right;
+    position: relative;
+    z-index: 1;
+  }
+  .main-block-container {
+    padding-top: 30px;
+    .block-desc {
+      .text {
+        position: relative;
+        z-index: 1;
+      }
+      &:before {
+        z-index: 0;
+        content: '';
+        position: absolute;
+        background: #F5F5F5;
+        width: 200px;
+        height: 200px;
+        left: 0;
+        top: -50px;
+      }
+      .block-link {
+        color: #FFBA40;
+        text-decoration: none;
+        margin-top: 60px;
+        display: inline-block;
+        i {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  .img-container {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    vertical-align: bottom;
+    &.img-left-yellow-cutter {
+      &:before {
+        content: '';
+        position: absolute;
+        width: 25%;
+        height: 3px;
+        background: #FFBA40;
+        z-index: 0;
+        left: -20%;
+        top: 10%;
+      }
+    }
+    &.small-gray-stab {
+      &:after {
+        z-index: 0;
+        content: '';
+        position: absolute;
+        background: #F5F5F5;
+        width: 130px;
+        height: 200px;
+        right: -50px;
+        bottom: -50px;
+      }
+    }
+   .img-bottom-shadow {
+     -webkit-box-shadow: 0px 46px 46px -27px rgb(209, 209, 209);
+     -moz-box-shadow: 0px 46px 46px -27px rgb(209, 209, 209);
+     box-shadow: 0px 46px 46px -27px rgb(209, 209, 209);
+    }
+  }
+  .comfortable-city-container {
+    margin-top: 15px;
+  }
+  .z-index-1 {
+    z-index: 1;
+    position: relative;
+  }
+  .potential-city {
+    position: relative;
+    margin-top: 200px;
+    margin-bottom: 150px;
+    &:before {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      height: 50px;
+      width: 2px;
+      background: #FFBA40;
+    }
+    .potential-title {
+      position: relative;
+      left: 5%;
+    }
+    .block-desc {
+      margin-top: auto;
+    }
+    .potential-statistics-container {
+      display: inline-block;
+      padding: 30px;
+      width: 50%;
+    }
+  }
+  .block-desc {
+    color: #1F1E1E;
+    line-height: 30px;
+    font-size: 20px;
+    position: relative;
+    padding: 30px;
+    &.gray-back {
+      background: #F5F5F5;
+    }
+  }
+  .red-mark {
+    padding: 0 5px 0 0;
+    color: #B4000F;
+    background: none;
+    font-weight: 600;
+  }
+  .business-partner {
+    .business-partner-statistic {
+      position: relative;
+      padding: 30px;
+      margin-top: 50%;
+      .statistic-block-v2 {
+        padding: 25px 0;
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        mark {
+          display: block;
+        }
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        background: #F5F5F5;
+        height: 110%;
+        width: 125%;
+        top: 0;
+        left: -25%;
+        z-index: 0;
+      }
+    }
+    .block-desc {
+      margin-top: 100px;
+      position: relative;
+      z-index: 1;
+      padding: 0;
+    }
+  }
+  .tabs-contaner {
+    margin-top: 200px;
+    .nav-tabs {
+      border: none;
+      .nav-item {
+        width: 33.333%;
+        text-align: center;
+        .nav-link {
+          font-weight: 600;
+          font-family: 'Proxima Nova Lt';
+          font-size: 32px;
+          background: none;
+          color: #000000;
+          border: none;
+          border-radius: unset;
+          height: 100%;
+          &.bordered-right {
+            border-right: 1px solid #B4000F;
+          }
+          &.active {
+            color: #B4000F;
+          }
+        }
+      }
+    }
+    .tab-content {
+      margin-top: 60px;
+      #good-climat {
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          background: #F5F5F5;
+          top: 50%;
+          z-index: 0;
+          left: 33%;
+          width: 25%;
+          height: 40%;
+        }
+        .look-btn {
+          position: relative;
+          z-index: 1;
+          margin-top: 15%;
+          cursor: pointer;
+          background: #B4000F;
+          border: none;
+          width: 250px;
+          height: 80px;
+          border-radius: 4px;
+          color: white;
+        }
+        .block-desc {
+          z-index: 1;
+          padding: 0;
+        }
+        .good-climat-statistics {
+          position: relative;
+          margin-top: 80px;
+          z-index: 1;
+          display: inline-block;
+          text-align: left;
+          .statistic-block {
+            margin-top: 5%;
+          }
+        }
+      }
+      #mobilable {
+        position: relative;
+        .mobilable-title {
+          margin-top: 60px;
+          color: #1F1E1E;
+          font-size: 26px;
+          font-weight: 600;
+          font-family: 'Proxima Nova Lt';
+        }
+      }
+      #budget-opportunities {
+        position: relative;
+        &:before {
+          content: '';
+          position: absolute;
+          background: #F5F5F5;
+          width: 250px;
+          height: 250px;
+          left: 25%;
+          top: 25%;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          background: #F5F5F5;
+          width: 250px;
+          height: 250px;
+          right: 30%;
+          bottom: 13%;
+          z-index: -1;
+        }
+      }
+    }
+  }
+  .about-morgunov {
+    position: relative;
+    margin-top: 100px;
+    .stab-v2 {
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 25%;
+        z-index: 0;
+        height: 30%;
+        background: #F5F5F5;
+      }
+    }
+    .morunov-name {
+      position: relative;
+      z-index: 1;
+      font-size: 26px;
+      color: #1F1E1E;
+      font-weight: 600;
+      font-family: 'Proxima Nova Lt';
+    }
+    .morunov-position {
+      position: relative;
+      z-index: 1;
+      font-size: 20px;
+      color: #7A7A7A;
+    }
+    .morunov-quote {
+      position: relative;
+      z-index: 1;
+      margin-top: 30px;
+      font-size: 20px;
+      color: #1F1E1E;
+      text-align: justify;
+    }
+    .morgun-invites {
+      position: relative;
+      z-index: 1;
+      margin-top: 100px;
+      width: 75%;
+      display: inline-block;
+      text-align: center;
+      position: relative;
+      padding-bottom: 10px;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 20%;
+        height: 2px;
+        left: 40%;
+        bottom: 0;
+        background: #B4000F;
+      }
+    }
+  }
+}
+
+@media(max-width: 991px) {
+  .about-wrapper {
+    margin-top: 15px;
+    padding: 0 15px;
+    .statistic-info {
+      text-align: left;
+    }
+    .potential-city {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      .potential-statistics-container {
+        width: 100%;
+      }
+    }
+    .business-partner {
+      &:after {
+        display: none;
+      }
+      .business-partner-statistic {
+        margin-top: 0;
+        &:after {
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+    .tabs-contaner {
+      margin-top: 80px;
+    }
+    .about-morgunov {
+      margin-top: 15px;
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  .about-wrapper {
+    .block-desc {
+      padding: 15px;
+    }
+    .block-title {
+      &.tablet-font-size-30 {
+        font-size: 30px;
+      }
+    }
+    .tabs-contaner {
+      .tab-content {
+        margin-top: 15px;
+      }
+      .nav-tabs {
+        border: none;
+        .nav-item {
+          width: 33.333%;
+          text-align: center;
+          .nav-link {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .tablet-padding-top-40 {
+      padding-top: 40px;
+    }
+  }
+}
+
+@media(max-width: 424px) {
+  .about-wrapper {
+    .tabs-contaner {
+      .nav-tabs {
+        border: none;
+        .nav-item {
+          width: 33.333%;
+          text-align: center;
+          .nav-link {
+            font-size: 12px;
+            padding: 5px;
+          }
+        }
+      }
+    }
+  }
+}

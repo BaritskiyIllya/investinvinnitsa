@@ -1,0 +1,52 @@
+footer
+  .blur-mask style="background-image: url(#{asset_path('top.jpg')})"
+  .mask
+  .container
+    .row
+      .col-md-4.footer-logo.margin-b-50
+        .margin-b-15
+          = image_tag 'invest_logo_white.png'
+        p
+          = I18n.t('home.footer.mail_address')
+        p
+          = I18n.t('home.footer.address_city')
+        p
+          = I18n.t('home.footer.address_street')
+
+      .col-md-4.more-info.margin-b-50
+        p.margin-b-15
+          = I18n.t('home.footer.phone')
+        h2.margin-b-15
+          | +38(0432)59-50-46
+        p
+          = I18n.t('home.footer.email')
+        p
+          | dei@vmr.gov.ua
+
+      .col-md-4.news-subscriber.margin-b-50
+        p.margin-b-15
+          = I18n.t('home.footer.news_subscrib')
+        = form_tag subscribers_path, id: 'submit_subscribe', remote: true do
+          .form-row.align-items-center
+            .col
+              .input-group.mb-2
+                = text_field_tag 'subscriber[email]', '',
+                        class: 'form-control',
+                        id: 'inlineFormInputGroup',
+                        placeholder: 'Ваш e-mail',
+                        type: 'email',
+                        required: true
+                .input-group-append
+                  = submit_tag t('home.btns.send'), class: 'btn btn-danger', form: 'submit_subscribe'
+        .partners
+          = link_to 'http://www.vmr.gov.ua', target: '_blank' do
+            = image_tag 'vmr.png'
+          = link_to 'https://innovation.vn.ua/', target: '_blank' do
+            = image_tag 'vmci.png'
+          = link_to 'https://c4b.com.ua/', target: '_blank' do
+            = image_tag 'logo-c4b.png'
+        .social-networks
+          span
+            | FB
+          span
+            | G+

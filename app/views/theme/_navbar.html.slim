@@ -1,0 +1,44 @@
+= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'
+
+nav.navbar#locale_search_block
+  .col-xl-3.text-center
+    = link_to "#{locale_link('', I18n.locale)}", class: 'logo' do
+      - if with_video?
+        = image_tag 'invest_logo_header.png'
+      - else
+        = image_tag 'invest_logoBlack.png'
+  = render 'theme/menu', menus: @main_menu
+  ul.tools
+    li.locale.dropdown
+      a#dropdownLocaleLink.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+        span= t('choose_lan')
+        i.fa.fa-globe
+      .dropdown-menu aria-labelledby="dropdownLocaleLink"
+        - I18n.available_locales.each do |loc|
+          a.dropdown-item href="#{locale_link(url_for(controller: controller_name, action: action_name), loc)}"
+            = t('language', locale: loc.to_sym)
+  .offset-xl-1
+    ul.tools
+      li#search
+        .view-search-block
+          i.fa.fa-search
+        .close-search-block
+          i.fa.fa-times
+        .search-block.animated.fadeInRight
+          form action="#{search_path}"
+            .field
+              .search-input
+                input.input[type="text" name="srch-term" autocomplete="off" placeholder="#{I18n.t('home.search')}"]
+              .search-button
+                button type="submit"
+                  i.fa.fa-search
+
+javascript:
+  $(document).ready(function () {
+    $(".view-search-block").on("click", function () {
+      $(".tools").addClass('active-search');
+    });
+    $(".close-search-block").on("click", function () {
+      $(".tools").removeClass('active-search');
+    });
+  });

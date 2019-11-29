@@ -1,0 +1,42 @@
+.cls-content
+  .cls-content-lg.panel
+    .panel-body
+      .mar-ver.pad-btm
+        h1.h3 Форма Реєстрації
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        .row
+          .col-sm-6
+            .form-group
+              = f.input :last_name, label: false, type: :text, input_html: {placeholder: 'Прізвище', class: 'form-control'}
+            .form-group
+              = f.input :first_name, label: false, type: :text, input_html: {placeholder: 'Ім’я', class: 'form-control'}
+            .form-group
+              = f.input :middle_name, label: false, type: :text, input_html: {placeholder: 'По батькові', class: 'form-control'}
+            .form-group
+              = f.input :gender, as: :select, collection: [['Оберіть стать', ''], %w(Чоловіча male), %w(Жіноча female)], label: false, include_blank: false, input_html: { placeholder: 'Стать', class: 'form-control' }
+            .form-group
+              = f.text_field :birth_date, autocomplete: 'off', placeholder: 'Дата народження', input_html: {class: 'form-control'}
+          .col-sm-6
+            .form-group
+              = f.input :phone, label: false, type: :text, input_html: {placeholder: 'Телефон', class: 'form-control'}
+            .form-group
+              = f.input :position, label: false, type: :text, input_html: {placeholder: 'Посада', class: 'form-control'}
+            .form-group
+              = f.input :email, label: false, type: :email, input_html: { placeholder: 'Електронна пошта', class: 'form-control' }
+            .form-group
+              = f.input :password, autocomplete: 'off', label: false, type: :password, input_html: { placeholder: 'Пароль', class: 'form-control' }
+            .form-group
+              = f.input :password_confirmation, autocomplete: 'off', label: false, type: :password, input_html: { placeholder: 'Підтвердження пароля', class: 'form-control' }
+        .checkbox.pad-btm.text-left
+          = f.check_box :acquainted, as: :boolean, :class => 'magic-checkbox'
+          = f.label :acquainted, 'Я згоден з '
+          b = link_to 'Terms and Conditions', '#'
+        = f.button :submit, 'Реєстрація', class: 'btn btn-primary btn-lg btn-block'
+    = render 'users/shared/links'
+
+javascript:
+  $(document).ready(function () {
+    initDatetimePickerEmpty($('#user_birth_date'));
+    $('#user_gender').select2({width: '100%'});
+    $('#user_phone').mask("+38(999)999-99-99");
+  });

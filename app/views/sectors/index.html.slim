@@ -1,0 +1,25 @@
+section#sectors
+  .container
+    .default-text-sector
+      p
+        span
+          = I18n.t('default_sector_text_title')
+        = I18n.t('default_sector_text_first')
+      p
+        = I18n.t('default_sector_text_second')
+    .cutter-right
+  .list-tabs
+    #v-pills-tab.nav.flex-column.nav-pills aria-orientation="vertical" role="tablist"
+      - @sectors.each do |sector|
+        = sector_tab_link(sector)
+      #sector-bar
+    .video-sectors.d-none.d-lg-block
+      = link_to "/Vinnitsa_Invest_#{locale.to_s}.pdf", class: 'run-video', target: '_blank' do
+        span.text= t('home.watch_invest_passport')
+        span.watch_i_p
+          = image_tag 'watch_invest_passport.svg', class: 'img-fluid'
+
+  .list-tabs-content
+    #v-pills-tabContent.tab-content
+      - @sectors.each do |sector|
+        = sector_tab(sector)

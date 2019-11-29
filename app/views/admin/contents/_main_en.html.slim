@@ -1,0 +1,8 @@
+.tab-pane#main_en
+  .form-group
+    = f.label :title_en, 'Назва англійською'
+    = f.input :title_en, label: false, input_html: { class: 'form-control' }
+  - unless content_without_desc.include? f.object.alias
+    .form-group
+      = f.label :description_en, 'Опис англійською'
+      = ckeditor_input(f, :description_en)

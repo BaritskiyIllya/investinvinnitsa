@@ -1,0 +1,71 @@
+= stylesheet_link_tag 'markup/radio_checkbox'
+= stylesheet_link_tag 'invest_map'
+
+.container
+  .project-header
+    p = I18n.t('vin_project')
+  .row.projects
+    - @projects.each.each do |project, index|
+      .project
+        .project-image
+          .shadow-block
+          - if index == 0
+            .left-down-block
+          - else
+            .right-top-block
+          - if project.project_images.present? && project.project_images.by_locale(locale.to_s).present?
+            = link_to projects_path(project.alias) do
+              img data-lazy="#{project.image.image.url}"
+        .project-title
+          = link_to projects_path(project.alias) do
+            p = sanitazed_text(project.title)
+          .project-line
+        .project-description
+          p = sanitazed_text(project.short_description)
+        .project-details
+          = link_to projects_path(project.alias) do
+            span.text
+              = t('read_more_v2')
+            span.arrow
+              i.fa.fa-arrow-right
+
+.block-for-filter
+  #map_info
+    .resizer
+      i.fa.fa-angle-left
+    #map_filter
+      - @filter_groups.each do |group|
+        .filter-group
+          .btn-collapsed.collapsed[data-target="#panel_collapse_#{group.id}" data-toggle="collapse" aria-expanded="false"]
+            = group.title
+          .select-all id="select_#{group.id}"
+            = t('select_all')
+          .clear.hidden id="clear_#{group.id}"
+            = t('clear')
+        .group-filters.collapse[aria-expanded="false" id="panel_collapse_#{group.id}"]
+          - group.map_layers.each do |filter|
+            .checkbox.pad-btm.text-left
+              - if filter.layer && filter.map_layer_link.info.present?
+                i.fa.fa-info-circle.zoning-info-icon data-info="#{filter.map_layer_link.info.url}"
+              input name="map_filter_#{filter.id}" type="hidden" value="0"
+              input.magic-checkbox.map-filter name="map_filter_#{filter.id}" type="checkbox" value="#{filter.id}" id="map_filter_#{filter.id}" data-layer="#{filter.layer}" data-group="#{group.id}" checked=[1,2,3,4,12,14].include?(filter.id)
+              label for="map_filter_#{filter.id}"
+                = filter.title
+    #gis_info.hidden
+      .small-btn.go-to-filter
+        = link_to '', class: 'btn btn-danger' do
+          = I18n.t('go_to_filter')
+      .small-btn.go_to_object
+      .wrapper
+.gis
+  .zoning-info#zoning_info_place
+    .close-zoning
+      span aria-hidden="true" &times;
+    .photo
+  #invest_map
+
+= render file: 'home/blocks/invest_offers'
+
+= javascript_include_tag 'invest_map'
+/= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyA_hnNvu7poZyStmZTRzdaq3wdx4vN8msE&language=#{locale}&libraries=drawing&callback=initGoogleMap"
+= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAP_API']}&language=#{locale}&libraries=drawing&callback=initGoogleMap"

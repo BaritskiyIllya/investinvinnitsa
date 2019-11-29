@@ -1,0 +1,18 @@
+h1.center Форми власності
+
+= render 'layouts/general/table', path: new_cabinet_ownership_path, title: '' do
+  thead
+    tr
+      th Назва українською
+      th Назва англійською
+      th Дії
+  tbody
+    - @cabinet_ownerships.each do |item|
+      tr
+        td
+          = item.name_uk
+        td
+          = item.name_en
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_cabinet_ownership_path(item)

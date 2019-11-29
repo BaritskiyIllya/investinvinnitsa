@@ -1,0 +1,11 @@
+h1.center Транспортна система
+
+= render 'layouts/general/filter_table', path: new_cabinet_transport_path, title: '' do
+  thead
+    tr
+      th Статус
+      th Назва
+      th Маршрут
+      th Дії
+  tbody
+    = render 'table'

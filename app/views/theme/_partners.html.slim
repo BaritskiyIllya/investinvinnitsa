@@ -1,0 +1,26 @@
+section#partners
+  .container
+    h2.title= t('home.partners')
+  .partners-block.section.parallax-container
+    #partners-parallax-window.material-parallax data-image-src="#{asset_path('partners-background.jpg')}"
+    .partners.parallax-content
+      .container
+        .row#partners-items
+          .item
+            = link_to 'https://ua.agrana.com/domashnja-storinka/', target: '_blank' do
+              = image_tag 'partners/agrana.svg', class: 'img-fluid'
+          .item
+            = link_to 'http://www.barlinek.ua/', target: '_blank' do
+              = image_tag 'partners/barlinek.svg', class: 'img-fluid'
+          .item
+            = link_to 'https://dpes.com.ua/', target: '_blank' do
+              = image_tag 'partners/delphi.svg', class: 'img-fluid'
+          .item
+            = link_to 'https://www.roshen.com/', target: '_blank' do
+              = image_tag 'partners/roshen.svg', class: 'img-fluid'
+          .item
+            = link_to 'http://www.beer-co.com/', target: '_blank' do
+              = image_tag 'partners/ubs.png', class: 'img-fluid'
+          .item
+            = link_to 'http://vioil.com/', target: '_blank' do
+              = image_tag 'partners/vioil.png', class: 'img-fluid'

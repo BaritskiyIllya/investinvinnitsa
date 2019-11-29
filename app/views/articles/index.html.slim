@@ -1,0 +1,17 @@
+#list-articles.bg-gray
+  .container
+    .row
+      .col-sm-12
+        h1.title= t('home.news')
+      / .col-sm-8
+      /   h1.title= t('home.news')
+      / .col-sm-4
+      /   ul
+      /     li
+      /       a href='#' Останні
+      /     li
+      /       a href='#' За місяць
+
+    .row.articles#pagination-list data-next-page="#{next_page}" data-url="#{articles_path}"
+      = render @articles
+    = content_tag(:div, t('articles.load'), class: 'btn-pagination') unless @articles.last_page?

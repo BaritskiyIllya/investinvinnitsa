@@ -1,0 +1,62 @@
+header#header
+  .container-fullwidth
+    .row
+      .col-xs-4.col-md-2.header-logo
+        = link_to "#{locale_link('', I18n.locale)}", class: 'navbar-brand' do
+          = image_tag 'invest_logo.png'
+      .col-xs-8.col-md-10.header-menu
+        .language
+          = render 'layouts/blocks/main/language'
+        .main-menu
+          = render 'layouts/blocks/main/menu_list'
+
+javascript:
+  $(document).ready(function () {
+    $("ul#menu_list li a[href='" + $(location).attr('pathname') + "']").parent('li').addClass('active-link');
+
+    $("#menu_list").on("click", "a", function (event) {
+      if(window.location.pathname == '/' || window.location.pathname == '/en/') {
+        if ($(this).attr('href').search('#') != -1) {
+          event.preventDefault();
+          if ($(this).attr('href').search('en') != -1) {
+            var id = $(this).attr('href').replace('/en/', ''), top = $(id).offset().top;
+          } else {
+            var id = $(this).attr('href').replace('/', ''), top = $(id).offset().top;
+          }
+          $('body,html').animate({scrollTop: top - 110}, 1000);
+        } else {
+          window.location.href = $(this).attr('href');
+        }
+      }else{
+        window.location.href = $(this).attr('href');
+      }
+    });
+  });
+
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: 'uk',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      },
+      'google_translate_element'
+    );
+  }
+
+  function change_header() {
+    setTimeout(function () {
+      var attr = $('.skiptranslate').attr('style');
+      if (typeof attr !== typeof undefined && attr !== false) {
+        if ($('.skiptranslate').css('display') == 'none'){
+          $('header').css('top', '0')
+        }else{
+          if($('html').hasClass('translated-ltr')){
+            $('header').css('top', '40px')
+          }
+        }
+      }
+      change_header()
+    }, 500)
+  }
+  change_header();
+
+= javascript_include_tag "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=#{I18n.locale.to_s}"

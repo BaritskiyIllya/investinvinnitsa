@@ -1,0 +1,22 @@
+.tab-pane.active#main_uk
+  .form-group
+    = f.label :short_title_uk, 'Коротка назва українською'
+    = f.input :short_title_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :title_uk, 'Назва українською'
+    = f.input :title_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :description_uk, 'Опис українською'
+    = ckeditor_input(f, :description_uk)
+  .form-group
+    = f.label :link_uk, 'Посилання на українську версію'
+    = f.input :link_uk, label: false, input_html: { class: 'form-control' }
+  .video
+    - if @admin_video.link_uk.present?
+      iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" src="#{implement_url(@admin_video.link_uk)}"
+  .form-group
+    = f.label :video_position, 'Місце виводу відео'
+    = f.association :video_position, collection: VideoPosition.all.order(:title), label: false, class: 'form-control'
+
+javascript:
+  $('#video_video_position_id').select2({ width: '100%' });

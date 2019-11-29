@@ -1,0 +1,16 @@
+= render 'layouts/general/table', path: new_admin_sector_path, title: 'Список галузей' do
+  thead
+    tr
+      th №п/п
+      th Назва українською
+      th Позиція
+      th Дії
+  tbody
+    - @admin_sectors.each do |admin_sector|
+      tr
+        td= admin_sector.id
+        td= admin_sector.title_uk
+        td= admin_sector.position
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_admin_sector_path(admin_sector)

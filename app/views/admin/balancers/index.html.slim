@@ -1,0 +1,15 @@
+h1.center Список структурних підрозділів
+
+= render 'layouts/general/table', path: new_admin_balancer_path, title: '' do
+  thead
+    tr
+      th Назва
+      th Дії
+  tbody
+    - @admin_balancers.each do |balancer|
+      tr
+        td = balancer.name
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_admin_balancer_path(balancer)
+            = render 'blocks/btns/delete', path: admin_balancer_path(balancer)

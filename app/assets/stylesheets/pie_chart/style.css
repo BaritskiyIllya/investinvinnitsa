@@ -1,0 +1,28 @@
+.arc1 text, .arc2 text {
+    font-size: 16px;
+    text-anchor: middle;
+    font-weight: bold;
+}
+
+.arc1:hover, .arc2:hover{
+    cursor: pointer;
+}
+
+.arc1 path, .arc2 path {
+  stroke: #fff;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    min-width: 60px;
+    padding: 5px;
+    background: lightcyan;
+    border: 0;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.tooltip p{
+    margin: 0;
+}

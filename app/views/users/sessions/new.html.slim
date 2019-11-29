@@ -1,0 +1,16 @@
+.cls-content
+  .cls-content-sm.panel
+    .panel-body
+      .mar-ver.pad-btm
+        h1.h3 Форма Авторизації
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        p.error = flash[:alert] if flash[:alert]
+        .form-group
+          = f.input :email, label: false, type: :email, autofocus: true, input_html: { placeholder: 'Електронна пошта', class: 'form-control' }
+        .form-group
+          = f.input :password, autocomplete: 'off', label: false, type: :password, input_html: { placeholder: 'Пароль', class: 'form-control' }
+        .checkbox.pad-btm.text-left
+          = f.check_box :remember_me, as: :boolean, class: 'magic-checkbox' if devise_mapping.rememberable?
+          = f.label :remember_me, 'Запам’ятати мене'
+        = f.button :submit, 'Вхід', class: 'btn btn-primary btn-lg btn-block'
+    = render 'users/shared/links'

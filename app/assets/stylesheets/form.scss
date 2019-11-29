@@ -1,0 +1,74 @@
+input {
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 50px white !important;
+  -webkit-text-fill-color: black !important;
+  color: black !important;
+}
+input[disabled] {
+  background: white;
+}
+.input.select.optional, .input.select.required{
+  width: 100%;
+}
+.select:before{
+  display: none;
+}
+input#user_birth_date{
+  width: 100%;
+  height: 33px;
+  border-radius: 3px;
+  border: 1px solid #dbdfe4;
+}
+.select2-container--default .select2-selection--single{
+  height: 33px;
+  border-radius: 3px;
+  border: 1px solid #dbdfe4;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+  height: 31px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+  color: #444;
+  line-height: 31px;
+}
+.hidden-select{
+  display: none;
+}
+
+.panel-body {
+  position: relative;
+  padding: 15px;
+  border: 1px solid #e2e2e2;
+  .tab-name{
+    display: inline-block;
+    border: 1px solid #ccc;
+    margin: 5px;
+  }
+}
+.images-form {
+  .upload-msg, .upload-msg-en {
+    color: #aaa;
+    width: 300px;
+    padding: 50px;
+    margin: 50px auto;
+    text-align: center;
+    border: 1px solid #aaa;
+    img {
+      width: 100%;
+    }
+    a {
+      margin-top: 5px;
+    }
+  }
+  .upload-wrap, .get-image, .upload-wrap-en, .get-image-en {
+    display: none;
+  }
+  .get-image, .get-image-en {
+    a {
+      cursor: pointer;
+      padding: 5px;
+    }
+  }
+}

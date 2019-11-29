@@ -1,0 +1,12 @@
+- @cabinet_transports.each do |item|
+  tr
+    td
+      = I18n.t('states.' + item.state)
+    td
+      = item.name
+    td
+      = item.route
+    td
+      = render 'layouts/blocks/action_btns' do
+        = render 'blocks/btns/edit', path: edit_cabinet_transport_path(item)
+        = render 'blocks/btns/delete', path: cabinet_transport_path(item)

@@ -1,0 +1,9 @@
+/.materials
+/  h2.text-center
+/    = I18n.t('list_materials')
+/  .container
+/    - @materials.each do |material|
+/      .row
+/        = link_to material, { data: { id: material.id } } do
+/          span
+/            = raw material.title.truncate(120)

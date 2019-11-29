@@ -1,0 +1,59 @@
+@import 'markup/font';
+
+.center{
+  text-align: center;
+}
+
+.left{
+  text-align: left;
+}
+
+.right{
+  text-align: right;
+}
+
+.padding-left-0{
+  padding-left: 0;
+}
+.padding-right-0{
+  padding-right: 0;
+}
+
+.margin-bottom-10{
+  margin-bottom: 10px;
+}
+
+.error{
+  color: red;
+}
+
+.table-responsive {
+  overflow-x: unset;
+}
+
+.form-actions{
+  padding-top: 10px;
+}
+
+.form-control{
+  margin-bottom: 10px;
+}
+
+.error{
+  color: red;
+}
+
+.without_margin{
+  margin: 0;
+}
+
+.minicolors-theme-default .minicolors-input{
+  height: 33px !important;
+  padding-left: 30px !important;
+}
+
+.minicolors-theme-default .minicolors-swatch {
+  width: 23px !important;
+  height: 23px !important;
+}
+

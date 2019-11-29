@@ -1,0 +1,237 @@
+@import "utilities/variables";
+
+section#home-video {
+  position: relative;
+  hr {
+    margin: 0;
+  }
+  nav.navbar {
+    justify-content: unset;
+    padding: 5px 0;
+  }
+  .navigation {
+    display: none;
+  }
+  ul {
+    & > li {
+      display: inline-block;
+      list-style-type: none;
+      padding-right: 5px;
+      & > a {
+        color: $white;
+        line-height: 24px;
+        &:hover {
+          text-decoration: none;
+          color: $orange_color;
+        }
+      }
+    }
+    & > li:last-child {
+      padding-right: 0;
+    }
+    @media (min-width: 992px) {
+      & > li {
+        padding-right: 15px;
+      }
+    }
+    @media (min-width: 1200px) {
+      & > li {
+        padding-right: 25px;
+      }
+    }
+    @media (min-width: 1500px) {
+      & > li {
+        padding-right: 30px;
+      }
+    }
+  }
+  ul.tools {
+    display: none;
+    #dropdownLocaleLink > span {
+      display: none;
+      padding: 0;
+      margin: 0;
+    }
+    & > li {
+      color: $white;
+      cursor: pointer;
+      .dropdown-toggle::after {
+        vertical-align: middle;
+      }
+      .dropdown-item.active, .dropdown-item:active {
+        background-color: $orange_color;
+      }
+      &:hover {
+        color: $orange_color;
+      }
+    }
+  }
+  #search {
+    position: relative;
+    top: 1px;
+    .fa-search {
+      font-size: 20px;
+    }
+  }
+  .video-content {
+    color: $white;
+    margin-top: 10px;
+    .headline {
+      @extend %noselect !optional;
+      font-family: 'VinnytsiaSansNewCity-Regular';
+      font-size: 24px;
+      line-height: 1.2;
+    }
+    .info {
+      line-height: 1.45;
+      font-size: 16px;
+      padding-top: 5px;
+    }
+
+    @media (min-width: 768px) {
+      margin-top: 40px;
+      .headline {
+        font-size: 48px;
+      }
+      .info {
+        font-size: 20px;
+        padding-top: 15px;
+      }
+    }
+    @media (min-width: 992px) {
+      margin-top: 40px;
+      .headline {
+        font-size: 62px;
+      }
+      .info {
+        padding-top: 15px;
+      }
+    }
+    @media (min-width: 1200px) {
+      margin-top: 55px;
+      .headline {
+        font-size: 82px;
+        line-height: .97;
+      }
+      .info {
+        padding-top: 30px;
+      }
+    }
+    @media (min-width: 1500px) {
+      margin-top: 100px;
+      .headline {
+        font-size: 100px;
+        line-height: .97;
+
+      }
+      .info {
+        font-size: 22px;
+        padding-top: 60px;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    nav.navbar {
+      //padding: 10px 0;
+    }
+  }
+  @media (min-width: 992px) {
+    .navigation {
+      display: block;
+    }
+    ul.tools {
+      display: block;
+      #dropdownLocaleLink > span {
+        display: inline;
+      }
+    }
+    .fa-globe {
+      display: none;
+    }
+  }
+  @media (min-width: 1200px) {
+    #search {
+      position: relative;
+      top: 2px;
+      .fa-search {
+        font-size: 25px;
+      }
+    }
+    nav.navbar {
+      //padding: 20px 0;
+    }
+  }
+  @media (min-width: 1500px) {
+    #search {
+      position: relative;
+      top: 3px;
+      .fa-search {
+        font-size: 30px;
+      }
+    }
+    nav.navbar {
+      //padding: 30px 0;
+    }
+  }
+}
+
+#mob-bars {
+  position: absolute;
+  right: 5px;
+  left: 0;
+  top: 4px;
+  z-index: 10;
+  width: 100%;
+  .slicknav_menu {
+    background: transparent;
+    .slicknav_btn {
+      margin: 0;
+      font-size: 24px;
+      background-color: transparent;
+    }
+    .slicknav_nav {
+      background-color: $white;
+      padding: 20px 0;
+      box-shadow: 1px 12px 7px -4px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      a {
+        color: $light_black;
+        font-size: 15px;
+        padding: 7px 0;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  #mob-bars {
+    display: none;
+  }
+}
+
+body.light_header section#home-video {
+  #navigation-menu {
+    & > li > a {
+      color: $light_black;
+      &:hover {
+        color: $orange_color;
+      }
+    }
+  }
+  #dropdownLocaleLink {
+    color: #7A7A7A;
+    &:after {
+      vertical-align: middle;
+      color: #7A7A7A;
+    }
+  }
+  #search {
+    color: $light_black;
+  }
+}
+body.light_header #mob-bars {
+  .slicknav_menu .slicknav_icon-bar {
+    background-color: $light_black;
+  }
+}

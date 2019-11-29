@@ -1,0 +1,12 @@
+= f.fields_for :questionnaire_images, area.questionnaire_images do |fd|
+  .checkbox.pad-btm.text-left
+    = fd.check_box :_destroy, as: :boolean, class: 'magic-checkbox'
+    = fd.label :_destroy, "Видалити файл #{fd.object.image.file.original_filename}"
+  = fd.input :id, as: :hidden
+
+= f.fields_for :questionnaire_images, area.questionnaire_images.build do |ff|
+  = ff.input :imgable_type, as: :hidden
+  = ff.input :imgable_id, as: :hidden
+  .row
+    .form-inputs.image-field
+      = ff.input :image, as: :file, label: 'Додаткові фото', input_html: {multiple: true}

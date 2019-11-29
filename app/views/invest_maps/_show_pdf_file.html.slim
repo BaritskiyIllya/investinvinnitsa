@@ -1,0 +1,11 @@
+.area-file
+  .row
+    .col-md-12
+      - if @area.questionnaire_file.present?
+        = link_to @area.questionnaire_file.file.url, target: :_blank do
+          = I18n.t('communal_area.view_file')
+
+javascript:
+  $().ready(function () {
+    init_area_slider($('.images'))
+  });

@@ -1,0 +1,41 @@
+scss:
+  .block-result{
+    a{
+      .content{
+        p{
+          margin: 0;
+          span.info-key{
+            margin-right: 15px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+.block-result
+  p.date
+    = I18n.t('production_area.main_title')
+  = link_to "/production_areas/#{result.id}", target: :_blank do
+    .content
+      p
+        span.info-key
+          = I18n.t('production_area.address')
+        span.info-value
+          = strip_tags(result.address)
+      p
+        span.info-key
+          = I18n.t('production_area.ownership')
+        span.info-value
+          = strip_tags(result.ownership_name)
+      p
+        span.info-key
+          = I18n.t('production_area.production_area')
+        span.info-value
+          = strip_tags(result.production_area)
+      p
+        span.info-key
+          = I18n.t('production_area.transfer_type')
+        span.info-value
+          = strip_tags(result.transfer_type)
+  hr

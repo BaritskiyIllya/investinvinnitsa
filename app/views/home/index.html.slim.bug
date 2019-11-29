@@ -1,0 +1,29 @@
+/ .devise.text-center
+/   - if user_signed_in?
+/     = link_to cabinet_by_role do
+/       | Кабінет
+/     br
+/     = link_to('Вихід', destroy_user_session_path, method: :delete)
+/   - else
+/     = link_to('Вхід', new_user_session_path)
+/     br
+/     = link_to('Реєстрація', new_user_registration_path)
+
+
+/ = render 'main_page/advantages'
+
+/ = render 'main_page/perspectives'
+
+= render 'layouts/blocks/main/slider' if @sliders.present?
+= render 'main_page/rewards'
+= render 'main_page/video' if @main_video.present?
+= render 'main_page/advantages_chart'
+= render 'main_page/invest_map_place'
+= render 'main_page/reviews'
+= render 'main_page/partners'
+= render file: 'home/blocks/articles'
+= render file: 'home/blocks/feedback'
+
+/ = render file: 'home/blocks/our_team'
+
+

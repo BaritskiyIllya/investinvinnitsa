@@ -1,0 +1,28 @@
+scss:
+  .projects{
+    a {
+      text-decoration: none;
+      .project-title {
+        color: black;
+      }
+    }
+    .project-image{
+      width: 100%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+.projects
+  .container
+    h1.text-center Проекти
+    .row
+      - @projects.each do |project|
+        .col-sm-4
+          = link_to projects_path(project.alias) do
+            .project-image
+              - if project.project_images.by_locale(locale.to_s).present?
+                = image_tag project.project_images.by_locale(locale.to_s)[0].image.url, class: 'img-responsive'
+            p.project-title = project.title

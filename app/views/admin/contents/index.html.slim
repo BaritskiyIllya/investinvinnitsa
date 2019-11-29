@@ -1,0 +1,17 @@
+.panel
+  .panel-body
+    .table-responsive
+      table.table.table-striped
+        thead
+          tr
+            th Назва українською
+            th Назва англійською
+            th Дії
+        tbody
+          - @admin_contents.each do |content|
+            tr
+              td = content.title_uk
+              td = content.title_en
+              td
+                = render 'layouts/blocks/action_btns' do
+                  = render 'blocks/btns/edit', path: edit_admin_content_path(content)

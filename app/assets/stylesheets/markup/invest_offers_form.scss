@@ -1,0 +1,242 @@
+@import "utilities/variables";
+
+#invest_offers{
+  font-family: 'Proxima Nova Rg';
+  h2.block-header{
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-weight: bold;
+  }
+  nav{
+    #nav-tab{
+      &.nav-tabs{
+        border-bottom: none;
+        #nav-home-tab, .nav-item {
+          display: flex;
+          flex-direction: row;
+          padding: 10px 25px;
+          border-radius: 0;
+          &:nth-of-type(1) {
+            background: $orange_color;
+          }
+          &:nth-of-type(2) {
+            background: #FFD282;
+          }
+          &:nth-of-type(3) {
+            background: $orange_color;
+          }
+          &.active {
+            background: $white !important;
+            color: $feedback_color;
+            .icon-block {
+              svg {
+                fill: $feedback_color;
+              }
+            }
+            .title-block {
+              border-left: 1px solid $feedback_color;
+            }
+          }
+          .icon-block, .title-block {
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+          }
+          .icon-block {
+            padding: 5px 20px 5px 0;
+            svg {
+              width: 50px;
+              fill: $white;
+            }
+          }
+          .title-block {
+            color: $feedback_color;
+            font-size: 1.5rem;
+            line-height: 1.2;
+            padding: 5px 0 5px 25px;
+            border-left: 1px solid $white;
+          }
+        }
+        .nav-link.active{
+          &:nth-of-type(1){
+            border-color: $feedback_color $white $feedback_color $feedback_color;
+          }
+          &:nth-of-type(2){
+            border-color: $feedback_color $white $feedback_color $white;
+          }
+          &:nth-of-type(3){
+            border-color: $feedback_color $feedback_color $feedback_color $white;
+          }
+        }
+      }
+      #nav-area-tab{
+        .icon-block{
+          svg{
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+  .tab-content {
+    &>.active {
+      width: 100%;
+    }
+  }
+
+  form{
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    /* form starting stylings ------------------------------- */
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: $feedback_color;
+      opacity: 1; /* Firefox */
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $feedback_color;
+    }
+
+    :-ms-input-placeholder { /* Microsoft Edge */
+      color: $feedback_color;
+    }
+
+    .group {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    input:-webkit-autofill {
+      -webkit-box-shadow: inset 0 0 0 50px $white !important;
+      -webkit-text-fill-color: $black !important;
+      color: $black !important;
+    }
+
+    input {
+      font-size: 20px;
+      padding: 10px;
+      display: block;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid $feedback_color;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    input[disabled] {
+      background: $white;
+    }
+
+    /* LABEL ======================================= */
+    label {
+      color: $feedback_color;
+      font-size: 24px;
+      position: absolute;
+      cursor: text;
+      //pointer-events: none;
+      left: 20px;
+      top: 15px;
+      transition: 0.2s ease all;
+      -moz-transition: 0.2s ease all;
+      -webkit-transition: 0.2s ease all;
+    }
+
+    /* active state */
+    input:focus ~ label, input:valid ~ label {
+      top: -15px;
+      font-size: 20px;
+      color: $black;
+    }
+
+    input[type='email']:not([value='']):not(:focus):invalid ~ label {
+      top: -15px;
+      font-size: 20px;
+      color: red;
+    }
+
+    /* BOTTOM BARS ================================= */
+    .bar {
+      position: relative;
+      display: block;
+      width: 100%;
+    }
+    .bar:before, .bar:after {
+      content: "";
+      height: 2px;
+      width: 0;
+      bottom: 0;
+      position: absolute;
+      background: $black;
+      transition: 0.2s ease all;
+      -moz-transition: 0.2s ease all;
+      -webkit-transition: 0.2s ease all;
+    }
+    .bar:before {
+      left: 50%;
+    }
+    .bar:after {
+      right: 50%;
+    }
+
+    /* active state */
+    input:focus ~ .bar:before,
+    input:focus ~ .bar:after {
+      width: 50%;
+    }
+
+    textarea {
+      border-radius: 0;
+      font-size: 20px;
+      &::placeholder {
+        color: $feedback_color;
+        font-size: 24px;
+      }
+      &.form-control:focus {
+        color: #495057;
+        background-color: $white;
+        outline: 2px solid $black;
+        box-shadow: none;
+      }
+    }
+  }
+  .home-big-btn{
+    margin: 0 0 55px 0;
+  }
+}
+
+@media screen and (max-width: 767px){
+  #invest_offers{
+    nav{
+      #nav-tab {
+        &.nav-tabs{
+          .nav-link.active{
+            &:nth-of-type(1){
+              border-color: $feedback_color $feedback_color $white $feedback_color;
+            }
+            &:nth-of-type(2){
+              border-color: $white $feedback_color;
+            }
+            &:nth-of-type(3){
+              border-color: $white $feedback_color $feedback_color $feedback_color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px){
+  #invest_offers{
+    h2.block-header{
+      margin-top: 10px;
+    }
+    .block-header{
+      font-size: 24px;
+    }
+  }
+}

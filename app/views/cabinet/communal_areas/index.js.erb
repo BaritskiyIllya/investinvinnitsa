@@ -1,0 +1,2 @@
+$('#result').html('<%= escape_javascript(render partial: 'cabinet/communal_areas/table') %>');
+$('#object_paginator').html('<%= escape_javascript(paginate(@cabinet_communal_areas, remote: true).to_s) %>');

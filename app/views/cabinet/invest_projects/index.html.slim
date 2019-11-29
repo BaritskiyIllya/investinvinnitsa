@@ -1,0 +1,12 @@
+h1.center Список інвестиційних проектів
+
+= render 'layouts/general/filter_table', path: (can? :new, InvestProject) ? new_cabinet_invest_project_path : nil, title: '' do
+  thead
+    tr
+      th Статус
+      th Активний тип об'єкту
+      th Структурний підрозділ
+      th Шар на карті
+      th Дії
+  tbody
+    = render 'table'

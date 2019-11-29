@@ -1,0 +1,15 @@
+@import 'nifty.min';
+@import 'pace.min';
+@import 'nifty-demo.min';
+@import 'custom';
+@import 'form';
+
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+  color: #999;
+  text-align: left;
+  padding-left: 10px;
+}
+
+#user_birth_date {
+  padding-left: 10px;
+}

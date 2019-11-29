@@ -1,0 +1,17 @@
+h1.center Список слайдів
+
+= render 'layouts/general/table', path: new_admin_slider_path, title: 'Список слайдів' do
+  thead
+    tr
+      th Назва
+      th Посилання
+      th Дії
+  tbody
+    - @admin_sliders.each_with_index do |admin_slider, index|
+      tr
+        td = admin_slider.title
+        td = admin_slider.link
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_admin_slider_path(admin_slider)
+            = render 'blocks/btns/delete', path: admin_slider_path(admin_slider)

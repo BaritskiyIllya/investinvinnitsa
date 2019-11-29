@@ -1,0 +1,23 @@
+scss:
+  .panel-heading{
+    padding-top: 10px;
+  }
+  .add-new-item{
+    margin-right: 10px;
+    padding-bottom:15px;
+    text-align: right;
+  }
+
+.panel
+  .panel-heading
+    h3.panel-title.pull-left
+      | #{title}
+    .add-new-item
+      - if path ||= nil
+        = link_to path, class: 'btn btn-success' do
+          i.demo-pli-add.icon-fw
+          | Додати
+  .panel-body
+    .table-responsive
+      table.table.table-striped
+        = yield

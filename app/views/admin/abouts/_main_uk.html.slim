@@ -1,0 +1,43 @@
+.tab-pane.active#main_uk
+  .form-group
+    = f.label :name, 'Назва(не відображається користувачам)'
+    = f.input :name, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :title_uk, 'Назва українською'
+    = f.input :title_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :information_uk, 'Інформація українською'
+    = ckeditor_input(f, :information_uk)
+  .form-group
+    = f.label :description_uk, 'Опис українською'
+    = ckeditor_input(f, :description_uk)
+  .form-group
+    = f.input :alias, as: :hidden
+
+  = f.fields_for :project_images, @admin_about.project_images.by_locale('uk').first || @admin_about.project_images.build do |ff|
+    = ff.input :locale, as: :hidden, input_html: { value: 'uk' }
+    .form-group.images-form
+      = ff.input :id, as: :hidden
+      = ff.label :image, 'Зображення для української версії'
+      = ff.input :image, as: :hidden
+      = ff.input :imageable_id, as: :hidden
+      = ff.input :imageable_type, as: :hidden
+      = ff.input :_destroy, as: :hidden
+      .section
+        .row
+          .col-sm-6
+            label.field.prepend-icon.append-button.file
+              input#news-img.gui-file name="uk_image" type="file"
+          .col-sm-6
+            .file.prepend-icon.get-image
+              a.button.btn-default.pull-right#getCroppedImage
+                | Застосувати
+      .section
+        .upload-msg
+          - if @admin_about.project_images.by_locale('uk').first
+            = image_tag @admin_about.project_images.by_locale('uk').first.image.url, class: 'img-responsive'
+            = link_to 'Скинути', '#', class: 'btn btn-default mt10', id: 'resetCroppedImg'
+          - else
+            | Завантажте картинку
+        .upload-wrap
+          #main-cropper

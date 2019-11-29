@@ -1,0 +1,22 @@
+.nested-fields.block-content-columns
+  .row
+    .field.form-group.col-md-2
+      = f.label :title_uk, 'Заголовок українською'
+      = f.input :title_uk, label: false, input_html: {class: 'form-control'}
+    .field.form-group.col-md-2
+      = f.label :title_en, 'Заголовок англійською'
+      = f.input :title_en, label: false, input_html: {class: 'form-control'}
+    .field.form-group.col-md-2
+      = f.label :value_uk, 'Значення українською'
+      = f.input :value_uk, label: false, input_html: {class: 'form-control'}
+    .field.form-group.col-md-2
+      = f.label :value_en, 'Значення англійською'
+      = f.input :value_en, label: false, input_html: {class: 'form-control'}
+    .field.form-group.col-md-2
+      = f.label :color, 'Колір тексту'
+      = f.input :color, as: :minicolors, label: false, input_html: {data: {minicolors: { position: :right}}, class: 'form-control color'}
+    .field.col-md-2.remove-column
+      = link_to_remove_association "Видалити", f, class: 'btn btn-danger'
+
+javascript:
+  $('input.color').minicolors();

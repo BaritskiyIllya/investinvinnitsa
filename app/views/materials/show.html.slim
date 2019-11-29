@@ -1,0 +1,12 @@
+.one-material
+  .container
+    .title
+      = @material.title
+    .description
+      = sanitazed_text(@material.description)
+    - if @file
+      .file
+        = link_to "#{I18n.t('download')} #{@file.file.file.original_filename}", @file.file.url, download: ''
+    - if @image
+      .image
+        = image_tag @image.image.url, class: 'img-responsive'

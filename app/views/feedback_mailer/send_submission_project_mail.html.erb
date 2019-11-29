@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+  <%- @form.attributes.except('id', 'created_at', 'updated_at').each do |k,v| %>
+    <%- if v.present? %>
+      <p style="margin-bottom: 5px">
+        <span style="font-weight: bold"><%= I18n.t('submission_projects.'+ k +'.title', default: '') %>:</span> <%= v %>
+      </p>
+    <%- end%>
+  <%- end %>
+</body>
+</html>

@@ -1,0 +1,9 @@
+.block-result
+  p.date
+    = I18n.t('home.news')
+  = link_to "/articles/#{result.id}", target: :_blank do
+    .title
+      = strip_tags result.title.truncate(100) unless result.title.blank?
+    .content
+      = strip_tags result.short_description.truncate(210) unless result.short_description.blank?
+  hr

@@ -1,0 +1,64 @@
+= stylesheet_link_tag 'area_information'
+
+.container
+  .images.center
+    - if @area.main_image.present?
+      .image
+        = image_tag @area.main_image.url
+  .area-information
+    .description
+      p = I18n.t('invest_project.short_description')
+      = sanitazed_text(@area.short_description)
+    .row
+      .col-md-6
+        table
+          tr
+            td.head colspan='2'
+              = I18n.t('invest_project.head.inspection')
+          - @area.inspection.each do |k, v|
+            tr
+              td.title = I18n.t('invest_project.' + k)
+              td = sanitazed_text(v)
+        table
+          tr
+            td.head colspan='2'
+              = I18n.t('invest_project.head.infrastructure')
+          - @area.infrastructure.each do |k, v|
+            tr
+              td.title = I18n.t('invest_project.' + k)
+              td = sanitazed_text(v)
+      .col-md-6
+        table
+          tr
+            td.head colspan='2'
+              = I18n.t('invest_project.head.invest_needs')
+          - @area.invest_needs.each do |k, v|
+            tr
+              td.title = I18n.t('invest_project.' + k)
+              td
+                = sanitazed_text(v)
+                = I18n.t('invest_project.' + k + '_mln') if k == 'invest_sum'
+        table
+          tr
+            td.head colspan='2'
+              = I18n.t('invest_project.head.resources')
+          - @area.resources.each do |k,v|
+            tr
+              td.title = I18n.t('invest_project.' + k)
+              td = sanitazed_text(v)
+        table
+          tr
+            td.head colspan='2'
+              = I18n.t('invest_project.head.regulatory')
+          - @area.regulatory.each do |k, v|
+            tr
+              td.title = I18n.t('invest_project.' + k)
+              td = sanitazed_text(v)
+    .description
+      p = I18n.t('invest_project.description')
+      = sanitazed_text(@area.description)
+    .description
+      p = I18n.t('invest_project.other')
+      = sanitazed_text(@area.other)
+
+  = render 'invest_maps/show_pdf_file'

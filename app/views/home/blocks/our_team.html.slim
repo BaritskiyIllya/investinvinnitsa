@@ -1,0 +1,8 @@
+.our_team
+  .container
+    h2.block-header
+      = t('home.our_team')
+    .row.slick-teams
+      = render @teams_without_department
+    .text-center
+      = render partial: 'home/blocks/big_btn', locals: {text: t('home.btns.show_all'), path: '/our_team'}

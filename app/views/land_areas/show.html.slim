@@ -1,0 +1,55 @@
+= stylesheet_link_tag 'area_information'
+
+.container
+  .images.center
+    - if @area.main_image.present?
+      .image
+        = image_tag @area.main_image.url
+    - @area.questionnaire_images.each do |object|
+      .image
+        = image_tag object.image.url
+  .area-information
+    .row
+      .col-md-6
+        table
+          tr
+            td.head colspan='2'
+              = I18n.t('land_area.head.gen_info')
+          - @area.general_information.each do |k,v|
+            - if k == 'ownership_id'
+              tr
+                td.title = I18n.t('land_area.' + k)
+                td = @area.ownership_name
+            - else
+              tr
+                td.title = I18n.t('land_area.' + k)
+                td = !!v == v ? true_false(v) : sanitazed_text(v)
+      .col-md-6
+        table
+          tr
+            td.head colspan='2'
+              = I18n.t('land_area.head.tran_engin_inf')
+          - @area.tran_engin_infrastructure.each do |k, v|
+            tr
+              td.title = I18n.t('land_area.' + k)
+              td = sanitazed_text(v)
+    .row
+      .col-md-6
+        table
+          tr
+            td.head colspan='2'
+              = I18n.t('land_area.head.legal_status')
+          - @area.legal_status.each do |k, v|
+            tr
+              td.title = I18n.t('land_area.' + k)
+              td = sanitazed_text(v)
+      .col-md-6
+        table
+          tr
+            td.head colspan='2'
+              = I18n.t('land_area.head.person_info')
+          - @area.person_info.each do |k,v|
+            tr
+              td.title = I18n.t('land_area.' + k)
+              td = sanitazed_text(v)
+  = render 'invest_maps/show_pdf_file'

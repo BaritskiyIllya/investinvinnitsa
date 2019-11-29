@@ -1,0 +1,121 @@
+I, [2019-11-21T12:29:11.876993 #5397]  INFO -- : Refreshing Gem list
+I, [2019-11-21T12:29:18.069187 #5397]  INFO -- : listening on addr=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock fd=8
+I, [2019-11-21T12:29:18.070358 #5397]  INFO -- : worker=0 spawning...
+I, [2019-11-21T12:29:18.095596 #5397]  INFO -- : worker=1 spawning...
+I, [2019-11-21T12:29:18.101225 #5436]  INFO -- : worker=0 spawned pid=5436
+I, [2019-11-21T12:29:18.101879 #5436]  INFO -- : worker=0 ready
+I, [2019-11-21T12:29:18.124123 #5397]  INFO -- : master process ready
+I, [2019-11-21T12:29:18.127117 #5439]  INFO -- : worker=1 spawned pid=5439
+I, [2019-11-21T12:29:18.129257 #5439]  INFO -- : worker=1 ready
+I, [2019-11-21T12:33:38.137277 #5397]  INFO -- : reaped #<Process::Status: pid 5436 exit 0> worker=0
+I, [2019-11-21T12:33:38.137514 #5397]  INFO -- : reaped #<Process::Status: pid 5439 exit 0> worker=1
+I, [2019-11-21T12:33:38.137631 #5397]  INFO -- : master complete
+I, [2019-11-21T12:34:09.318969 #5444]  INFO -- : Refreshing Gem list
+F, [2019-11-21T12:34:13.889075 #5444] FATAL -- : error adding listener addr=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock
+ArgumentError: socket=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock specified but it is not a socket!
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/socket_helper.rb:131:in `bind_listen'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:241:in `listen'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:851:in `block in bind_new_listeners!'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:851:in `each'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:851:in `bind_new_listeners!'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:140:in `start'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/bin/unicorn:126:in `<top (required)>'
+  /home/server/.rbenv/versions/2.5.1/bin/unicorn:23:in `load'
+  /home/server/.rbenv/versions/2.5.1/bin/unicorn:23:in `<top (required)>'
+I, [2019-11-21T12:38:28.740305 #5627]  INFO -- : Refreshing Gem list
+I, [2019-11-21T12:38:32.700881 #5627]  INFO -- : listening on addr=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock fd=8
+I, [2019-11-21T12:38:32.702034 #5627]  INFO -- : worker=0 spawning...
+I, [2019-11-21T12:38:32.731213 #5627]  INFO -- : worker=1 spawning...
+I, [2019-11-21T12:38:32.733605 #5666]  INFO -- : worker=0 spawned pid=5666
+I, [2019-11-21T12:38:32.734089 #5666]  INFO -- : worker=0 ready
+I, [2019-11-21T12:38:32.747424 #5627]  INFO -- : master process ready
+I, [2019-11-21T12:38:32.749459 #5669]  INFO -- : worker=1 spawned pid=5669
+I, [2019-11-21T12:38:32.749913 #5669]  INFO -- : worker=1 ready
+I, [2019-11-21T12:39:26.757122 #5627]  INFO -- : reaped #<Process::Status: pid 5666 exit 0> worker=0
+I, [2019-11-21T12:39:26.757477 #5627]  INFO -- : reaped #<Process::Status: pid 5669 exit 0> worker=1
+I, [2019-11-21T12:39:26.757837 #5627]  INFO -- : master complete
+I, [2019-11-21T12:42:14.384073 #5757]  INFO -- : Refreshing Gem list
+F, [2019-11-21T12:42:18.065450 #5757] FATAL -- : error adding listener addr=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock
+ArgumentError: socket=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock specified but it is not a socket!
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/socket_helper.rb:131:in `bind_listen'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:241:in `listen'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:851:in `block in bind_new_listeners!'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:851:in `each'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:851:in `bind_new_listeners!'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:140:in `start'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/bin/unicorn:126:in `<top (required)>'
+  /home/server/.rbenv/versions/2.5.1/bin/unicorn:23:in `load'
+  /home/server/.rbenv/versions/2.5.1/bin/unicorn:23:in `<top (required)>'
+I, [2019-11-21T12:42:33.461953 #5796]  INFO -- : Refreshing Gem list
+I, [2019-11-21T12:42:37.155529 #5796]  INFO -- : listening on addr=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock fd=8
+I, [2019-11-21T12:42:37.156418 #5796]  INFO -- : worker=0 spawning...
+I, [2019-11-21T12:42:37.179790 #5796]  INFO -- : worker=1 spawning...
+I, [2019-11-21T12:42:37.181744 #5835]  INFO -- : worker=0 spawned pid=5835
+I, [2019-11-21T12:42:37.182223 #5835]  INFO -- : worker=0 ready
+I, [2019-11-21T12:42:37.194198 #5796]  INFO -- : master process ready
+I, [2019-11-21T12:42:37.195940 #5838]  INFO -- : worker=1 spawned pid=5838
+I, [2019-11-21T12:42:37.196390 #5838]  INFO -- : worker=1 ready
+I, [2019-11-21T12:45:52.202841 #5796]  INFO -- : SIGWINCH ignored because we're not daemonized
+I, [2019-11-21T12:47:24.929923 #5796]  INFO -- : reaped #<Process::Status: pid 5835 exit 0> worker=0
+I, [2019-11-21T12:47:24.930146 #5796]  INFO -- : reaped #<Process::Status: pid 5838 exit 0> worker=1
+I, [2019-11-21T12:47:24.930289 #5796]  INFO -- : master complete
+I, [2019-11-21T12:48:27.588422 #5927]  INFO -- : Refreshing Gem list
+I, [2019-11-21T12:48:31.937628 #5927]  INFO -- : listening on addr=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock fd=8
+I, [2019-11-21T12:48:31.938851 #5927]  INFO -- : worker=0 spawning...
+I, [2019-11-21T12:48:31.964020 #5927]  INFO -- : worker=1 spawning...
+I, [2019-11-21T12:48:31.965949 #5966]  INFO -- : worker=0 spawned pid=5966
+I, [2019-11-21T12:48:31.966427 #5966]  INFO -- : worker=0 ready
+I, [2019-11-21T12:48:31.978722 #5927]  INFO -- : master process ready
+I, [2019-11-21T12:48:31.980483 #5969]  INFO -- : worker=1 spawned pid=5969
+I, [2019-11-21T12:48:31.980904 #5969]  INFO -- : worker=1 ready
+I, [2019-11-21T13:15:07.472913 #5927]  INFO -- : reaped #<Process::Status: pid 5966 exit 0> worker=0
+I, [2019-11-21T13:15:07.473158 #5927]  INFO -- : reaped #<Process::Status: pid 5969 exit 0> worker=1
+I, [2019-11-21T13:15:07.473509 #5927]  INFO -- : master complete
+I, [2019-11-21T13:16:23.238286 #6292]  INFO -- : Refreshing Gem list
+I, [2019-11-21T13:16:27.982069 #6292]  INFO -- : listening on addr=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock fd=8
+I, [2019-11-21T13:16:27.982850 #6292]  INFO -- : worker=0 spawning...
+I, [2019-11-21T13:16:28.012252 #6292]  INFO -- : worker=1 spawning...
+I, [2019-11-21T13:16:28.014335 #6370]  INFO -- : worker=0 spawned pid=6370
+I, [2019-11-21T13:16:28.014825 #6370]  INFO -- : worker=0 ready
+I, [2019-11-21T13:16:28.031207 #6292]  INFO -- : master process ready
+I, [2019-11-21T13:16:28.033824 #6373]  INFO -- : worker=1 spawned pid=6373
+I, [2019-11-21T13:16:28.034373 #6373]  INFO -- : worker=1 ready
+I, [2019-11-21T13:23:13.873862 #6292]  INFO -- : reaped #<Process::Status: pid 6370 exit 0> worker=0
+I, [2019-11-21T13:23:13.874165 #6292]  INFO -- : reaped #<Process::Status: pid 6373 exit 0> worker=1
+I, [2019-11-21T13:23:13.874346 #6292]  INFO -- : master complete
+I, [2019-11-21T13:34:46.296749 #11619]  INFO -- : Refreshing Gem list
+I, [2019-11-21T13:34:50.391001 #11619]  INFO -- : listening on addr=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock fd=8
+I, [2019-11-21T13:34:50.391987 #11619]  INFO -- : worker=0 spawning...
+I, [2019-11-21T13:34:50.414213 #11619]  INFO -- : worker=1 spawning...
+I, [2019-11-21T13:34:50.417229 #11697]  INFO -- : worker=0 spawned pid=11697
+I, [2019-11-21T13:34:50.417985 #11697]  INFO -- : worker=0 ready
+I, [2019-11-21T13:34:50.428163 #11619]  INFO -- : master process ready
+I, [2019-11-21T13:34:50.430857 #11700]  INFO -- : worker=1 spawned pid=11700
+I, [2019-11-21T13:34:50.431362 #11700]  INFO -- : worker=1 ready
+I, [2019-11-21T13:39:24.468346 #11619]  INFO -- : SIGWINCH ignored because we're not daemonized
+I, [2019-11-21T13:39:38.734249 #11619]  INFO -- : SIGWINCH ignored because we're not daemonized
+I, [2019-11-21T13:45:11.948675 #11619]  INFO -- : SIGWINCH ignored because we're not daemonized
+I, [2019-11-21T13:45:21.813849 #11619]  INFO -- : reaped #<Process::Status: pid 11697 exit 0> worker=0
+I, [2019-11-21T13:45:21.814441 #11619]  INFO -- : reaped #<Process::Status: pid 11700 exit 0> worker=1
+I, [2019-11-21T13:45:21.814598 #11619]  INFO -- : master complete
+I, [2019-11-27T17:16:05.268655 #16553]  INFO -- : Refreshing Gem list
+I, [2019-11-27T17:16:18.810522 #16553]  INFO -- : listening on addr=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock fd=8
+I, [2019-11-27T17:16:18.811219 #16553]  INFO -- : worker=0 spawning...
+I, [2019-11-27T17:16:18.848372 #16553]  INFO -- : worker=1 spawning...
+I, [2019-11-27T17:16:18.850382 #16557]  INFO -- : worker=0 spawned pid=16557
+I, [2019-11-27T17:16:18.850778 #16557]  INFO -- : worker=0 ready
+I, [2019-11-27T17:16:18.863188 #16553]  INFO -- : master process ready
+I, [2019-11-27T17:16:18.864969 #16560]  INFO -- : worker=1 spawned pid=16560
+I, [2019-11-27T17:16:18.865381 #16560]  INFO -- : worker=1 ready
+I, [2019-11-27T17:24:18.865573 #16872]  INFO -- : Refreshing Gem list
+F, [2019-11-27T17:24:22.859813 #16872] FATAL -- : error adding listener addr=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock
+ArgumentError: socket=/mnt/c/investinvinnitsa/shared/sockets/unicorn.sock specified but it is not a socket!
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/socket_helper.rb:131:in `bind_listen'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:241:in `listen'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:851:in `block in bind_new_listeners!'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:851:in `each'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:851:in `bind_new_listeners!'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:140:in `start'
+  /home/server/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/unicorn-5.4.1/bin/unicorn:126:in `<top (required)>'
+  /home/server/.rbenv/versions/2.5.1/bin/unicorn:23:in `load'
+  /home/server/.rbenv/versions/2.5.1/bin/unicorn:23:in `<top (required)>'

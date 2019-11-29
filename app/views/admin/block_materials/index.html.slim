@@ -1,0 +1,14 @@
+h1.center Список блочних матеріалів
+
+= render 'layouts/general/table', path: new_admin_block_material_path, title: 'Список блочних матеріалів' do
+  thead
+    tr
+      th №п/п
+      th Посилання
+      th Дії
+  tbody#materials
+    = render 'table'
+
+#material-paginator
+  = paginate @admin_block_materials, remote: true
+

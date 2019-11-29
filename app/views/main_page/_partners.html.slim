@@ -1,0 +1,95 @@
+scss:
+  .partners-block {
+    position: relative;
+    min-height: 250px;
+    #partners-parallax-window {
+      min-height: 250px;
+      background: transparent;
+    }
+    .partners {
+      top: 0;
+      width: 100%;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.2);
+      .item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        line-height: 250px;
+        height: 250px;
+        img {
+          width: 100%;
+          padding: 0 30px;
+        }
+      }
+    }
+    .slick-prev, .slick-next{
+      display: none !important;
+    }
+  }
+
+  @media screen and (max-width: 991px){
+    .partners-block {
+      #partners-parallax-window {
+        min-height: 150px;
+      }
+      .partners {
+        .item {
+          line-height: 150px;
+          height: 150px;
+          img {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .partners-container{
+    .block-header {
+      margin: 0;
+      height: 200px;
+      line-height: 200px;
+    }
+  }
+ 
+.partners-container
+  h2.block-header
+    = t('home.partners')
+.partners-block.section.parallax-container
+  #partners-parallax-window.material-parallax
+    = image_tag 'partners-background.jpg'
+  .partners.parallax-content
+    .container
+      .row.partners-items
+        .item.col-sm-3
+          = link_to 'https://ua.agrana.com/domashnja-storinka/', target: '_blank' do
+            = image_tag 'partners/agrana.svg'
+        .item.col-sm-3
+          = link_to 'http://www.barlinek.ua/', target: '_blank' do
+            = image_tag 'partners/barlinek.svg'
+        .item.col-sm-3
+          = link_to 'https://dpes.com.ua/', target: '_blank' do
+            = image_tag 'partners/delphi.svg'
+        .item.col-sm-3
+          = link_to 'https://www.roshen.com/', target: '_blank' do
+            = image_tag 'partners/roshen.svg'
+        .item.col-sm-3
+          = link_to 'http://www.beer-co.com/', target: '_blank' do
+            = image_tag 'partners/ubs.png'
+        .item.col-sm-3
+          = link_to 'http://vioil.com/', target: '_blank' do
+            = image_tag 'partners/vioil.png'
+
+javascript:
+  $(document).ready(function () {
+    $('.partners-items').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000
+    });
+
+    var el = $('#partners-parallax-window');
+    el.parallax({imageSrc: el.attr('data-image-src')});
+  });

@@ -1,0 +1,48 @@
+.nested-fields.block-content
+  .form-group
+    = f.label :position, 'Порядок виводу'
+    = f.input :position, label: false, input_html: {class: 'form-control'}
+  .form-group
+    = f.label :title_uk, 'Назва українською'
+    = f.input :title_uk, label: false, input_html: {class: 'form-control'}
+  .form-group
+    = f.label :description_uk, 'Опис українською'
+    = ckeditor_input(f, :description_uk, 'uk', 200)
+  .form-group
+    = f.label :title_en, 'Назва англійською'
+    = f.input :title_en, label: false, input_html: {class: 'form-control'}
+  .form-group
+    = f.label :description_en, 'Опис англійською'
+    = ckeditor_input(f, :description_en, 'en', 200)
+
+  = f.error :base
+  = f.fields_for :material_content_columns do |columns|
+    = render 'material_content_column_fields', f: columns
+
+  .links
+    = link_to_add_association 'Додати колонки', f, :material_content_columns, class: 'btn btn-primary'
+
+  .form-group.images-form
+    = f.label :image, 'Зображення'
+    .section
+      .row
+        .col-sm-6
+          label.field.prepend-icon.append-button.file
+            input.gui-file name="file1_#{f.index}" type="file" id="blockImg_#{f.index}"
+            = f.input :image, as: :hidden, input_html: {class: 'load_image', data: {index: f.index}}
+        .col-sm-6
+          .file.prepend-icon.get-image class="get-image_#{f.index}"
+            a.button.btn-default.pull-right.apply-crop id="getCroppedImage_#{f.index}"
+              | Застосувати
+    .section
+      .upload-msg class="upload-msg_#{f.index}"
+        - if f.object.image.present?
+          = image_tag f.object.image.url, class: 'img-responsive'
+          = link_to 'Скинути', '#', class: 'btn btn-default mt10 reject-crop', id: "resetCroppedImg_#{f.index}"
+        - else
+          | Завантажте зображення
+      .upload-wrap class="upload-wrap_#{f.index}"
+        div.main-cropper-field id="mainCropper_#{f.index}"
+
+  = link_to_remove_association "Видалити блок", f, class: 'btn btn-danger'
+

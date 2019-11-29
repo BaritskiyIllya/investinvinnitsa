@@ -1,0 +1,26 @@
+.tab-pane.active#main_uk
+  .form-group
+    = f.label :title_uk, 'Назва українською'
+    = f.input :title_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :description_uk, 'Опис українською'
+    = ckeditor_input(f, :description_uk)
+  .form-group
+    = f.input :position, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :img, 'Зображення'
+    .container-fluid
+      .row
+        .col-md-6
+          = f.file_field :img
+        .col-md-6
+          = image_tag(f.object.img_url, class: 'img-responsive') if f.object.img?
+          div
+            label
+              = f.check_box :remove_img
+              | Видалити
+  .form-group
+    = f.label :file, 'Pdf файл'
+    = f.file_field :file, class: 'input-style'
+    - if @admin_sector.file.present?
+      span Прикріплений файл: #{@admin_sector.file.file.original_filename} (#{filesize(@admin_sector)})

@@ -1,0 +1,11 @@
+.wrap-sector
+  - if sector.img?
+    .img-sector
+      div= image_tag sector.img_url, class: 'img-fluid'
+  .sector-content
+    == sector.description
+    - if sector.file.present?
+      .file
+        p Прикріплений файл:
+        = link_to sector.file.url, target: '_blank' do
+          |  #{sector.file.file.original_filename} (#{filesize(sector)})

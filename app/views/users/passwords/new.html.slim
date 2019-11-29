@@ -1,0 +1,10 @@
+.cls-content
+  .cls-content-sm.panel
+    .panel-body
+      .mar-ver.pad-btm
+        h1.h3 Відновлення Пароля
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        .form-group
+          = f.input :email, label: false, type: :email, autofocus: true, input_html: {placeholder: 'Електронна пошта', class: 'form-control'}
+        = f.button :submit, 'Надіслати', class: 'btn btn-primary btn-lg btn-block'
+    = render 'users/shared/links'

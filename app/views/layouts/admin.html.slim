@@ -1,0 +1,43 @@
+doctype html
+html[lang="en"]
+  head
+    title
+      | InvestPortal Admin
+    = csrf_meta_tags
+    = csp_meta_tag
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge"]
+
+    = javascript_include_tag 'https://code.jquery.com/jquery-3.3.1.min.js'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/croppie/2.5.1/croppie.min.js'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/uk.js'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.min.js'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js'
+
+    = stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+    = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700'
+    = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/croppie/2.5.1/croppie.min.css'
+    = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css'
+    = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css'
+
+    = javascript_include_tag 'admin/admin'
+    = stylesheet_link_tag 'admin/admin', media: 'all'
+
+  body
+    #container.effect.aside-float.aside-bright.mainnav-lg
+      = render 'layouts/blocks/header'
+      .boxed
+        #content-container
+          #page-content
+            = yield
+        = render 'layouts/blocks/aside'
+        = render 'layouts/blocks/side_bar'
+      = render 'layouts/blocks/footer'
+      button.scroll-top.btn
+        i.pci-chevron.chevron-up

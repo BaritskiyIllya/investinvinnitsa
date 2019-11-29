@@ -1,0 +1,33 @@
+= render 'layouts/general/table', path: new_admin_menu_path, title: 'Пункти меню' do
+  thead
+    tr
+      th
+        | Заголовок
+      th
+        | Група
+      th
+        | Посилання
+      th
+        | Тип меню
+      th
+        | Батько
+      th
+        | Порядок виведення
+      th
+        | Активовано
+      th
+        | Дії
+  tbody
+    - @admin_menus.each do |admin_menu|
+      tr
+        td= admin_menu.title
+        td= admin_menu.menu_group.name
+        td= admin_menu.link
+        td= I18n.t(admin_menu.menu_type)
+        td= admin_menu.parent.try :title
+        td= admin_menu.position
+        td= admin_menu.active ? 'Активовано' : 'Не активовано'
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_admin_menu_path(admin_menu)
+            = render 'blocks/btns/delete', path: admin_menu_path(admin_menu)

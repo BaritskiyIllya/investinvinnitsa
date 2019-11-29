@@ -1,0 +1,47 @@
+scss:
+  .swiper-slide {
+    &.bg-gray-dark {
+      a {
+        color: white;
+        &:hover {
+          color: white;
+          text-shadow: 3px 3px 0 #000,
+          -1px -1px 0 #000,
+          1px -1px 0 #000,
+          -1px 1px 0 #000,
+          1px 1px 0 #000;
+        }
+      }
+    }
+    .slide-inner {
+      background-position: center !important;
+      background-size: 100% auto !important;
+      .heading-1 {
+        letter-spacing: 0.05em;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .swiper-slide {
+      .slide-inner {
+        background-size: auto !important;
+      }
+    }
+  }
+
+#features
+  section.section.swiper-slider_style-1
+    .swiper-container.swiper-slider.swiper-slider_height-1 data-additional-slides="0" data-autoplay="true" data-custom-next="#swiper-next" data-custom-prev="#swiper-prev" data-custom-slide-effect="interLeaveEffect" data-loop="true" data-simulate-touch="false"
+      .swiper-wrapper
+        - @sliders.each do |banner|
+          .swiper-slide.bg-gray-dark#swiper-button-next-new
+            .slide-inner style="background: url(#{banner.image_url});"
+              .swiper-slide-caption
+                .shell
+                  h2.heading-1 data-caption-animate="fadeInUpSmall"
+                    = link_to banner.title, banner.link
+      .swiper-pagination
+    .swiper-navigation.swiper-navigation_modern
+      #swiper-prev.swiper-button-prev
+      #swiper-next.swiper-button-next

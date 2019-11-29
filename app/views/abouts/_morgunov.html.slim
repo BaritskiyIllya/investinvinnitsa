@@ -1,0 +1,18 @@
+.about-morgunov(data-aos="zoom-out-right")
+  .cutter-left.cutter-after-style(style="--cuter-number: ''")
+  .container
+    .row.mt-5
+      .col-lg-6.text-center
+        .img-container
+          - if @abouts.serhii_morhunov.project_images.by_locale(locale).first
+            = image_tag @abouts.serhii_morhunov.project_images.by_locale(locale).first.image.url,
+              class: 'w-100 img-fluid float-left z-index-1 img-bottom-shadow'
+        .morgun-invites
+          = raw(@abouts.serhii_morhunov.information)
+      .col-lg-6.stab-v2
+        .morunov-name
+          = @abouts.serhii_morhunov.title
+        .morunov-position
+          = t('about.morgunov_position')
+        .morunov-quote
+          = raw(@abouts.serhii_morhunov.description)

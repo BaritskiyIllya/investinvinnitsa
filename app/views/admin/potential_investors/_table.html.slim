@@ -1,0 +1,9 @@
+- @admin_potential_investors.each do |object|
+  tr
+    td
+      = object.company_name
+    td
+      = object.branch
+    td
+      = render 'layouts/blocks/action_btns' do
+        = render 'blocks/btns/show', path: admin_potential_investor_path(object)

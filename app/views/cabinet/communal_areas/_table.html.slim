@@ -1,0 +1,15 @@
+- @cabinet_communal_areas.each do |area|
+  tr
+    td= I18n.t('states.' + area.state)
+    td= true_false(area.map_layer.try :active)
+    td= balancer_names area.balancers
+    td= area.map_layer.title
+    td= area.object_name
+    td= area.tech_area
+    td= area.build_year
+    td= true_false(area.try :architectural)
+    td= area.address
+    td
+      = render 'layouts/blocks/action_btns' do
+        = render 'blocks/btns/edit', path: edit_cabinet_communal_area_path(area)
+        = render 'blocks/btns/delete', path: cabinet_communal_area_path(area)

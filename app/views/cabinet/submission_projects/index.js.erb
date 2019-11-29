@@ -1,0 +1,2 @@
+$('#result').html('<%= escape_javascript(render partial: 'cabinet/submission_projects/table') %>');
+$('#object_paginator').html('<%= escape_javascript(paginate(@cabinet_submission_projects, remote: true).to_s) %>');

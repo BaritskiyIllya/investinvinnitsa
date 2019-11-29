@@ -1,0 +1,18 @@
+.section
+  .row
+    .col-sm-6
+      label.field.prepend-icon.append-button.file
+        span.button.btn.btn-primary Обрати фото
+        input.cropper_input.gui-file name="file_#{input}" type='file'
+    .col-sm-6
+      .file.prepend-icon.get-image
+        a.button.btn.btn-success.pull-right.getCroppedImage Застосувати
+.section
+  .upload-msg.msg-img-croper
+    - if image.present?
+      = image_tag image.url, class: 'img-responsive'
+      = link_to 'Скинути', '#', class: 'btn btn-default mt10 resetCroppedImg'
+    - else
+      span Завантажте файл для початку редагування
+  .upload-wrap.up-img-cropper
+    .cropper_container

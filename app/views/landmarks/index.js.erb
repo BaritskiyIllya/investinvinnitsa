@@ -1,0 +1,24 @@
+(function(){
+  var wrapper = $('#pagination-list'),
+      content = '<%=j render @landmarks %>';
+  var item = $('#pagination-list > div').last(),
+      h = wrapper.outerHeight();
+
+  wrapper.outerHeight(h);
+  item.after(content);
+  wrapper.attr('data-next-page', '<%= next_page %>');
+  setTimeout(function(){
+    var realH = wrapper.prop('scrollHeight')
+    wrapper.animate(
+      { height: realH },
+      400,
+      function(){
+        <% if @landmarks.last_page? %>
+          $('.btn-pagination').fadeOut(300, function(){
+            $(this).remove();
+          });
+        <% end %>
+      }
+    )
+  }, 300)
+})()

@@ -1,0 +1,78 @@
+scss:
+  .block-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    font-size: 16px;
+    .text-container, .image-container{
+      flex-grow:1;
+      flex-basis: 50%;
+    }
+    .text-container{
+      display: flex;
+      flex-direction: column;
+      h3 {
+        font-weight: bold;
+        color: #c01;
+        margin-top: 15px;
+        padding-left: 20px;
+      }
+      p{
+        /*-webkit-column-count: 3; !* Chrome, Safari, Opera *!*/
+        /*-moz-column-count: 3; !* Firefox *!*/
+        /*column-count: 2;*/
+        padding: 0 20px;
+        margin: 0 !important;
+      }
+      .columns {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: auto;
+        align-items: stretch;
+        .one_column {
+          flex-grow: 1;
+          flex-basis: 0;
+          text-align: center;
+          border: 1px solid lightgray;
+          padding: 15px;
+          .text {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .image-container{
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .reverse-block{
+    flex-direction: row-reverse;
+  }
+
+  @media screen and (max-width: 767px){
+    .block-container {
+      flex-direction: column-reverse;
+    }
+    .block-container.reverse-block{
+      flex-direction: column-reverse;
+    }
+  }
+
+- @material.block_material_contents.order(position: :asc).each_with_index do |content, index|
+  .block-container class="#{index % 2 == 0 ? '' : 'reverse-block'}"
+    .text-container
+      h3= content.title
+      p= sanitazed_text(content.description)
+      .columns
+        - content.material_content_columns.each do |column|
+          .one_column style="color: #{column.color || '#000'}"
+            .text= column.title
+            .value= column.value
+    .image-container
+      = image_tag content.image.url

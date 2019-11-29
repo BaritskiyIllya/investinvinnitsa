@@ -1,0 +1,37 @@
+@import "utilities/variables";
+
+.magic-radio+label:hover:before,
+.magic-checkbox+label:hover:before {
+  border-color: $orange_color;
+}
+
+.magic-radio:focus+label:before,
+.magic-checkbox:focus+label:before {
+  box-shadow: none;
+}
+
+.magic-radio:checked:focus+label:before,
+.magic-checkbox:checked:focus+label:before {
+  box-shadow: none;
+}
+
+.magic-checkbox:checked+label:before {
+  background: $orange_color;
+  border-color: $orange_color
+}
+
+.form-checkbox.form-normal:not(.disabled):hover:before,
+.form-radio.form-normal:not(.disabled):hover:before {
+  border-color: $orange_color
+}
+
+.form-checkbox.form-normal.form-primary.active:before,
+.form-radio.form-normal.form-primary.active:after {
+  background-color: $orange_color;
+  border-color: $orange_color
+}
+
+.form-checkbox.form-icon.form-primary:after,
+.form-radio.form-icon.form-primary:after {
+  color: $orange_color
+}

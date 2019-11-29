@@ -1,0 +1,11 @@
+- @object = SubmissionProject.new
+= simple_form_for(@object, remote: true, authenticity_token: true, format: :js) do |f|
+  - @object.attributes.except('id', 'created_at', 'updated_at').each do |k,v|
+    .row.one-row
+      .col-md-6.for-label
+        label
+          = I18n.t('submission_projects.'+ k +'.title', default: '')
+      .col-md-6
+        = f.input :"#{k}", label: false,
+                input_html:{class: @object.decimal_fields.include?(k) ? 'decimal-input' : ''},
+                placeholder: I18n.t('submission_projects.'+ k +'.desc', default: '')

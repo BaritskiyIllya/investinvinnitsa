@@ -1,0 +1,2 @@
+$('#result').html('<%= escape_javascript(render partial: 'admin/submission_projects/table') %>');
+$('#object_paginator').html('<%= escape_javascript(paginate(@@admin_submission_projects, remote: true).to_s) %>');

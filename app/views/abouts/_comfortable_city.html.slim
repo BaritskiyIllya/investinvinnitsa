@@ -1,0 +1,23 @@
+.cutter-left.cutter-after-style(style="--cuter-number: '1'")
+.container
+  .comfortable-city-container
+    .comfortable-city-header
+      .row
+        .col-lg-5
+          .block-title
+            = @abouts.comfortable_city.title
+        .col-lg-7
+          .statistic-info
+            .statistic-block
+              = raw(@abouts.comfortable_city.information)
+    .main-block-container
+      .row.d-flex.align-items-center
+        .col-lg-5.p-0
+          .block-desc
+            .text
+              = raw(@abouts.comfortable_city.description)
+        .col-lg-7.p-0
+          .img-container.img-left-yellow-cutter.small-gray-stab
+            - if @abouts.comfortable_city.project_images.by_locale(locale).first
+              = image_tag @abouts.comfortable_city.project_images.by_locale(locale).first.image.url,
+                class: 'w-100 img-fluid float-right z-index-1 img-bottom-shadow'

@@ -1,0 +1,7 @@
+.row.justify-content-between.review
+  .col-sm-9.col-lg-7.order-1.order-sm-0
+    h2.title= review.full_name
+    .position= review.position
+    .text= strip_tags(review.description)
+  .col-sm-3.col-lg-5.order-0.order-sm-1
+    .avatar= image_tag(review.image_url, class: 'img-fluid')

@@ -1,0 +1,9 @@
+- @cabinet_submission_projects.each do |object|
+  tr
+    td
+      = object.name
+    td
+      = object.purpose
+    td
+      = render 'layouts/blocks/action_btns' do
+        = render 'blocks/btns/show', path: cabinet_submission_project_path(object)

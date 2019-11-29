@@ -1,0 +1,61 @@
+scss:
+  .search-results{
+    .container{
+      h3{
+        color: #fdbb2c;
+        font-size: 40px;
+        text-align: left;
+        line-height: 54.6px;
+        margin: 30px 0 20px 0;
+        text-transform: uppercase;
+      }
+      .list-results{
+        .block-result{
+          .date{
+            color: #778899;
+            margin-bottom: 10px;
+          }
+          a {
+            color: #778899;
+            text-decoration: none;
+            .title {
+              color: #191970;
+              font-size: 20px;
+              font-weight: 400;
+              line-height: 27px;
+              margin-bottom: 5px;
+              letter-spacing: 1.2px;
+              font-family: 'Proxima Nova Rg';
+            }
+            .content {
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 27px;
+              margin-bottom: 5px;
+              letter-spacing: 1.2px;
+              font-family: 'Proxima Nova Rg';
+            }
+          }
+        }
+      }
+      .no-results{
+        color: #191970;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 27px;
+        margin-bottom: 5px;
+        letter-spacing: 1.2px;
+        font-family: 'Proxima Nova Rg';
+      }
+    }
+  }
+
+.search-results
+  .container
+    h3 Результати пошуку
+    - if @results.present?
+      .list-results
+        - @results.each do |result|
+          = render partial: "elastic/#{result.model_name.element}", locals: { result: result }
+    - else
+      p.no-results Ваш пошук не дав результатів

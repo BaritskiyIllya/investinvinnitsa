@@ -1,0 +1,56 @@
+footer
+  hr
+  .container
+    .row
+      .col-12.col-md-6.col-lg-2
+        = link_to image_tag('invest_logo.png', class: 'img-fluid logo-footer'), "#{locale_link('', I18n.locale)}"
+        .address
+          div= I18n.t('home.footer.address_city')
+          div= I18n.t('home.footer.address_street')
+
+      .col-5.col-sm-12.col-md-6.col-lg-4
+        .row.nav-footer
+          - @main_menu.each_slice((@main_menu.size/2.0).round) do |group|
+            div class="#{@main_menu.first[0] == group.first[0] ? 'col-lg-7 col-md-12 col-sm-7' : 'col-lg-5 col-md-12 col-sm-5'}"
+              - group.each do |item|
+                = link_to item.second[:title], "#{locale_link(item.second[:link], I18n.locale)}"
+      .col-7.col-sm-6.col-lg-3
+        .contancts
+          div +38(0432)59-50-46
+          div investinvinnytsia@vmr.gov.ua
+          .social-networks
+            = link_to content_tag(:i, '', class: 'fa fa-facebook'), ''
+            = link_to content_tag(:i, '', class: 'fa fa-google-plus'), ''
+      .col-6.col-sm-6.col-lg-3.d-none.d-sm-block
+        = image_tag('markup/ukr.png', class: 'img-fluid')
+    .row.justify-content-between.footer-2
+      .col-md-5
+        .footer-partners.row.justify-content-between
+          .col-3.align-self-center= link_to image_tag('vmr.png', class: 'img-fluid'), 'http://www.vmr.gov.ua', target: '_blank', rel: 'nofollow noopenner'
+          .col-4.align-self-center= link_to image_tag('vmci.png', class: 'img-fluid'), 'https://innovation.vn.ua/', target: '_blank', rel: 'nofollow noopenner'
+          .col-4.align-self-center= link_to image_tag('logo-c4b.png', class: 'img-fluid'), 'https://c4b.com.ua/', target: '_blank', rel: 'nofollow noopenner'
+      .col-md-5.subscribe
+        button type="button" class="btn-feedback" data-toggle="modal" data-target="#feedback"
+          = t('home.feedback')
+        .policy
+          = t('home.policy')
+        .developed
+          = t('home.developed')
+
+#feedback.modal.fade aria-hidden="true" aria-labelledby="feedbackModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      button.close aria-label="Close" data-dismiss="modal" type="button"
+        span aria-hidden="true"  &times;
+      .modal-title= t('home.callback')
+      = render 'theme/feedback'
+
+#answer_feedback.modal.fade aria-hidden="true" aria-labelledby="answerFeedbackModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      button.close aria-label="Close" data-dismiss="modal" type="button"
+        span aria-hidden="true"  &times;
+      .modal-answer-title
+        = t('home.feedback_form.answer_title')
+      .modal-answer-description
+        = t('home.feedback_form.answer_description')

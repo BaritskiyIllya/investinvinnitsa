@@ -1,0 +1,32 @@
+- @object = PotentialInvestor.new
+= simple_form_for(@object, remote: true, authenticity_token: true, format: :js) do |f|
+  - @object.attributes.except('id').each do |k,v|
+    .row.one-row
+      .col-md-6.for-label
+        label
+          = I18n.t('potential_investor.'+ k +'.title', default: '')
+      .col-md-6
+        = f.input :"#{k}", label: false,
+                input_html:{class: @object.decimal_fields.include?(k) ? 'decimal-input' : ''},
+                placeholder: I18n.t('potential_investor.'+ k +'.desc', default: '')
+  .additional-fields
+    .row
+      .col-md-12
+        .additional_title.center
+          span = I18n.t('potential_investor.second_form.title')
+        p = I18n.t('potential_investor.second_form.desc')
+    = f.simple_fields_for :representative, @object.build_representative do |ff|
+      - @object.build_representative.attributes.except('id', 'potential_investor_id').each do |k,v|
+        - unless k == 'additional'
+          .row.one-row
+            .col-md-6.for-label
+              label
+                = I18n.t('potential_investor.' + k + '.title', default: '')
+            .col-md-6
+              = ff.input :"#{k}", label: false, placeholder: I18n.t('potential_investor.'+ k +'.desc', default: '')
+      .row.one-row
+        .col-md-6.for-label
+          label
+            = I18n.t('potential_investor.second_form.additional_file', default: '')
+        .col-md-6
+          = ff.input :additional, as: :file, label: false

@@ -1,0 +1,106 @@
+.tabs-contaner(data-aos="zoom-out-right")
+  .container
+    ul.nav.nav-tabs.d-flex.justify-content-between role="tablist"
+      li.nav-item
+        a.nav-link.d-flex.justify-content-center.align-items-center.active.bordered-right(data-toggle="tab" href="#good-climat")
+          = @abouts.investment_climate.title
+      li.nav-item
+        a.nav-link.d-flex.justify-content-center.align-items-center.bordered-right(data-toggle="tab" href="#mobilable")
+          = t('about.tab_two')
+      li.nav-item
+        a.nav-link.d-flex.justify-content-center.align-items-center(data-toggle="tab" href="#budget-opportunities")
+          = @abouts.budget_opportunities.title
+  .tab-content
+    #good-climat.tab-pane.active
+      .cutter-right.cutter-after-style(style="--cuter-number: '4'")
+      .container
+        .row
+          .col-lg-7.p-0
+            .img-container
+              - if @abouts.investment_climate.project_images.by_locale(locale).first
+                = image_tag @abouts.investment_climate.project_images.by_locale(locale).first.image.url,
+                  class: 'w-100 img-fluid float-left z-index-1 img-bottom-shadow'
+          .col-lg-5.pl-5.d-flex.flex-column.justify-content-center.tablet-padding-top-40
+            .block-desc
+              = raw(@abouts.investment_climate.description)
+        .simple-wrapper.text-center
+          .good-climat-statistics
+            = raw(@abouts.investment_climate.information)
+    #mobilable.tab-pane.fade
+      .cutter-right.cutter-after-style(style="--cuter-number: '5'")
+      .container
+        .row
+          .col-lg-6
+            .img-container
+              - if @abouts.international_airport.project_images.by_locale(locale).first
+                = image_tag @abouts.international_airport.project_images.by_locale(locale).first.image.url,
+                  class: 'w-100 img-fluid float-left z-index-1 img-bottom-shadow'
+            .row
+              .col-lg-12
+                .mobilable-title
+                  = @abouts.international_airport.title
+            .row.bottom-yellow-cutter-after.position-relative
+              .col-lg-12
+                .block-desc
+                  = raw(@abouts.international_airport.description)
+            .row
+              .col-lg-12.d-flex.flex-column.justify-content-center
+                .mobilable-statistics-container
+                  .statistic-block-v2
+                    = raw(@abouts.international_airport.information)
+          .col-lg-6.tablet-padding-top-40
+            .img-container
+              - if @abouts.railway_junction.project_images.by_locale(locale).first
+                = image_tag @abouts.railway_junction.project_images.by_locale(locale).first.image.url,
+                  class: 'w-100 img-fluid float-left z-index-1 img-bottom-shadow'
+            .row
+              .col-lg-12
+                .mobilable-title
+                  = @abouts.railway_junction.title
+            .row
+              .col-lg-12
+                = raw(@abouts.railway_junction.description)
+        .row.mt-5
+          .col-lg-6
+            .img-container
+              - if @abouts.public_transport.project_images.by_locale(locale).first
+                = image_tag @abouts.public_transport.project_images.by_locale(locale).first.image.url,
+                  class: 'w-100 img-fluid float-left z-index-1 img-bottom-shadow'
+            .row
+              .col-lg-12
+                .mobilable-title
+                  = @abouts.public_transport.title
+                .block-desc.bottom-yellow-cutter-after.position-relative
+                  = raw(@abouts.public_transport.description)
+          .col-lg-6.tablet-padding-top-40
+            .img-container
+              - if @abouts.cycling_tracks.project_images.by_locale(locale).first
+                = image_tag @abouts.cycling_tracks.project_images.by_locale(locale).first.image.url,
+                  class: 'w-100 img-fluid float-left z-index-1 img-bottom-shadow'
+            .row
+              .col-lg-12
+                .mobilable-title
+                  = @abouts.cycling_tracks.title
+                .block-desc.bottom-yellow-cutter-after.position-relative
+                  = raw(@abouts.cycling_tracks.description)
+        .row
+          .col-lg-6.d-flex.flex-column.justify-content-center
+            .mobilable-statistics-container
+              .statistic-block-v2
+                = raw(@abouts.public_transport.information)
+          .col-lg-6.d-flex.flex-column.justify-content-center
+            .mobilable-statistics-container
+              .statistic-block-v2
+                = raw(@abouts.cycling_tracks.information)
+    #budget-opportunities.tab-pane.fade
+      .cutter-right.cutter-after-style(style="--cuter-number: '6'")
+      .container
+        .row.mt-5
+          .col-lg-6.offset-lg-3
+            .img-container
+              - if @abouts.budget_opportunities.project_images.by_locale(locale).first
+                = image_tag @abouts.budget_opportunities.project_images.by_locale(locale).first.image.url,
+                  class: 'w-100 img-fluid float-left z-index-1 img-bottom-shadow'
+        .row.mt-5
+          .col-lg-6.offset-lg-3
+            = raw(@abouts.budget_opportunities.description)

@@ -1,0 +1,22 @@
+h1.center Список груп фільтрів для карти
+
+= render 'layouts/general/table', path: new_cabinet_map_layer_group_path, title: 'Список груп фільтрів для карти' do
+  thead
+    tr
+      th Назва українською
+      th Назва англійською
+      th Аліас
+      th Дії
+  tbody
+    - @cabinet_map_layer_groups.each do |cabinet_map_layer_group|
+      tr
+        td
+          = cabinet_map_layer_group.title_uk
+        td
+          = cabinet_map_layer_group.title_en
+        td
+          = cabinet_map_layer_group.alias
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_cabinet_map_layer_group_path(cabinet_map_layer_group)
+            = render 'blocks/btns/delete', path: cabinet_map_layer_group_path(cabinet_map_layer_group)

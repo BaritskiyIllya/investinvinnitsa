@@ -1,0 +1,15 @@
+h1.center Список структурних підрозділів
+
+= render 'layouts/general/table', path: new_cabinet_balancer_path, title: '' do
+  thead
+    tr
+      th Назва
+      th Дії
+  tbody
+    - @cabinet_balancers.each do |cabinet_balancer|
+      tr
+        td = cabinet_balancer.name
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_cabinet_balancer_path(cabinet_balancer)
+            = render 'blocks/btns/delete', path: cabinet_balancer_path(cabinet_balancer)

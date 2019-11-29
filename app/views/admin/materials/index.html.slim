@@ -1,0 +1,14 @@
+h1.center Список матеріалів
+
+= render 'layouts/general/table', path: new_admin_material_path, title: 'Список матеріалів' do
+  thead
+    tr
+      th №п/п
+      th Назва українською
+      th Назва англійською
+      th Дії
+  tbody#materials
+    = render 'table'
+
+#material-paginator
+  = paginate @admin_materials, remote: true

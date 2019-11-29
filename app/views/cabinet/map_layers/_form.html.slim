@@ -1,0 +1,58 @@
+scss:
+  .active-checkbox{
+    margin-top: 10px;
+  }
+  .one-row{
+    min-height: 66.45px;
+  }
+
+= simple_form_for [:cabinet, @cabinet_map_layer] do |f|
+  .form-inputs
+    .row
+      .col-md-5
+        = f.label :title_uk, 'Назва українською'
+        = f.input :title_uk, label: false, input_html: {class: 'form-control'}
+        = f.error :title_uk
+      .col-md-5
+        = f.label :title_en, 'Назва англійською'
+        = f.input :title_en, label: false, input_html: {class: 'form-control'}
+        = f.error :title_en
+      .col-md-2
+        = f.label :position, 'Порядковий номер'
+        = f.input :position, label: false, input_html: {class: 'form-control'}
+    .row.one-row
+      .col-md-6
+        .checkbox.pad-btm.text-left
+          = f.check_box :active, as: :boolean, class: 'magic-checkbox'
+          = f.label :active, 'Активний'
+      .col-md-6
+        .checkbox.pad-btm.text-left
+          = f.check_box :layer, as: :boolean, class: 'magic-checkbox'
+          = f.label :layer, 'Шар на карті'
+    .row
+      .col-md-12
+        = f.label :map_layer_group, 'Група фільтрів на карті'
+        = f.input :map_layer_group_id, as: :select, collection: MapLayerGroup.all, label: false, input_html: {class: 'form-control'}
+    .row
+      .col-md-12
+        = f.fields_for :map_layer_link, @cabinet_map_layer.map_layer_link || @cabinet_map_layer.build_map_layer_link do |ff|
+          = ff.input :id, as: :hidden
+          .form-inputs
+            = ff.label :link, 'Посилання для шару на карті'
+            = ff.input :link, label: false, input_html: {class: 'form-control'}
+          = f.error :link
+          .row
+            .col-md-6
+              .form-inputs
+                = ff.label :info, 'Умовні позначення'
+                = ff.file_field :info, label: false, input_html: {class: 'form-control'}
+            .col-md-6
+              .form-inputs
+                = f.label :icon, 'Маркер на карті (розміри обмежені до 32х32 пікселів)'
+                = f.file_field :icon, label: false, input_html: {class: 'form-control'}
+              = f.error :icon
+  .form-actions.but
+    = render 'blocks/btns/save_button', f: f
+
+javascript:
+  $('#map_layer_group').select2({width: '100%'});

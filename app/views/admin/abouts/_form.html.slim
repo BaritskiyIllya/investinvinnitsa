@@ -1,0 +1,34 @@
+scss:
+  .cr-boundary{
+    width: 700px !important;
+    height: 500px !important;
+  }
+
+.panel-body
+  .tab-block.mb25
+    = simple_form_for [:admin, @admin_about] do |f|
+      ul.nav.tabs-right.tabs-border
+        li.active.tab-name
+          a[href="#main_uk" data-toggle="tab"]
+            | Українською
+        li.tab-name
+          a[href="#main_en" data-toggle="tab"]
+            | Англійською
+      .tab-content
+        = render 'main_uk', f: f
+        = render 'main_en', f: f
+      = render 'blocks/btns/save_button', f: f
+      = render 'blocks/btns/back', path: admin_abouts_path
+
+javascript:
+  $(document).ready(function () {
+    var options = {
+      width: 665,
+      height: 440,
+      delete_image_uk: $('#about_project_images_attributes_0__destroy'),
+      delete_image_en: $('#about_project_images_attributes_1__destroy')
+    };
+
+    initCropper('#about_project_images_attributes_0_image', options);
+    initEnCropper('#about_project_images_attributes_1_image', options);
+  });

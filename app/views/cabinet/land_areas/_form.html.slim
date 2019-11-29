@@ -1,0 +1,173 @@
+scss:
+  .active-checkbox{
+    margin-top: 10px;
+  }
+  .one-row{
+    min-height: 66.45px;
+  }
+
+  .char{
+    vertical-align: bottom;
+    display: inline-block;
+    float: none;
+  }
+
+  .image-field{
+    padding-left: 15px;
+    height: 50px;
+    margin-top: 15px;
+    #land_area_project_images_image{
+      display: inline-block;
+      margin-left: 15px;
+    }
+  }
+
+  .filename{
+    margin: 0 5px;
+  }
+
+  .state-chose {
+    padding-top: 15px;
+    .text {
+      margin-right: 10px;
+    }
+    .radio {
+      margin-right: 10px;
+    }
+  }
+
+  .pdf-file-field{
+    margin-bottom: 10px;
+  }
+
+= simple_form_for [:cabinet, @cabinet_land_area] do |f|
+  .form-inputs
+    .row
+      .col-md-2.char.margin-bottom-10
+        = f.label :area_type, 'Тип ділянки'
+        = f.input :area_type, as: :select, collection: LandArea.area_types.map{|e| [e[0], e[0]]}, selected: @cabinet_land_area.area_type, label: false, input_html: {class: 'form-control'}
+      .col-md-2.char
+        = f.label :total_area, 'Загальна площа ділянки, га'
+        = f.input :total_area, label: false, input_html: {class: 'form-control decimal-value'}
+      .col-md-2.char
+        = f.label :cadastral_number, 'Кадастровий номер'
+        = f.input :cadastral_number, label: false, input_html: {class: 'form-control'}
+      .col-md-2.char
+        = f.label :state_road_distance, 'Відстань до автодороги державного значення, км'
+        = f.input :state_road_distance, label: false, input_html: {class: 'form-control decimal-value'}
+      .col-md-2.char
+        = f.label :railway_distance, 'Відстань до вантажної залізничної станції, км'
+        = f.input :railway_distance, label: false, input_html: {class: 'form-control decimal-value'}
+      .col-md-2.char
+        = f.label :airport_distance, 'Відстань до аеропорту, км'
+        = f.input :airport_distance, label: false, input_html: {class: 'form-control decimal-value'}
+    .row
+      .col-md-2.char
+        = f.label :phone, 'Мобільний телефон'
+        = f.input :phone, label: false, input_html: {class: 'form-control'}
+      .col-md-2.char
+        = f.label :email, 'E-mail'
+        = f.input :email, label: false, input_html: {class: 'form-control'}
+      .col-md-2.char
+        = f.label :rent, 'Вартість землі для оренди (грн./дол. США за м2)'
+        = f.input :rent, label: false, input_html: {class: 'form-control decimal-value'}
+      .col-md-2.char
+        = f.label :sale, 'Нормативно-грошова оцінка землі для продажу (грн./дол. США за м2)'
+        = f.input :sale, label: false, input_html: {class: 'form-control decimal-value'}
+      .col-md-2.char.margin-bottom-10
+        = f.label :ownership_id, 'Форма власності'
+        = f.input :ownership_id,
+                as: :select,
+                collection: Ownership.all.map{|e| [e.name, e.id]},
+                selected: @cabinet_land_area.ownership_id,
+                label: false,
+                input_html: {class: 'form-control'}
+    .row.one-row
+      .col-md-6
+        .checkbox.pad-btm.text-left
+          = f.check_box :underground_engin, as: :boolean, class: 'magic-checkbox'
+          = f.label :underground_engin, 'Чи є підземна інженерна інфраструктура на ділянці'
+      .col-md-6
+        .checkbox.pad-btm.text-left
+          = f.check_box :overhead_engin, as: :boolean, class: 'magic-checkbox'
+          = f.label :overhead_engin, 'Чи є надземна інженерна інфраструктура на ділянці'
+    = render 'cabinet/blocks/form/infrastructures', f: f
+    .panel-body
+      .tab-block.mb25
+        .row
+          .col-md-6
+            h4
+              | Українською
+            = render 'form_uk', f: f
+          .col-md-6
+            h4
+              | Англійською
+            = render 'form_en', f: f
+
+    input#geo_type type='hidden' name='land_area[geo_json_attributes][geo_type]'
+    input#position type='hidden' name='land_area[geo_json_attributes][position]'
+
+    = render 'cabinet/blocks/form/croped_image', f: f, area: @cabinet_land_area
+  = render 'cabinet/blocks/form/images', f: f, area: @cabinet_land_area
+
+  = f.fields_for :questionnaire_file, @cabinet_land_area.questionnaire_file || @cabinet_land_area.build_questionnaire_file do |ff|
+    = ff.input :fileable_type, as: :hidden
+    = ff.input :fileable_id, as: :hidden
+    .row.pdf-file-field
+      .form-inputs.image-field
+        = ff.input :file, as: :file, label: 'PDF файл'
+      .col-md-12.notice
+        .errors
+          = f.error :"questionnaire_file.file"
+        .view-file
+          - unless @cabinet_land_area.questionnaire_file.new_record?
+            = link_to @cabinet_land_area.questionnaire_file.file.url, target: :_blank do
+              = "Переглянути файл #{@cabinet_land_area.questionnaire_file.file.file.original_filename}"
+
+  - unless @cabinet_land_area.questionnaire_file.new_record?
+    = f.fields_for :questionnaire_file, @cabinet_land_area.questionnaire_file do |fd|
+      .checkbox.pad-btm.text-left
+        = fd.check_box :_destroy, as: :boolean, class: 'magic-checkbox'
+        = fd.label :_destroy, "Видалити файл #{fd.object.file.file.original_filename}"
+      = fd.input :id, as: :hidden
+
+  / MAP block
+  = render 'cabinet/blocks/form/gis_types', f: f
+  = render 'cabinet/blocks/form/geo_json', f: f, area: @cabinet_land_area
+  = render 'cabinet/blocks/form/map'
+  = render 'cabinet/blocks/form/map_layer', f: f
+  = render 'cabinet/blocks/form/balancers', f: f
+  = render 'cabinet/blocks/form/states', area: @cabinet_land_area
+
+  .form-actions.save_button
+    = render 'blocks/btns/save_button', f: f
+
+= javascript_include_tag 'application/google_map_form'
+
+javascript:
+  hide_gis_types();
+
+  function initMapForAreas(){
+    var AreaMap = initMap();
+    var model = "#{@cabinet_land_area.model_name.name}";
+    var id = "#{@cabinet_land_area.id}";
+    init_map_object(model, id, AreaMap);
+  }
+
+  $(document).ready(function () {
+    initCropper('#land_area_main_image', {width: 300, height: 200});
+    decimal_cut('input[type="text"].decimal-value', 2);
+
+    $('#land_area_map_layer_id, #land_area_area_type, #land_area_ownership_id').select2({ width: '100%' });
+    $('#land_area_balancer_ids, #land_area_infrastructure_type_ids').select2({ width: '100%', multiple: true });
+
+    $("#land_area_phone").mask("+38(999)999-99-99");
+
+    $('input[type="text"].decimal-value').change(function () {
+        cut_negative_value($(this))
+    });
+
+    ready_map_functions()
+  });
+
+script async=true defer=true src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAP_API']}&libraries=drawing&callback=initMapForAreas"

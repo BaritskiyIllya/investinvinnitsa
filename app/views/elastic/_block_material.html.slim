@@ -1,0 +1,9 @@
+.block-result
+  p.date
+    = I18n.t('home.materials')
+  = link_to "/#{result.link}", target: :_blank do
+    .title
+      = strip_tags result.block_material_contents.first.title.truncate(100) unless result.block_material_contents.first.title.blank?
+    .content
+      = strip_tags result.block_material_contents.first.description.truncate(210) unless result.block_material_contents.first.description.blank?
+  hr

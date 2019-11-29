@@ -1,0 +1,19 @@
+h1.center Список відео
+
+= render 'layouts/general/table', path: new_admin_video_path, title: 'Список відео' do
+  thead
+    tr
+      th №п/п
+      th Назва українською
+      th Назва англійською
+      th Дії
+  tbody
+    - @admin_videos.each_with_index do |admin_video, index|
+      tr
+        td = index + 1
+        td = admin_video.title_uk
+        td = admin_video.title_en
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_admin_video_path(admin_video)
+            = render 'blocks/btns/delete', path: admin_video_path(admin_video)

@@ -1,0 +1,17 @@
+- @cabinet_production_areas.each do |area|
+  tr
+    td
+      = area.address
+    td
+      = I18n.t('states.' + area.state)
+    td
+      = true_false(area.map_layer.try :active)
+    td
+      = balancer_names area.balancers
+    td
+      = area.map_layer.title
+    td
+      - if can? :edit, area
+        = render 'layouts/blocks/action_btns' do
+          = render 'blocks/btns/edit', path: edit_cabinet_production_area_path(area)
+          = render 'blocks/btns/delete', path: cabinet_production_area_path(area)

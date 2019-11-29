@@ -1,0 +1,12 @@
+table
+  tr
+    td.info-key = I18n.t('communal_area.education_address')
+    td.info-value = sanitazed_text(@gis.address)
+  tr
+    td.info-key = I18n.t('communal_area.education_object_type')
+    td.info-value = sanitazed_text(@gis.object_type)
+  tr
+    td.info-key = I18n.t('communal_area.education_site')
+    td.info-value
+      = link_to @gis.site do
+        = sanitazed_text(@gis.site)

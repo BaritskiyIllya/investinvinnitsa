@@ -1,0 +1,46 @@
+#rewards
+  .container
+    h2.block-header
+      = t('home.rewards')
+    .rewards
+      .row
+        .col-md-3
+          .image
+            = inline_svg 'rewards/first_prize.svg'
+          .description
+            - if locale.eql?(:uk)
+              span
+                | №1 в дослідженні «Індекс задоволеності якістю сфер та послуг»
+            -else
+              span
+                | №1 in "Index of Quality Satisfaction of Spheres and Services"
+        .col-md-3
+          .image
+            = inline_svg 'rewards/analyze.svg'
+          .description
+            - if locale.eql?(:uk)
+              span
+                | 1 місце у рейтингу Regional Doing Business
+            - else
+              span
+                | 1 place in Regional Doing Business rating
+        .col-md-3
+          .image
+            = inline_svg 'rewards/dollar_analysis.svg'
+          .description
+            - if locale.eql?(:uk)
+              span
+                | Оцінка «invA+» - «Висока інвестиційна привабливість»
+            - else
+              span
+                | "invA +" score - "High investment attractiveness"
+        .col-md-3
+          .image
+            = inline_svg 'rewards/it_icon.svg'
+          .description
+            - if locale.eql?(:uk)
+              span
+                | 6 місце в Україні за кількістю IT-спеціалістів
+            - else
+              span
+                | 6th place in Ukraine by the number of IT-specialists

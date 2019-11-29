@@ -1,0 +1,41 @@
+scss:
+  .block-result{
+    a{
+      .content{
+        p{
+          margin: 0;
+          span.info-key{
+            margin-right: 15px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+.block-result
+  p.date
+    = I18n.t('office_area.main_title')
+  = link_to "/office_areas/#{result.id}", target: :_blank do
+    .content
+      p
+        span.info-key
+          = I18n.t('office_area.address')
+        span.info-value
+          = strip_tags(result.address)
+      p
+        span.info-key
+          = I18n.t('office_area.total_area')
+        span.info-value
+          = strip_tags(result.total_area)
+      p
+        span.info-key
+          = I18n.t('office_area.area_class')
+        span.info-value
+          = strip_tags(result.area_class)
+      p
+        span.info-key
+          = I18n.t('office_area.transfer_type')
+        span.info-value
+          = strip_tags(result.transfer_type)
+  hr

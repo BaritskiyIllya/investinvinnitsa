@@ -1,0 +1,16 @@
+= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'
+
+section#guide.bg-gray
+  .container
+    h1.title = t('guide.main_title')
+    a.back-step href="#"
+      i.fa.fa-chevron-left
+      span= t('guide.back')
+  = render 'home/guide'
+  .container
+    .wrap-noresident
+      h3= t('guide.doc')
+      = render 'home/noresident'
+    .wrap-resident
+      h3= t('guide.reg')
+      = render 'home/resident'

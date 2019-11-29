@@ -1,0 +1,2 @@
+$('#articles').html('<%= escape_javascript(render partial: 'admin/articles/table') %>');
+$('#article-paginator').html('<%= escape_javascript(paginate(@admin_articles, remote: true).to_s) %>');

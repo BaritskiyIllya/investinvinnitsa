@@ -1,0 +1,42 @@
+.tab-pane.active#main_uk
+  .form-group
+    = f.label :last_name_uk, 'Прізвище'
+    = f.input :last_name_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :first_name_uk, 'Ім’я'
+    = f.input :first_name_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :middle_name_uk, 'По батькові'
+    = f.input :middle_name_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :position_uk, 'Посада'
+    = f.input :position_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :description_uk, 'Опис українською'
+    = ckeditor_input(f, :description_uk)
+  .form-group.images-form
+    = f.label :image, 'Зображення профілю'
+    = f.input :image, as: :hidden
+    .section
+      .row
+        .col-sm-6
+          label.field.prepend-icon.append-button.file
+            input#news-img.gui-file name="file1" type="file"
+        .col-sm-6
+          .file.prepend-icon.get-image
+            a.button.btn-default.pull-right#getCroppedImage
+              | Застосувати
+    .section
+      .upload-msg
+        - if @admin_review.image.present?
+          = image_tag @admin_review.image.url, class: 'img-responsive'
+          = link_to 'Скинути', '#', class: 'btn btn-default mt10', id: 'resetCroppedImg'
+        - else
+          | Завантажте зображення профілю
+      .upload-wrap
+        #main-cropper
+
+javascript:
+  $(document).ready(function () {
+    initCropper('#review_image', { width: 100, height: 100 });
+  });

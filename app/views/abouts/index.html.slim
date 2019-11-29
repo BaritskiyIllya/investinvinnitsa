@@ -1,0 +1,17 @@
+= stylesheet_link_tag 'about'
+= stylesheet_link_tag 'https://unpkg.com/aos@2.3.1/dist/aos.css'
+= javascript_include_tag 'https://unpkg.com/aos@2.3.1/dist/aos.js'
+
+.about-wrapper(data-aos="zoom-out-right")
+  = render 'comfortable_city'
+  = render 'potential_city'
+  = render 'business_partner'          
+  = render 'tabs'
+  = render 'morgunov'
+
+javascript: 
+  $().ready(function() {
+    AOS.init({
+      duration: 1000
+    });
+  });

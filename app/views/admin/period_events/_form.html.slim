@@ -1,0 +1,41 @@
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'
+
+.panel-body
+  .tab-block.mb25
+    = simple_form_for [:admin, @admin_period_event] do |f|
+      .row
+        .col-md-6
+          .form-group
+            = f.label :title_uk, 'Назва українською'
+            = f.input :title_uk, label: false, input_html: { class: 'form-control' }
+        .col-md-6
+          .form-group
+            = f.label :title_en, 'Назва англійською'
+            = f.input :title_en, label: false, input_html: { class: 'form-control' }
+      #events-app data-init="#{render(template: 'admin/period_events/edit.json.jbuilder')}"
+        .row
+          .col-sm-6
+            label Українська
+          .col-sm-6
+            label Англійська
+        div v-for="(event, index) in events"
+          div v-show="!event.deleted"
+            input.form-control type="hidden" :name="'period_event[events_attributes][' + index + '][id]'" v-bind:value="event.id"
+            input.form-control type="hidden" :name="'period_event[events_attributes][' + index + '][_destroy]'" v-bind:value="1" v-if="event.deleted"
+            .row
+              .col-sm-6
+                input.form-control type="text" :name="'period_event[events_attributes][' + index + '][title_uk]'" v-model="event.title_uk"
+              .col-sm-5
+                input.form-control type="text" :name="'period_event[events_attributes][' + index + '][title_en]'" v-model="event.title_en"
+              .col-sm-1
+                a.destroy-input src="#" v-on:click.prevent="removeField(index)"
+                  i.fa.fa-times aria-hidden="true"
+        .btn.btn-success @click.prevent="addField"
+          | Додати подію
+
+      .form-group
+        = f.label :position, 'Позиція'
+        = f.input :position, label: false, input_html: { class: 'form-control' }
+      .form-actions
+        = render 'blocks/btns/save_button', f: f
+        = render 'blocks/btns/back', path: admin_period_events_path

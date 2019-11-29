@@ -1,0 +1,33 @@
+.panel-body
+  .tab-block.mb25
+    = simple_form_for [:admin, @admin_article] do |f|
+      ul.nav.tabs-right.tabs-border
+        li.active.tab-name
+          a[href="#main_uk" data-toggle="tab"]
+            | Українською
+        li.tab-name
+          a[href="#main_en" data-toggle="tab"]
+            | Англійською
+      .tab-content
+        = render 'main_uk', f: f
+        = render 'main_en', f: f
+      = render 'blocks/btns/save_button', f: f
+      = render 'blocks/btns/back', path: admin_articles_path
+
+javascript:
+  $(document).ready(function () {
+    $('#article_tag_ids').select2({ allowBlank: true, multiple: true });
+
+    initDatetimePicker('#article_publication_time', '#{format_date_time(@admin_article.publication_time || Time.zone.now)}');
+    initDatetimePicker('#article_end_publication_time', '#{format_date_time(@admin_article.end_publication_time)}');
+
+    var options = {
+        width: 420,
+        height: 280,
+        delete_image_uk: $('#article_project_images_attributes_0__destroy'),
+        delete_image_en: $('#article_project_images_attributes_1__destroy')
+    }
+
+    initCropper('#article_project_images_attributes_0_image', options);
+    initEnCropper('#article_project_images_attributes_1_image', options);
+  });

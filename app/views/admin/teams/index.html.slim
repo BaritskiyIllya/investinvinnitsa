@@ -1,0 +1,21 @@
+h1.center Список працівників
+
+= render 'layouts/general/table', path: new_admin_team_path, title: 'Список працівників' do
+  thead
+    tr
+      th Прізвище
+      th Ім’я
+      th По батькові
+      th Посада
+      th Дії
+  tbody
+    - @admin_teams.each do |admin_team|
+      tr
+        td = admin_team.last_name
+        td = admin_team.first_name
+        td = admin_team.middle_name
+        td = admin_team.position
+        td
+          = render 'layouts/blocks/action_btns' do
+            = render 'blocks/btns/edit', path: edit_admin_team_path(admin_team)
+            = render 'blocks/btns/delete', path: admin_team_path(admin_team)

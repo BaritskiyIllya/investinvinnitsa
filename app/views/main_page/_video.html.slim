@@ -1,0 +1,154 @@
+scss:
+  #video {
+    position: relative;
+    .video {
+      position: relative;
+      height: 0;
+      padding-bottom: 56.25%;
+      iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+      }
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      color: white;
+      text-align: left;
+    }
+    .overlay:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -0.25em;
+    }
+    .text {
+      width: 100%;
+      padding: 130px 20px;
+      display: inline-block;
+      .mute_video {
+        position: absolute;
+        top: 7px;
+        right: 95px;
+        .unmute, .mute {
+          color: white;
+          cursor: pointer;
+          font-size: 24px;
+        }
+        .mute {
+          display: none;
+        }
+      }
+      .short-title{
+        color: #d9d900;
+        font-size: 26px;
+        text-transform: uppercase;
+        font-family: 'ProximaNovaExCn-Regular';
+      }
+      .title,
+      .description {
+        font-family: 'ProximaNova-Light';
+      }
+      .title{
+        color: white;
+        display: block;
+        font-size: 60px;
+        line-height: 47px;
+        margin-bottom: 30px;
+      }
+      .description{
+        color: white;
+        font-size: 24px;
+        margin-top: 50px;
+        line-height: 1.2;
+        padding-left: 30px;
+        text-align: justify;
+        border-left: 1px solid white;
+      }
+      .youtube-button{
+        img {
+          width: 120px;
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    #video {
+      .overlay{
+        .text{
+          padding: 20px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px){
+    #video{
+      display: none;
+    }
+  }
+
+#video
+  .video
+    iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" src="#{implement_url(@main_video.link)}" id="invest_video"
+  .overlay
+    .text
+      .mute_video
+        .unmute
+          i.ion-volume-mute
+        .mute
+          i.ion-volume-high
+      .row
+        .col-sm-6
+        .col-sm-6
+          .short-title
+            = @main_video.short_title
+          .title
+            = @main_video.title
+          .description
+            = sanitazed_text(@main_video.description)
+          .youtube-button
+            = link_to @main_video.link, target: '_blank' do
+              = image_tag 'youtube.png'
+
+javascript:
+  $(document).ready(function () {
+    $('.unmute').on('click', function () {
+      $('.unmute').css('display', 'none');
+      $('.mute').css('display', 'block');
+      $("#invest_video").attr("src", $("#invest_video").attr("src").replace("mute=1", "mute=0"));
+    });
+    $('.mute').on('click', function () {
+      $('.mute').css('display', 'none');
+      $('.unmute').css('display', 'block');
+      $("#invest_video").attr("src", $("#invest_video").attr("src").replace("mute=0", "mute=1"));
+    });
+
+    $(function () {
+      var blockTop = 1500;
+      var CountUpFlag = 0;
+      var $window = $(window);
+      $window.on('load scroll', function () {
+        var top = $window.scrollTop();
+        var height = $window.height();
+        if (top + height >= blockTop && CountUpFlag == 0) {
+          CountUp();
+          CountUpFlag = 1;
+        }
+      });
+
+      function CountUp() {
+        $("#invest_video").attr("src", $("#invest_video").attr("src").replace("autoplay=0", "autoplay=1"));
+      }
+    });
+  });

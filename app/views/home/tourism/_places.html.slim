@@ -1,0 +1,7 @@
+#tourism-places
+  .container
+    h1.title= t('tourism.place_title')
+  .container-fluid
+    .row.landmarks#pagination-list data-next-page="#{next_page}" data-url="#{landmarks_path}"
+      = render @landmarks
+    = content_tag(:div, t('articles.load'), class: 'btn-pagination') unless @landmarks.last_page?

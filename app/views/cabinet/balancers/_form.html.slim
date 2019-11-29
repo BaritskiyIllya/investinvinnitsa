@@ -1,0 +1,6 @@
+= simple_form_for [:cabinet, @cabinet_balancer] do |f|
+  .form-inputs
+    = f.label :name, 'Назва'
+    = f.input :name, label: false, input_html: {class: 'form-control'}
+  .form-actions
+    = render 'blocks/btns/save_button', f: f

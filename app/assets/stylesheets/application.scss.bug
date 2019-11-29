@@ -1,0 +1,14 @@
+@import 'ionicons.min';
+@import 'custom';
+@import 'main_page';
+@import 'invest_map';
+@import 'radio_checkbox';
+@import 'articles';
+@import 'reviews';
+@import 'rewards';
+@import 'our_team';
+
+body{
+  font-size: 1.4rem;
+  font-family: 'ProximaNova-Light';
+}

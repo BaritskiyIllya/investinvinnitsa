@@ -1,0 +1,97 @@
+- if can? :index, User
+  li
+    = link_to cabinet_users_path do
+      i.demo-pli-gear
+      span.menu-title
+        | Користувачі
+- if can? :index, ProductionArea
+  li
+    = link_to cabinet_production_areas_path do
+      i.demo-pli-gear
+      span.menu-title
+        | Анкети виробничих площ
+- if can? :index, LandArea
+  li
+    = link_to cabinet_land_areas_path do
+      i.demo-pli-gear
+      span.menu-title
+        | Анкети земельних ділянок
+- if can? :index, OfficeArea
+  li
+    = link_to cabinet_office_areas_path do
+      i.demo-pli-gear
+      span.menu-title
+        | Анкети офісних приміщень
+- if can? :index, InvestProject
+  li
+    = link_to cabinet_invest_projects_path do
+      i.demo-pli-gear
+      span.menu-title
+        | Анкети інвестиційних проектів
+- if can? :index, CommunalArea
+  li
+    = link_to cabinet_communal_areas_path do
+      i.demo-pli-gear
+      span.menu-title
+        | Усі об'єкти на карті
+- if can? :index, Transport
+  li
+    = link_to cabinet_transports_path do
+      i.demo-pli-gear
+      span.menu-title
+        | Транспортна система
+- if (can? :index, MapLayer) || (can? :index, Ownership) || (can? :index, InfrastructureType) || (can? :index, Balancer)
+  li
+    a[href="#"]
+      i.demo-pli-gear
+      span.menu-title
+      | Довідники
+      i.arrow
+    ul.collapse
+      - if can? :index, MapLayer
+        li
+          = link_to cabinet_map_layer_groups_path do
+            i.demo-pli-gear
+            span.menu-title
+              | Групи фільтрів для карти
+        li
+          = link_to cabinet_map_layers_path do
+            i.demo-pli-gear
+            span.menu-title
+              | Фільтри для карти
+      - if can? :index, Ownership
+        li
+          = link_to cabinet_ownerships_path do
+            i.demo-pli-gear
+            span.menu-title
+              | Форми власності
+      - if can? :index, InfrastructureType
+        li
+          = link_to cabinet_infrastructure_types_path do
+            i.demo-pli-gear
+            span.menu-title
+              | Типи інфраструктур
+      - if can? :index, Balancer
+        li
+          = link_to cabinet_balancers_path do
+            i.demo-pli-gear
+            span.menu-title
+              | Структурні підрозділи
+- if can? :index, PotentialInvestor
+  li
+    = link_to cabinet_potential_investors_path do
+      i.demo-pli-gear
+      span.menu-title
+        | Анкети потенційних інвесторів
+- if can? :index, SubmissionProject
+  li
+    = link_to cabinet_submission_projects_path do
+      i.demo-pli-gear
+      span.menu-title
+        | Форми інвестиційних проектів
+- if can? :index, AreaLog
+  li
+    = link_to cabinet_area_logs_path do
+      i.demo-pli-gear
+      span.menu-title
+        | Логування

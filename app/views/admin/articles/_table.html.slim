@@ -1,0 +1,9 @@
+- @admin_articles.each_with_index do |admin_article, index|
+  tr
+    td = index + 1
+    td = admin_article.title_uk
+    td = admin_article.title_en
+    td
+      = render 'layouts/blocks/action_btns' do
+        = render 'blocks/btns/edit', path: edit_admin_article_path(admin_article)
+        = render 'blocks/btns/delete', path: admin_article_path(admin_article)

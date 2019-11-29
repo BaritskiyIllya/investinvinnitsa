@@ -1,0 +1,203 @@
+@import "utilities/variables";
+
+.time {
+  color: #656565;
+  font-size: 16px;
+}
+#list-articles {
+  padding: 30px 0;
+  ul {
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    & > li {
+      list-style-type: none;
+      display: inline-block;
+      &:first-child {
+        padding-right: 26px;
+        position: relative;
+        &:after {
+          content: '';
+          width: 1px;
+          background-color: $orange_color;
+          height: 14px;
+          top: 9px;
+          right: 0;
+          position: absolute;
+        }
+      }
+      &:nth-child(2){
+        padding-left: 25px;
+      }
+      & > a {
+        color: #1F1E1E;
+        border-bottom: 1px solid #D3D3D3;
+        &:hover {
+          color: $orange_color;
+        }
+      }
+    }
+  }
+  .articles {
+    padding: 50px 0;
+    -moz-transition: height 2s ease;
+    -webkit-transition: height 2s ease;
+    -o-transition: height 2s ease;
+    transition: height 2s ease;
+    overflow-y: hidden;
+    .title {
+      position: relative;
+      font-size: 20px;
+      line-height: 1.4;
+      display: block;
+      padding-top: 25px;
+      min-height: 110px;
+      &:hover {
+        color: $light_black;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        width: 63px;
+        height: 2px;
+        background-color: $main_color;
+        left: 0;
+        top: 0;
+      }
+    }
+    .wrap-article {
+      margin-bottom: 40px;
+    }
+    .article-bg {
+      background-color: $white;
+      .img-article {
+        transition: all 0.5s ease;
+        position: relative;
+        &:before {
+          display: none;
+          opacity: 0;
+          transition: all 1.5s ease;
+          content: '';
+          position: absolute;
+          top: -12px;
+          left: 5%;
+          height: 12px;
+          width: 90%;
+          border-radius: 4px 4px 0 0;
+          background: linear-gradient(to right, $main_color, $orange_color);
+        }
+        &:after {
+          display: none;
+          opacity: 0;
+          transition: all 1.5s ease;
+          content: '';
+          position: absolute;
+          top: -24px;
+          left: 10%;
+          width: 80%;
+          height: 12px;
+          border-radius: 4px 4px 0 0;
+          background: linear-gradient(to right, rgba(180, 0, 15, 0.43), rgba(255, 186, 64, 0.54));
+        }
+
+      }
+      &:hover {
+        .img-article {
+          &:after, &:before {
+            display: block;
+            opacity: 1;
+          }
+          transform: scale(1.05);
+          box-shadow: 20px 20px 100px rgba(0, 0, 0, 0.15);
+        }
+      }
+      .article-info {
+        padding: 20px 15px;
+      }
+      .control {
+        padding-top: 20px;
+      }
+      .read-more {
+        font-size: 16px;
+        float: right;
+        border-bottom: 1px solid #D3D3D3;
+        color: $orange_color;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    .articles {
+      & > div:nth-last-child(-n+2) .wrap-article {
+        margin-bottom: 0;
+      }
+      .wrap-article {
+        margin-bottom: 60px;
+      }
+    }
+  }
+  @media (min-width: 992px) {
+    .article-info {
+      padding: 30px 35px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    padding: 80px 0;
+    .articles {
+      padding: 50px 0;
+      .col-md-6:nth-child(odd) .wrap-article {
+        padding-right: 25px;
+      }
+      .col-md-6:nth-child(even) .wrap-article {
+        padding-left: 25px;
+      }
+    }
+  }
+}
+
+#article-show {
+  padding: 30px 0;
+  .article-block {
+    position: relative;
+    .image {
+      display: block;
+      margin: auto;
+      margin-bottom: 30px;
+    }
+    .inform-block {
+      width: 100%;
+      .title {
+        color: $main_color;
+      }
+      .description {
+        padding-top: 20px;
+      }
+    }
+  }
+  @media (min-width: 992px) {
+    .article-block {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      .image {
+        margin-bottom: unset;
+        max-width: 425px;
+        top: 0;
+        left: 0;
+        position: absolute;
+      }
+      .inform-block {
+        float: right;
+        &:before {
+          content: "";
+          float: left;
+          width: 470px;
+          height: 310px
+        }
+      }
+    }
+  }
+}

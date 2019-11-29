@@ -1,0 +1,81 @@
+scss:
+  .nested-fields.block-content{
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+
+  .links{
+    display: inline-block;
+    margin: 0 15px 15px 0;
+
+  }
+  .remove-column{
+    margin-top: 23px;
+  }
+
+  .field_with_errors{
+    input{
+      border: 1px solid red;
+    }
+  }
+
+  .images-form{
+    .field_with_errors {
+      display: block !important;
+    }
+  }
+
+.panel-body
+  .tab-block.mb25
+    = simple_form_for [:admin, @admin_block_material] do |f|
+      #block_material_fields
+        = f.fields_for :block_material_contents do |content, index|
+          = render 'block_material_content_fields', f: content
+        .links
+          = link_to_add_association 'Додати новий блок', f, :block_material_contents, class: 'btn btn-primary'
+        .form-group
+          = f.label :link, 'Аліас'
+          = f.input :link, label: false, input_html: { class: 'form-control' }
+        = render 'blocks/btns/save_button', f: f
+        = render 'blocks/btns/back', path: admin_block_materials_path
+
+javascript:
+  $(document).ready(function () {
+      hide_add_column_btn();
+
+      var partials = $('#block_material_fields').children('div.block-content');
+      $.each(partials, function (i,value) {
+          var input = $(this).find('input.load_image');
+          var input_index = input.attr('data-index');
+          $(this).find('div.upload-msg').addClass(input_index);
+          initPartialCropper('#'+ input.attr('id'), input_index);
+      });
+
+      $('#block_material_fields')
+        .on('cocoon:after-insert', function() {
+          var new_partial = $('#block_material_fields').children('div.block-content').last();
+          var new_input_id = new_partial.find('input.load_image').attr('id');
+          new_partial.find('input.gui-file').attr('id', 'blockImg_' + new_input_id);
+          new_partial.find('a.apply-crop').attr('id', 'getCroppedImage_' + new_input_id);
+          new_partial.find('a.reject-crop').attr('id', 'resetCroppedImg_' + new_input_id);
+          new_partial.find('div.main-cropper-field').attr('id', 'mainCropper_' + new_input_id);
+          new_partial.find('div.upload-msg').addClass('upload-msg_' + new_input_id);
+          new_partial.find('div.upload-wrap').addClass('upload-wrap_' + new_input_id);
+          new_partial.find('div.get-image').addClass('get-image_' + new_input_id);
+          initPartialCropper('#'+ new_input_id, new_input_id);
+            hide_add_column_btn()
+        });
+
+      function hide_add_column_btn() {
+        $('.block-content')
+          .on("cocoon:after-remove", function () {
+            $(this).find('div.links').show();
+          })
+          .on('cocoon:after-insert', function () {
+            var count = $(this).find('div.block-content-columns').length;
+            if (count == 4) { $(this).find('div.links').hide() }
+          })
+      }
+  });

@@ -1,0 +1,13 @@
+h1.center Список анкет потенційних інвесторів
+
+= render 'layouts/general/table', path: nil, title: 'Список анкет потенційних інвесторів' do
+  thead
+    tr
+      th Назва компанії
+      th Галузь промисловості
+      th Дії
+  tbody#result
+    = render 'table'
+
+#object_paginator
+  = paginate @admin_potential_investors, remote: true

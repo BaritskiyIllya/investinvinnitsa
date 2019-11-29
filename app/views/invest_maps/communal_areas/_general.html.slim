@@ -1,0 +1,13 @@
+table
+  tr
+    td.info-key = I18n.t('communal_area.object_name')
+    td.info-value = sanitazed_text(@gis.object_name)
+  tr
+    td.info-key = I18n.t('communal_area.object_type')
+    td.info-value = sanitazed_text(@gis.object_type)
+  tr
+    td.info-key = I18n.t('communal_area.address')
+    td.info-value = sanitazed_text(@gis.address)
+  tr
+    td.info-key = I18n.t('communal_area.tech_area')
+    td.info-value = sanitazed_text(@gis.tech_area)

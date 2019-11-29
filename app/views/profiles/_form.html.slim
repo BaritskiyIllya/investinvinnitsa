@@ -1,0 +1,95 @@
+scss:
+  .selection {
+    width: 100%;
+  }
+  .profile-form {
+    .upload-msg {
+      color: #aaa;
+      width: 300px;
+      padding: 50px;
+      margin: 50px auto;
+      text-align: center;
+      border: 1px solid #aaa;
+      img {
+        width: 100%;
+      }
+      a {
+        margin-top: 5px;
+      }
+    }
+    .upload-wrap, .get-image {
+      display: none;
+    }
+    .get-image {
+      a {
+        cursor: pointer;
+        padding: 5px;
+      }
+    }
+  }
+  #user_birth_date {
+    color: #444;
+    padding-left: 10px;
+  }
+
+.panel-body
+  = simple_form_for @profile, url: update_profile_url(@profile), method: :put do |f|
+    .form-group
+      = f.label :last_name, 'Прізвище'
+      = f.input :last_name, label: false, input_html: { class: 'form-control' }
+    .form-group
+      = f.label :first_name, 'Ім\'я'
+      = f.input :first_name, label: false, input_html: { class: 'form-control' }
+    .form-group
+      = f.label :middle_name, 'По-батькові'
+      = f.input :middle_name, label: false, input_html: { class: 'form-control' }
+    .form-group
+      = f.label :gender, 'Стать'
+      = f.input :gender, as: :select, collection: [['Оберіть стать', ''], %w(Чоловіча male), %w(Жіноча female)], label: false, include_blank: false, input_html: {placeholder: 'Стать', class: 'form-control'}
+    .form-group
+      = f.label :birth_date, 'Дата народження'
+      = f.text_field :birth_date, label: false, autocomplete: 'off', input_html: { class: 'form-control' }
+    .form-group
+      = f.label :phone, 'Номер телефону'
+      = f.input :phone, as: :string, label: false, input_html: { class: 'form-control' }
+    .form-group
+      = f.label :position, 'Посада'
+      = f.input :position, as: :string, label: false, input_html: {class: 'form-control'}
+    .form-group
+      = f.label :email, 'Е-mail'
+      = f.input :email, as: :string, label: false, input_html: { class: 'form-control' }
+    .form-group.profile-form
+      = f.label :image, 'Зображення профілю'
+      = f.input :image, as: :hidden
+      .section
+        .row
+          .col-sm-6
+            label.field.prepend-icon.append-button.file
+              input#news-img.gui-file name="file1" type="file"
+          .col-sm-6
+            .file.prepend-icon.get-image
+              a.button.btn-default.pull-right#getCroppedImage
+                | Застосувати
+      .section
+        .upload-msg
+          - if @profile.image.present?
+            = image_tag @profile.image.url, class: 'img-responsive'
+            = link_to 'Скинути', '#', class: 'btn btn-default mt10', id: 'resetCroppedImg'
+          - else
+            | Завантажте зображення профілю
+        .upload-wrap
+          #main-cropper
+    = f.button :submit, 'Оновити налаштування', class: 'btn btn-primary'
+
+javascript:
+  $(document).ready(function () {
+    initDatePicker($('#user_birth_date'), '#{@profile.birth_date}');
+    $('#user_gender').select2({width: '100%'});
+    $('#user_phone').mask("+38(999)999-99-99");
+
+    var options = {
+        width: 100,
+        height: 100
+    };
+    initCropper('#user_image', options);
+  });

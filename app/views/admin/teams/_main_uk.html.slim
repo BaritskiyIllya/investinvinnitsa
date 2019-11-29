@@ -1,0 +1,62 @@
+.tab-pane.active#main_uk
+  .form-group
+    = f.label :last_name_uk, 'Прізвище'
+    = f.input :last_name_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :first_name_uk, 'Ім’я'
+    = f.input :first_name_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :middle_name_uk, 'По батькові'
+    = f.input :middle_name_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :position_uk, 'Посада'
+    = f.input :position_uk, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :department_id, 'Відділ'
+    = f.input :department_id, as: :select, collection: Department.all.order(:title), label: false, class: 'form-control'
+  .form-group
+    = f.label :phone, 'Телефон'
+    = f.input :phone, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :email, 'Email'
+    = f.input :email, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :facebook, 'Facebook'
+    = f.input :facebook, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.label :linkedin, 'Linkedin'
+    = f.input :linkedin, label: false, input_html: { class: 'form-control' }
+  .form-group
+    = f.check_box :on_main, as: :boolean, class: 'magic-checkbox'
+    = f.label :on_main, 'Виводити на головній'
+  .form-group
+    = f.label :trim, 'Порядок виводу'
+    = f.input :trim, label: false, input_html: { class: 'form-control' }
+  .form-group.images-form
+    = f.label :image, 'Зображення профілю'
+    = f.input :image, as: :hidden
+    .section
+      .row
+        .col-sm-6
+          label.field.prepend-icon.append-button.file
+            input#news-img.gui-file name="file1" type="file"
+        .col-sm-6
+          .file.prepend-icon.get-image
+            a.button.btn-default.pull-right#getCroppedImage
+              | Застосувати
+    .section
+      .upload-msg
+        - if @admin_team.image.present?
+          = image_tag @admin_team.image.url, class: 'img-responsive'
+          = link_to 'Скинути', '#', class: 'btn btn-default mt10', id: 'resetCroppedImg'
+        - else
+          | Завантажте зображення профілю
+      .upload-wrap
+        #main-cropper
+
+javascript:
+  $(document).ready(function () {
+    $('#team_phone').mask("+38(999)999-99-99");
+    $('#team_department_id').select2({ width: '100%' });
+    initCropper('#team_image', { width: 150, height: 200 });
+  });

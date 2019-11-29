@@ -1,0 +1,9 @@
+.col-md-6
+  .wrap-article
+    .article-bg
+      = link_to article_img(article), article unless article.image.nil?
+      .article-info
+        = link_to article.title, article, class: 'title'
+        .control
+          span.time= format_date(article.publication_time)
+          = link_to t('more'), article, class: 'read-more'

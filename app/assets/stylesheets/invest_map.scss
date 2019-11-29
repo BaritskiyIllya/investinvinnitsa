@@ -1,0 +1,490 @@
+@import "utilities/variables";
+
+$map_height: 750px;
+$window_width: 100%;
+
+.invest-map-wrap {
+  border-top: 1px solid #E5E5E5;
+}
+.project-header {
+  padding-bottom: 20px;
+  color: $main_color;
+}
+.gis{
+  height: $map_height;
+  width: $window_width;
+  text-align: left;
+  position: relative;
+  .zoning-info{
+    display: none;
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    right: -$window_width;
+    bottom: 0;
+    width: $window_width;
+    max-width: 450px;
+    height: auto;
+    -webkit-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+    transition: all .5s ease-in;
+    &.opened{
+      display: block;
+      right: 0;
+      -webkit-transition: all .5s ease-in;
+      -o-transition: all .5s ease-in;
+      transition: all .5s ease-in;
+    }
+    .close-zoning{
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: $orange_color;
+      float: left;
+      cursor: pointer;
+      span{
+        line-height: 20px;
+        height: 20px;
+        vertical-align: top;
+        margin-left: 5px;
+        color: $white;
+      }
+    }
+    .photo {
+      float: left;
+      width: calc(100% - 20px);
+      background-repeat: no-repeat;
+      background-color: $white;
+      background-position: center;
+      background-size: cover;
+      transition: transform .5s ease-out;
+      img{
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.block-for-filter {
+  margin-top: 20px;
+  position: relative;
+  #map_info {
+    position: absolute;
+    width: $window_width;
+    max-width: 500px;
+    height: $map_height;
+    background-color: $white;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    -webkit-transition: all .25s ease-in;
+    -o-transition: all .25s ease-in;
+    transition: all .25s ease-in;
+    #map_filter {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 32px 0;
+      overflow-y: scroll;
+      .filter-group {
+        position: relative;
+        .btn-collapsed {
+          cursor: pointer;
+          font-size: 20px;
+          padding: 10px 20px;
+          border-bottom: 1px solid $light_gray;
+        }
+        .select-all, .clear {
+          top: 10px;
+          right: 10px;
+          color: #999999;
+          font-size: 12px;
+          cursor: pointer;
+          position: absolute;
+        }
+      }
+      .group-filters {
+        .checkbox {
+          position: relative;
+          .magic-checkbox+label, .magic-checkbox:checked+label {
+            margin: 0;
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            border-bottom: 1px solid $light_gray;
+          }
+          .magic-checkbox:checked+label {
+            color: $white;
+            background: $orange_color;
+            border-bottom: 1px solid $white;
+          }
+          .magic-checkbox+label:before, .magic-checkbox+label:after {
+            display: none;
+          }
+          .magic-checkbox:checked+label:before, .magic-checkbox:checked+label:after {
+            display: none;
+          }
+          .zoning-info-icon {
+            display: none;
+            font-size: 20px;
+            z-index: 9999;
+            cursor: pointer;
+            color: $white;
+            top: 12px;
+            left: 10px;
+            position: absolute;
+            &.checked-icon {
+              color: $main_color;
+            }
+          }
+          label {
+            width: calc(100% - 40px);
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+    #gis_info {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      span.go-to-filter {
+        cursor: pointer;
+      }
+      .area_name {
+        padding-top: 10px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+        color: $main_color;
+      }
+      .main-image {
+        padding: 20px 35px 5px 20px;
+        img {
+          width: 100%;
+        }
+      }
+      .information {
+        table {
+          margin-left: 20px;
+          width: 96%;
+          tr {
+            td {
+              width: 50%;
+              padding-top: 5px;
+              font-size: 15px;
+            }
+          }
+        }
+        .pdf-file {
+          font-size: 16px;
+          padding-top: 10px;
+          margin-left: 20px;
+          font-weight: bold;
+          a{
+            color: grey;
+            &:hover{
+              color: $main_color;
+            }
+          }
+        }
+      }
+    }
+    .resizer {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      right: 0;
+      width: 2rem;
+      height: 2rem;
+      overflow: hidden;
+      background: #505050;
+      z-index: 235;
+      -webkit-transition: all .25s ease-in;
+      -o-transition: all .25s ease-in;
+      transition: all .25s ease-in;
+      i {
+        color: $white;
+        -webkit-transition: all .25s ease-in;
+        -o-transition: all .25s ease-in;
+        transition: all .25s ease-in;
+        -webkit-transform-origin: .3rem .6rem;
+        -moz-transform-origin: .3rem .6rem;
+        -ms-transform-origin: .3rem .6rem;
+        transform-origin: .3rem .6rem;
+        font-size: 2rem;
+        top: 50%;
+        left: 45%;
+        position: absolute;
+        margin-top: -2px;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+    }
+    @media (max-width: 768px) {
+      max-width: 300px;
+      #map_filter .checkbox.pad-btm {
+        margin-bottom: 10px;
+      }
+      #map_filter .checkbox label {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+#map_info.resized {
+  max-width: 0;
+  min-height: 0;
+  .resizer{
+    right: -3rem;
+    i{
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+  }
+  #map_filter, #gis_info{
+    display: none;
+  }
+  @media (max-width: 768px) {
+    max-width: 0;
+  }
+}
+#invest_map{
+  height: $map_height;
+}
+.hidden{
+  display: none;
+}
+.small-btn {
+  display: inline-block;
+  margin-left: 15px;
+  a {
+    background: $main_color;
+    text-align: center;
+    text-transform: uppercase;
+    &:hover {
+      font-weight: bold;
+      background-color: $main_color;
+      border-color: $main_color;
+    }
+  }
+}
+.margin-0{
+  margin: 0;
+}
+.project-header {
+  margin-top: 80px;
+  font-weight: bold;
+  font-size: 44px;
+  p{
+    margin: 0;
+  }
+}
+
+.projects{
+  position: relative;
+  font-family: "Proxima Nova Lt";
+  padding-bottom: 10px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 50px;
+  .slider-nav-arrow {
+    position: absolute;
+    cursor: pointer;
+    color: $main_color;
+    font-size: 60px;
+    &.next {
+      right: -50px;
+      top: 20%;
+    }
+    &.prev {
+      left: -50px;
+      top: 20%;
+    }
+  }
+  .project{
+    padding: 15px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .project-image{
+      width: 540px;
+      height: 360px;
+      position: relative;
+      margin-bottom: 15px;
+      a{
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      .shadow-block {
+        position: absolute;
+        width: 50%;
+        margin: 0 auto;
+        height: 30px;
+        background-color: $black;
+        z-index: -55;
+        left: 25%;
+        bottom: 6%;
+        -webkit-box-shadow: 0 0 136px 12px rgba(31,30,30,0.2);
+        -moz-box-shadow: 0 0 136px 12px rgba(31,30,30,0.2);
+        box-shadow: 0 0 136px 12px rgba(31,30,30,0.2);
+      }
+    }
+    .project-title{
+      padding-left: 26px;
+      flex-grow: 1;
+      min-height: 92px;
+      a{
+        color: $black;
+        p {
+          font-size: 30px;
+          font-weight: bold;
+          line-height: 37px;
+        }
+      }
+      .project-line{
+        width: 65px;
+        height: 2px;
+        background-color: $main_color;
+      }
+    }
+    .project-description{
+      padding-left: 26px;
+      margin-top: 5px;
+      height: 65px;
+      overflow: hidden;
+      p {
+        font-size: 20px;
+        margin: 0;
+      }
+    }
+    .project-details{
+      padding-left: 26px;
+      font-size: 20px;
+      a{
+        color: $orange_color;
+        span.arrow{
+          font-size: 15px;
+          margin-left: 20px;
+          font-weight: 200;
+        }
+        span.text{
+          border-bottom: 1px solid #F2F2F2;
+        }
+      }
+    }
+  }
+  .left-down-block{
+    position: absolute;
+    background-color: #F5F5F5;
+    width: 93px;
+    height: 180px;
+    z-index: -111;
+    bottom: -25px;
+    left: -47px;
+  }
+  .right-top-block{
+    position: absolute;
+    background-color: #F5F5F5;
+    width: 133px;
+    height: 167px;
+    z-index: -111;
+    top: -44px;
+    right: -37px;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .projects{
+    .project{
+      .project-image {
+        width: 450px;
+        height: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .project-header {
+    margin-top: 30px;
+  }
+  .projects{
+    margin-top: 0;
+    .project{
+      margin-top: 15px;
+      .project-image {
+        width: 330px;
+        height: 220px;
+      }
+    }
+    .slider-nav-arrow {
+      &.next {
+        right: 0;
+      }
+      &.prev {
+        left: 0;
+      }
+    }
+  }
+  .gis{
+    margin-top: 10px;
+  }
+  .left-down-block, .right-top-block, .shadow-block{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 425px){
+  .projects{
+    .project{
+      .project-image {
+        width: 390px;
+        height: 260px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px){
+  .projects{
+    .project{
+      .project-image {
+        width: 340px;
+        height: 220px;
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: $light_gray;
+}
+::-webkit-scrollbar-thumb:vertical {
+  background-color: #cdcdcd;
+}
+::-webkit-scrollbar-thumb:vertical:hover,
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: $orange_color;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: #cdcdcd;
+}

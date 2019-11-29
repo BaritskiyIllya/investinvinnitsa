@@ -1,0 +1,2 @@
+$('#materials').html('<%= escape_javascript(render partial: 'admin/block_materials/table') %>');
+$('#material-paginator').html('<%= escape_javascript(paginate(@admin_block_materials, remote: true).to_s) %>');

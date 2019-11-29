@@ -1,0 +1,15 @@
+- @cabinet_invest_projects.each do |item|
+  tr
+    td
+      = I18n.t('states.' + item.state)
+    td
+      = true_false(item.map_layer.try :active)
+    td
+      = balancer_names item.balancers
+    td
+      = item.map_layer.title
+    td
+      - if can? :edit, item
+        = render 'layouts/blocks/action_btns' do
+          = render 'blocks/btns/edit', path: edit_cabinet_invest_project_path(item)
+          = render 'blocks/btns/delete', path: cabinet_invest_project_path(item)

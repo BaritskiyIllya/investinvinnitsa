@@ -1,0 +1,41 @@
+section#team
+  .container
+    h1.title
+      = @team_content.title
+    - if @team_content.description.present?
+      .about-us
+        == @team_content.description
+
+  - @teams.in_groups_of(6, false).each do |six_team_group|
+    - six_team_group.in_groups_of(3, false).each_with_index do |three_team_group, index|
+      .container
+        .row
+          - three_team_group.each do |team|
+            .col-xl-4.col-lg-6
+              .person
+                - if team.image?
+                  .photo= image_tag team.image_url, class: 'img-fluid'
+                - if team.first_name.present?
+                  .overlay
+                    .name
+                      = team.first_name
+                    .name
+                      = team.last_name
+                    .position
+                      = team.position
+                    div
+                      span.phone
+                        .second-title
+                          = I18n.t('team.phone')
+                        = team.phone
+                    div
+                      span.phone
+                        .second-title E-mail:
+                        = team.email
+                    .in-social
+                      = link_to content_tag(:i, '', class: 'fa fa-facebook'), team.facebook
+                      = link_to content_tag(:i, '', class: 'fa fa-linkedin'), team.linkedin
+      - if index === 0
+        .separator.right
+      - else 
+        .separator.left

@@ -1,0 +1,46 @@
+scss:
+  .block-result{
+    a{
+      .content{
+        p{
+          margin: 0;
+          span.info-key{
+            margin-right: 15px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+.block-result
+  p.date
+    = I18n.t('land_area.main_title')
+  = link_to "/land_areas/#{result.id}", target: :_blank do
+    .content
+      p
+        span.info-key
+          = I18n.t('land_area.area_type')
+        span.info-value
+          = strip_tags(result.area_type)
+      p
+        span.info-key
+          = I18n.t('land_area.total_area')
+        span.info-value
+          = strip_tags(result.total_area)
+      p
+        span.info-key
+          = I18n.t('land_area.ownership')
+        span.info-value
+          = strip_tags(result.ownership_name)
+      p
+        span.info-key
+          = I18n.t('land_area.cadastral_number')
+        span.info-value
+          = strip_tags(result.cadastral_number)
+      p
+        span.info-key
+          = I18n.t('land_area.transfer_type')
+        span.info-value
+          = strip_tags(result.transfer_type)
+  hr

@@ -1,0 +1,15 @@
+h1.center Список користувачів
+
+= render 'layouts/general/filter_table' do
+  thead
+    tr
+      th №п/п
+      th E-mail
+      th Прізвище
+      th Ім'я
+      th Посада
+      th Роль
+      th Структурний підрозділ
+      th Дії
+  tbody
+    = render 'table'

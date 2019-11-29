@@ -1,0 +1,12 @@
+ul#menu_list
+  - @main_menu.each do |menu|
+    li.dropdown
+      - if menu.second[:children]
+        a.dropdown-toggle data-toggle="dropdown" href="#"
+          | #{menu.second[:title]}
+        ul.dropdown-menu role="menu"
+          - menu.second[:children].each do |sub_menu|
+            li
+              = link_to sub_menu.title, "#{locale_link(sub_menu.link, I18n.locale)}", title: sub_menu.tag_alt, alt: sub_menu.tag_alt
+      - else
+        = link_to menu.second[:title], "#{locale_link(menu.second[:link], I18n.locale)}", title: menu.second[:tag_alt], alt: menu.second[:tag_alt]
