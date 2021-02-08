@@ -64,7 +64,7 @@ end
 # https://github.com/galetahub/ckeditor
 gem 'ckeditor'
 # https://github.com/carrierwaveuploader/carrierwave
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 # https://github.com/lebedev-yury/carrierwave-base64
 gem 'carrierwave-base64'
 gem 'mini_magick'
